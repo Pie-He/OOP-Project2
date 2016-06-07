@@ -1,6 +1,6 @@
-package type.place;
+package bean.place;
 
-import type.item.Player;
+import bean.item.Player;
 
 public class Space extends Place {
 	public Space() {

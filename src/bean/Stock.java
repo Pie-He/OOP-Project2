@@ -1,6 +1,6 @@
-package type;
+package bean;
 
-import type.item.Player;
+import bean.item.Player;
 import util.Const;
 import util.IO;
 import util.Tools;

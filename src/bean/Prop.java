@@ -1,9 +1,9 @@
-package type;
+package bean;
 
 import java.util.LinkedList;
 
-import type.item.Player;
-import type.item.RoadBlock;
+import bean.item.Player;
+import bean.item.RoadBlock;
 import util.Const;
 import util.IO;
 

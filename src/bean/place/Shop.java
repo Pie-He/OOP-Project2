@@ -1,7 +1,7 @@
-package type.place;
+package bean.place;
 
-import type.Prop;
-import type.item.Player;
+import bean.Prop;
+import bean.item.Player;
 import util.Const;
 import util.IO;
 

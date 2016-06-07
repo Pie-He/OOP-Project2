@@ -1,7 +1,7 @@
-package type.place;
+package bean.place;
 
-import type.*;
-import type.item.Player;
+import bean.*;
+import bean.item.Player;
 import util.IO;
 
 public class CardPrize extends Place {

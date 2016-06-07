@@ -1,4 +1,4 @@
-package type.item;
+package bean.item;
 
 
 public class RoadBlock extends Item{

@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-import type.Manager;
+import bean.Manager;
 
 public class MonopolyMain {
 

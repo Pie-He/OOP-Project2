@@ -1,14 +1,14 @@
-package type;
+package bean;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import type.item.Player;
-import type.item.RoadBlock;
-import type.place.*;
 import util.Const;
 import util.IO;
+import bean.item.Player;
+import bean.item.RoadBlock;
+import bean.place.*;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

@@ -1,10 +1,10 @@
-package type;
+package bean;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import type.item.Player;
+import bean.item.Player;
 import util.Const;
 import util.IO;
 import util.Tools;

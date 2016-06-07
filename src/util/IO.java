@@ -5,7 +5,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import type.*;
+import bean.*;
 
 public class IO {
 	private final static String[] MAINMENU = { "0-查看地图", "1-查看原始地图", "2-使用道具",

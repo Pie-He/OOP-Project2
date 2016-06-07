@@ -1,6 +1,6 @@
-package type.place;
+package bean.place;
 
-import type.item.Player;
+import bean.item.Player;
 import util.*;
 
 public class Bank extends Place {

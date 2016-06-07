@@ -1,12 +1,12 @@
-package type.place;
+package bean.place;
 
 import java.util.Deque;
 import java.util.IntSummaryStatistics;
 import java.util.LinkedList;
 
-import type.Manager;
-import type.Prop;
-import type.item.Player;
+import bean.Manager;
+import bean.Prop;
+import bean.item.Player;
 import util.Const;
 import util.IO;
 

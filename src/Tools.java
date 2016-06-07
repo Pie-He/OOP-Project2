@@ -1,5 +1,6 @@
 import java.io.*;
-import type.place.*;
+
+import bean.place.*;
 
 import com.alibaba.fastjson.*;
 
