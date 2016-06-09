@@ -15,7 +15,6 @@ public class MButton extends JButton{
 		super.setOpaque(false);
 		super.setBorderPainted(false);
 		super.setContentAreaFilled(false);
-		//super.addActionListener(new ButtonListener());
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	}
 	public MButton(int width,int height){
