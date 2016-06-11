@@ -21,6 +21,7 @@ public class Player extends Item {
 	private PriorityQueue<House> houses;
 	private EnumMap<Stock, Integer> stocks = new EnumMap<Stock, Integer>(
 			Stock.class);
+	private String image;
 
 	public Player() {
 		this.cash = 20000;
@@ -33,12 +34,12 @@ public class Player extends Item {
 		// mov=new Removable();
 	}
 
-	public Player(String name, String symbol, String hsSymbol) {
+	public Player(String name, String symbol, String hsSymbol, String image) {
 		this();
 		this.name = name;
 		super.setSymbol(symbol);
 		this.hsSymbol = hsSymbol;
-
+		this.image = image;
 	}
 
 	public String getName() {
@@ -210,6 +211,7 @@ public class Player extends Item {
 		this.props.clear();
 		this.name += "(failed)";
 	}
+
 	/*
 	 * private class MyArray extends ArrayList<Prop> {
 	 * 
@@ -225,4 +227,9 @@ public class Player extends Item {
 	 * 
 	 * }
 	 */
+
+	public String getImage() {
+		return image;
+	}
+
 }

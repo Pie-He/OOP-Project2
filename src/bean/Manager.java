@@ -96,7 +96,7 @@ public class Manager {
 		int playerNum = IO.getPlayerNumber();
 		players = new LinkedList<Player>();
 		for (String name : IO.getPlayerName(playerNum)) {
-			players.add(new Player(name, PLSYMBOL[index], HSSYMBOL[index++]));
+			//players.add(new Player(name, PLSYMBOL[index], HSSYMBOL[index++]));
 		}
 		calendar.set(2016, 11, 30);
 		map.init(players);

@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import mgui.MButton;
 import view.ViewController;
 
 //此类为主菜单面板
@@ -41,10 +42,10 @@ public class MenuPanel extends JPanel {
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
-		private MenuButton jbtStart = new MenuButton(new ImageIcon(
+		private MButton jbtStart = new MButton(170, 50, new ImageIcon(
 				"picture/word/文字开始游戏.png"), new ImageIcon(
 				"picture/word/文字开始游戏1.png"));
-		private MenuButton jbtExit = new MenuButton(new ImageIcon(
+		private MButton jbtExit = new MButton(170, 50, new ImageIcon(
 				"picture/word/文字退出游戏.png"), new ImageIcon(
 				"picture/word/文字退出游戏1.png"));
 
@@ -53,25 +54,13 @@ public class MenuPanel extends JPanel {
 			setSize(170, 100);
 			add(jbtStart);
 			add(jbtExit);
-			jbtStart.addActionListener((e)->{
+			jbtStart.addActionListener((e) -> {
 				ViewController.getInstance().showChoose();
 			});
-			jbtExit.addActionListener((e)->{
+			jbtExit.addActionListener((e) -> {
 				System.exit(0);
 			});
 			super.setOpaque(false);
-		}
-
-		// 定义主菜单各种按钮
-		class MenuButton extends mgui.MButton {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			MenuButton(ImageIcon icon, ImageIcon rolloverIcon) {
-				super(170, 50, icon, rolloverIcon);
-			}
 		}
 	}
 
