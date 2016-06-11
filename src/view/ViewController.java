@@ -32,5 +32,6 @@ public class ViewController {
 
 	public void showMap() {
 		frame.showMap();
+		frame.gameInit();
 	}
 }

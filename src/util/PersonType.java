@@ -15,6 +15,7 @@ public enum PersonType {
 	private String hsUrl;
 	private String imageUrl;
 	private String TsUrl;
+	private String nameUrl;
 
 	PersonType(String name, String iconUrl) {
 		this.name = name;
@@ -26,6 +27,7 @@ public enum PersonType {
 		this.iconSelected = new ImageIcon("picture/person/人物" + iconUrl
 				+ "边框.png");
 		this.image = new ImageIcon(this.imageUrl);
+		this.nameUrl="picture/person/人物" + iconUrl + "名字.png";
 	}
 
 	public String getName() {
@@ -59,4 +61,9 @@ public enum PersonType {
 	public String getTsUrl() {
 		return TsUrl;
 	}
+
+	public String getNameUrl() {
+		return nameUrl;
+	}
+
 }

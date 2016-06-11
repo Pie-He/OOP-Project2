@@ -20,8 +20,8 @@ public class PlayerController extends IController {
 	}
 
 	public void createPlayer(String name, String symbolUrl, String hsSymbolUrl,
-			String imageUrl) {
-		Player p = new Player(name, symbolUrl, hsSymbolUrl, imageUrl);
+			String imageUrl, String nameUrl) {
+		Player p = new Player(name, symbolUrl, hsSymbolUrl, imageUrl, nameUrl);
 		this.players.add(p);
 	}
 
@@ -29,5 +29,9 @@ public class PlayerController extends IController {
 		if (++index > players.size())
 			index %= players.size();
 		return players.get(index);
+	}
+
+	public List<Player> getPlayerList() {
+		return this.players;
 	}
 }

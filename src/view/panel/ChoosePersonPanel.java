@@ -101,7 +101,8 @@ public class ChoosePersonPanel extends JPanel {
 							person[select].getName(),
 							person[select].getIconUrl(),
 							person[select].getHsUrl(),
-							person[select].getImageUrl());
+							person[select].getImageUrl(),
+							person[select].getNameUrl());
 				}
 				ViewController.getInstance().showMap();
 			});

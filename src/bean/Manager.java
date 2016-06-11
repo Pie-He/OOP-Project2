@@ -119,7 +119,7 @@ public class Manager {
 			int choice = IO.getMenuChoice();
 			switch (choice) {
 			case 0:
-				IO.printStringArray2(map.toText());
+				//IO.printStringArray2(map.toText());
 				break;
 			case 1:
 				IO.printStringArray2(map.getInitalMap());
@@ -130,7 +130,7 @@ public class Manager {
 					player.useProp(propChoice);
 					if (diceFlag >= 0) {
 						boolean is = map.event(player, diceFlag);
-						IO.printStringArray2(map.toText());
+						//IO.printStringArray2(map.toText());
 						diceFlag = -1;
 						return is;
 					}
@@ -182,7 +182,7 @@ public class Manager {
 		int dice = (int) (Math.random() * 6) + 1;
 		IO.printString("Í¶ÖÀµãÊý:" + dice);
 		boolean is = map.event(player, dice);
-		IO.printStringArray2(map.toText());
+		//IO.printStringArray2(map.toText());
 		return is;
 	}
 

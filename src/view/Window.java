@@ -4,7 +4,6 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-
 import view.panel.ChoosePersonPanel;
 import view.panel.MapPanel;
 import view.panel.MenuPanel;
@@ -52,5 +51,9 @@ public class Window extends MFrame {
 		choose.setVisible(false);
 		map.setVisible(false);
 		menu.setVisible(true);
+	}
+	
+	public void gameInit(){
+		map.init();
 	}
 }

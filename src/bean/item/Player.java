@@ -22,6 +22,7 @@ public class Player extends Item {
 	private EnumMap<Stock, Integer> stocks = new EnumMap<Stock, Integer>(
 			Stock.class);
 	private String image;
+	private String nameUrl;
 
 	public Player() {
 		this.cash = 20000;
@@ -34,12 +35,14 @@ public class Player extends Item {
 		// mov=new Removable();
 	}
 
-	public Player(String name, String symbol, String hsSymbol, String image) {
+	public Player(String name, String symbol, String hsSymbol, String image,
+			String nameUrl) {
 		this();
 		this.name = name;
 		super.setSymbol(symbol);
 		this.hsSymbol = hsSymbol;
 		this.image = image;
+		this.nameUrl = nameUrl;
 	}
 
 	public String getName() {
@@ -231,5 +234,10 @@ public class Player extends Item {
 	public String getImage() {
 		return image;
 	}
+
+	public String getNameUrl() {
+		return nameUrl;
+	}
+
 
 }

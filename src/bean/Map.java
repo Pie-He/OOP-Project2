@@ -21,30 +21,17 @@ public class Map {
 		places = new ArrayList<Place>();
 		getMapData();
 		mapLength = places.size();
-		this.cells = new Cell[width][height];
-		this.staticMap = new String[width][height];
 	}
 	public static Map getInstance() {
 		return MAP;
 	}
 
-	private Cell[][] cells;
 	private ArrayList<Place> places;
 	private String[][] staticMap;
 	private int width;
 	private int height;
 	public final int mapLength;
 
-	public String[][] toText() {
-		String[][] map = new String[cells.length][cells[0].length];
-		for (int x = 0; x < map.length; x++) {
-			for (int y = 0; y < map[x].length; y++) {
-				map[x][y] = (cells[x][y] == null ? "　" : cells[x][y].toText());
-				// =(cells[x][y]==null?"　":cells[x][y].toText());
-			}
-		}
-		return map;
-	}
 
 	public String[][] getInitalMap() {
 		return this.staticMap;
@@ -80,20 +67,7 @@ public class Map {
 		places.get(player.getPoi()).remove(player);
 	}
 	public void init(Collection<Player> players) {
-		places.stream().forEach(p -> {
-			int x = p.getX();
-			int y = p.getY();
-			cells[x][y] = new Cell(x, y, p);
-		});
-		for (int x = 0; x < staticMap.length; x++) {
-			for (int y = 0; y < staticMap[x].length; y++) {
-				staticMap[x][y] = (cells[x][y] == null ? "　" : cells[x][y]
-						.toText());
-
-			}
-		}
 		players.stream().forEach(item -> places.get(item.getPoi()).put(item));
-		// places[0].put(item);
 	}
 
 	// 如果能继续移动返回true，否则返回false,当超越其他玩家时，图标覆盖问题
@@ -141,24 +115,5 @@ public class Map {
 			}
 		}
 		return null;
-	}
-
-	private class Cell {
-
-		@SuppressWarnings("unused")
-		private int x;
-		@SuppressWarnings("unused")
-		private int y;
-		private Place place;
-
-		Cell(int x, int y, Place place) {
-			this.x = x;
-			this.y = y;
-			this.place = place;
-		}
-
-		String toText() {
-			return place.toText();
-		}
 	}
 }

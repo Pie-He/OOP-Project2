@@ -57,7 +57,7 @@ public abstract class Place {
 		this.symbol = symbol;
 	}
 
-	public String toText() {
+	public String getTop() {
 		/*
 		 * if(items.isEmpty()||(items.size()==1&&items.getFirst() instanceof
 		 * RoadBlock)) return this.symbol; Item it=items.getFirst(); if(it
