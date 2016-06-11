@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controller.PlayerController;
+import view.button.DiceButton;
 import view.label.MapLabel;
 import view.label.PlayerMessLabel;
 import view.label.TimeLabel;
@@ -34,8 +35,9 @@ public class MapPanel extends JPanel {
 	// private ChangeButton jbtChange = new ChangeButton();
 	private mapMess jlMap = new mapMess();
 	private TimeLabel time = new TimeLabel();
-	private MapLabel map=new MapLabel();
+	private MapLabel map = new MapLabel();
 	private List<PlayerMessLabel> playerMess = new ArrayList<PlayerMessLabel>();
+	private DiceButton jbtDice=new DiceButton();
 
 	public MapPanel() {
 		setSize(1200, 700);
@@ -45,10 +47,12 @@ public class MapPanel extends JPanel {
 		time.setLocation(880, 50);
 		add(jlMap);
 		jlMap.setLocation(50, 600);
-		
+
 		add(map);
 		map.setLocation(0, 0);
 
+		add(jbtDice);
+		jbtDice.setLocation(100, 200);
 	}
 
 	public void init() {

@@ -28,8 +28,8 @@ public class Map {
 
 	private ArrayList<Place> places;
 	private String[][] staticMap;
-	private int width;
-	private int height;
+	//private int width;
+	//private int height;
 	public final int mapLength;
 
 
@@ -96,9 +96,6 @@ public class Map {
 					JSONObject jo = JSON.parseObject(str);
 					Place place = getRealInstance(jo);
 					places.add(place);
-					width = width > place.getX() + 1 ? width : place.getX() + 1;
-					height = height > place.getY() + 1 ? height
-							: place.getY() + 1;
 				}
 				br.close();
 			} catch (IOException e) {

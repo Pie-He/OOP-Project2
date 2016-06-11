@@ -5,12 +5,9 @@ import bean.item.Player;
 import util.IO;
 
 public class CardPrize extends Place {
+
 	public CardPrize() {
-
-	}
-
-	public CardPrize(int x, int y, String symbol) {
-		super(x, y, symbol, "赠送道具店");
+		super("赠送道具店");
 	}
 
 	@Override

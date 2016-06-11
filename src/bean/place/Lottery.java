@@ -5,12 +5,9 @@ import util.Const;
 import util.IO;
 
 public class Lottery extends Place {
+
 	public Lottery() {
-
-	}
-
-	public Lottery(int x, int y, String symbol) {
-		super(x, y, symbol, "²ÊÆ±");
+		super("²ÊÆ±");
 	}
 
 	@Override

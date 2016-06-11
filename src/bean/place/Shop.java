@@ -6,11 +6,9 @@ import util.Const;
 import util.IO;
 
 public class Shop extends Place{
-	public Shop(){
-		
-	}
-	public Shop(int x, int y, String symbol) {
-		super(x,y,symbol,"ил╣Й");
+
+	public Shop() {
+		super("ил╣Й");
 	}
 	@Override
 	public boolean event(Player p) {

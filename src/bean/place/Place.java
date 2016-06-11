@@ -6,9 +6,6 @@ import bean.item.*;
 import util.IO;
 
 public abstract class Place {
-	private int x;
-	private int y;
-	private String symbol;
 	private LinkedList<Item> items = new LinkedList<Item>();
 	private String type;
 
@@ -16,48 +13,20 @@ public abstract class Place {
 
 	}
 
-	Place(int x, int y, String symbol, String type) {
-		this.x = x;
-		this.y = y;
-		this.setSymbol(symbol);
+	Place(String type) {
 		this.type = type;
 	}
 
-	public String getDescription(){
-		return "类型:" + getType() + "\n";
+	public String getDescription() {
+		return "类型:" + getType();
 	};
 
-	public boolean event(Player p){
+	public boolean event(Player p) {
 		IO.printString(this.getDescription());
 		return true;
 	};
 
-	
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public String getSymbol() {
-		return symbol;
-	}
-
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-
-	public String getTop() {
+	public Item getTop() {
 		/*
 		 * if(items.isEmpty()||(items.size()==1&&items.getFirst() instanceof
 		 * RoadBlock)) return this.symbol; Item it=items.getFirst(); if(it
@@ -67,8 +36,8 @@ public abstract class Place {
 		// .findFirst().orElse(null);
 		// return items.stream().filter(item -> !(item instanceof RoadBlock))
 		// .map(item -> item.getSymbol()).findFirst().orElse(this.symbol);
-		return items.stream().map(item -> item.getSymbol())
-				.filter(item -> item != null).findAny().orElse(this.getSymbol());
+		return items.stream().filter(item -> item != null).findAny()
+				.orElse(null);
 		// return symbol;
 	}
 
@@ -86,9 +55,8 @@ public abstract class Place {
 	}
 
 	public boolean removeBlock() {
-		Item it = this.items.stream()
-				.filter(item -> item instanceof RoadBlock).findAny()
-				.orElse(null);
+		Item it = this.items.stream().filter(item -> item instanceof RoadBlock)
+				.findAny().orElse(null);
 		return items.remove(it);
 	}
 

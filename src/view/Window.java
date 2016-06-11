@@ -56,4 +56,5 @@ public class Window extends MFrame {
 	public void gameInit(){
 		map.init();
 	}
+
 }

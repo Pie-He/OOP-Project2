@@ -11,9 +11,7 @@ public class MapLabel extends JLabel{
 	public  MapLabel() {
 		setLayout(null);
 		setSize(800, 610);
-		
-		
-		
+	
 		Map[0] = new MapHospital();
 		Map[0].setLocation(20, 20);
 		for (int i = 1; i <= 5; i++) {

@@ -4,11 +4,9 @@ import bean.item.Player;
 import util.IO;
 
 public class Coupon extends Place{
-	public Coupon(){
-		
-	}
-	public Coupon(int x, int y, String symbol) {
-		super(x,y,symbol,"赠送点券点");
+
+	public Coupon() {
+		super("赠送点券点");
 	}
 	@Override
 	public boolean event(Player p) {
