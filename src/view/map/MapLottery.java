@@ -22,7 +22,7 @@ public class MapLottery extends MapJLabel {
 	public MapLottery() {
 		super.setSize(120, 120);
 		this.image=ICON.getImage();
-		type = new Lottery();
+		//type = new Lottery();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -32,7 +32,7 @@ public class MapLottery extends MapJLabel {
 			g.drawImage(p.getIm(), 0, 0, getWidth(), getHeight(), this);
 		} else {
 			// g.drawImage(pic, 0, 0, getWidth(), getHeight(), this);
-*/			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+*/			//g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		//}
 	}
 

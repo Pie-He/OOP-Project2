@@ -1,5 +1,12 @@
 import java.io.*;
 
+import view.map.MapBank;
+import view.map.MapCardPrize;
+import view.map.MapCoupon;
+import view.map.MapLottery;
+import view.map.MapNews;
+import view.map.MapShop;
+import view.map.MapSpace;
 import bean.place.*;
 
 import com.alibaba.fastjson.*;
@@ -55,6 +62,22 @@ public class Tools {
 			 * places[i].type.street = ; places[i].type.name =
 			 * places[i].type.street ; places[i].type.setInit(2500);
 			 */
+		}
+		places[0]=new Hospital();
+		places[6] = new Shop();
+		places[25] = new Space();
+		places[12] = new News();
+		places[15] = new Bank();
+		places[19] = new CardPrize();
+		places[34] = new Lottery();
+		places[37] = new Bank();
+		for (int i = 31; i <= 33; i++) {
+			places[i] = new Coupon();
+			places[35] = new Coupon();
+			places[36] = new Coupon();
+		}
+		for (int i = 38; i <= 41; i++) {
+			places[i] = new Coupon();
 		}
 
 		// 初始化土地

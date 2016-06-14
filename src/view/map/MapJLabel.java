@@ -1,5 +1,6 @@
 package view.map;
 
+import java.awt.Graphics;
 import java.awt.Image;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,7 +10,6 @@ import javax.swing.Timer;
 
 import bean.item.Player;
 import bean.place.Place;
-
 
 //所有地图类型的父类
 public class MapJLabel extends Map implements Serializable {
@@ -23,10 +23,24 @@ public class MapJLabel extends Map implements Serializable {
 	protected List<Image> imageItems = new ArrayList<Image>();
 
 	protected Place type;
+
 	// 以下方法显示玩家行走情况
+
+	public MapJLabel() {
+		this.imageItems.add(image);
+	}
 
 	public void putImage(Image image) {
 		this.imageItems.add(image);
+	}
+
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+	}
+
+	public void setType(Place place) {
+		this.type = place;
 	}
 
 	public void event(Player p) {

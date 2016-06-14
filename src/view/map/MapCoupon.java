@@ -26,7 +26,7 @@ public class MapCoupon extends MapJLabel {
 	public MapCoupon() {
 		super.setSize(40, 40);
 		this.image = ICON.getImage();
-		type = new Coupon();
+		//type = new Coupon();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -37,7 +37,7 @@ public class MapCoupon extends MapJLabel {
 			g.setClip(null);
 			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		} else {*/
-			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+			//g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		//}
 	}
 

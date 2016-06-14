@@ -122,7 +122,6 @@ public class Manager {
 				//IO.printStringArray2(map.toText());
 				break;
 			case 1:
-				IO.printStringArray2(map.getInitalMap());
 				break;
 			case 2:
 				int propChoice;

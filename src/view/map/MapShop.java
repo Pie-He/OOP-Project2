@@ -33,7 +33,7 @@ public class MapShop extends MapJLabel {
 	public MapShop() {
 		super.setSize(120, 120);
 		image = ICON.getImage();
-		type = new Shop();
+		//type = new Shop();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -43,7 +43,7 @@ public class MapShop extends MapJLabel {
 			g.drawImage(p.getIm(), 0, 0, getWidth(), getHeight(), this);
 		} else {*/
 			// g.drawImage(pic, 0, 0, getWidth(), getHeight(), this);
-			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+			//g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		//}
 	}
 

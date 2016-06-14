@@ -29,20 +29,24 @@ public class MapBank extends MapJLabel {
 	private transient Timer time;
 
 	public MapBank() {
+		super();
 		super.setSize(40, 40);
 		this.image = ICON.getImage();
-		type = new Bank();
+		//type = new Bank();
 	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		/*this.imageItems.stream().forEach(i -> {
+			g.drawImage(i, 0, 0, getWidth(), getHeight(), this);
+		});*/
 		/*
 		 * if (type.isPHere) { g.drawImage(image, 0, 0, getWidth(), getHeight(),
 		 * this); g.drawImage(p.getHSImage(), 0, 0, getWidth(), getHeight(),
 		 * this); } else {
 		 */
 		// g.drawImage(pic, 0, 0, getWidth(), getHeight(), this);
-		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+		//g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		// }
 	}
 

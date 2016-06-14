@@ -33,7 +33,7 @@ public class MapHouse extends MapJLabel {
 
 	public MapHouse() {
 		super.setSize(40, 40);
-		type = new House();
+		//type = new House();
 		//type.setLv(0);
 		for (int i = 0; i < houseSell.length; i++) {
 			houseSell[i] = "1";

@@ -23,7 +23,7 @@ public class MapSpace extends MapJLabel {
 	public MapSpace() {
 		super.setSize(120, 120);
 		image = ICON.getImage();
-		type = new Space();
+		//type = new Space();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -33,7 +33,7 @@ public class MapSpace extends MapJLabel {
 			g.drawImage(p.getIm(), 0, 0, getWidth(), getHeight(), this);
 		} else {*/
 			// g.drawImage(pic, 0, 0, getWidth(), getHeight(), this);
-			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+			//g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		//}
 	}
 

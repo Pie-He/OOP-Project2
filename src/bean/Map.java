@@ -1,8 +1,8 @@
 package bean;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import util.Const;
 import util.IO;
@@ -10,31 +10,30 @@ import bean.item.Player;
 import bean.item.RoadBlock;
 import bean.place.*;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-
 public class Map {
-	/*单例模式*/
+	/* 单例模式 */
 	private static final Map MAP = new Map();
 
-	private Map() {
+	public Map() {
 		places = new ArrayList<Place>();
-		getMapData();
 		mapLength = places.size();
 	}
+
 	public static Map getInstance() {
 		return MAP;
 	}
 
-	private ArrayList<Place> places;
-	private String[][] staticMap;
-	//private int width;
-	//private int height;
+	private List<Place> places;
+	// private int width;
+	// private int height;
 	public final int mapLength;
 
+	public void setMap(List<Place> places) {
+		this.places = places;
+	}
 
-	public String[][] getInitalMap() {
-		return this.staticMap;
+	public List<Place> getMap() {
+		return this.places;
 	}
 
 	public boolean event(Player player, int dice) {
@@ -63,9 +62,10 @@ public class Map {
 		return places.get(poi).getDescription();
 	}
 
-	public void removePlayer(Player player){
+	public void removePlayer(Player player) {
 		places.get(player.getPoi()).remove(player);
 	}
+
 	public void init(Collection<Player> players) {
 		players.stream().forEach(item -> places.get(item.getPoi()).put(item));
 	}
@@ -86,31 +86,4 @@ public class Map {
 		return true;
 	}
 
-	private void getMapData() {
-		File file = new File("places.txt");
-		String str;
-		if (file.exists()) {
-			try {
-				BufferedReader br = new BufferedReader(new FileReader(file));
-				while ((str = br.readLine()) != null) {
-					JSONObject jo = JSON.parseObject(str);
-					Place place = getRealInstance(jo);
-					places.add(place);
-				}
-				br.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	private Place getRealInstance(JSONObject jo) {
-		String symbol = jo.get("symbol").toString();
-		for (PlaceEnum p : PlaceEnum.values()) {
-			if (p.getSymbol().equals(symbol)) {
-				return JSON.toJavaObject(jo, p.getRealClass());
-			}
-		}
-		return null;
-	}
 }

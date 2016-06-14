@@ -21,7 +21,7 @@ public class MapCardPrize extends MapJLabel{
 	public MapCardPrize(){
 		super.setSize(120, 120);
 		this.image=ICON.getImage();
-		type=new CardPrize();
+		//type=new CardPrize();
 	}
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
@@ -30,7 +30,7 @@ public class MapCardPrize extends MapJLabel{
 			g.drawImage(p.getIm(), 0, 0, getWidth(), getHeight(), this);
 		} else {*/
 			// g.drawImage(pic, 0, 0, getWidth(), getHeight(), this);
-			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+			//g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		//}
 
 	}

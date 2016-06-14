@@ -21,7 +21,7 @@ public class MapNews extends MapJLabel {
 	public MapNews() {
 		super.setSize(120, 120);
 		image=ICON.getImage();
-		type = new News();
+		//type = new News();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -31,7 +31,7 @@ public class MapNews extends MapJLabel {
 			g.drawImage(p.getIm(), 0, 0, getWidth(), getHeight(), this);
 		} else {*/
 			// g.drawImage(pic, 0, 0, getWidth(), getHeight(), this);
-			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+			//g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		//}
 	}
 
