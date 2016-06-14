@@ -103,7 +103,8 @@ public enum Prop {
 		int dis = IO.getDistanceChoice(Const.PROP_CHOOSE.toString(), -8, 8);
 		if (dis > 8)
 			return false;
-		int poi = p.getPrePoi(dis);
+		//int poi = p.getPrePoi(dis);
+		int poi=0;
 		if (!Map.getInstance().addBlock(new RoadBlock(poi))) {
 			IO.printString(Const.BLOCK_EXSITED);
 			return false;
@@ -114,7 +115,7 @@ public enum Prop {
 	private Player getChoosePlayer(Player p, int range, boolean includeSelf) {
 		LinkedList<Player> l = new LinkedList<Player>();
 		LinkedList<String> strs = new LinkedList<String>();
-		Manager.players.stream().filter(i -> p.isInView(i, range))
+		Manager.players.stream().filter(i -> p.isInView(i, range,0))
 				.forEach(i -> {
 					// if(!includeSelf&&i==p)
 					// continue;

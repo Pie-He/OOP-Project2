@@ -1,5 +1,6 @@
 package bean.place;
 
+import bean.PlaceEnum;
 import bean.item.Player;
 import util.Const;
 import util.IO;
@@ -7,7 +8,7 @@ import util.IO;
 public class Lottery extends Place {
 
 	public Lottery() {
-		super("²ÊÆ±");
+		super(PlaceEnum.LOTTERY.ordinal());
 	}
 
 	@Override

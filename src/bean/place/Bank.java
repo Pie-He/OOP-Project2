@@ -1,12 +1,13 @@
 package bean.place;
 
+import bean.PlaceEnum;
 import bean.item.Player;
 import util.*;
 
 public class Bank extends Place {
 
 	public Bank() {
-		super( "ÒøĞĞ");
+		super(PlaceEnum.BANK.ordinal());
 	}
 
 	@Override

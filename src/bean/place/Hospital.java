@@ -1,5 +1,9 @@
 package bean.place;
 
-public class Hospital extends Place {
+import bean.PlaceEnum;
 
+public class Hospital extends Place {
+	public Hospital() {
+		super(PlaceEnum.HOSPITAL.ordinal());
+	}
 }

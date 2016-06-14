@@ -1,25 +1,26 @@
 package bean;
 
 import bean.place.*;
+
 public enum PlaceEnum {
-	HOUSE(House.class, "◎"), COUPON(Coupon.class, "券"), BANK(Bank.class, "银"), CARDPRIZE(
-			CardPrize.class, "卡"), LOTTERY(Lottery.class, "彩"), NEWS(
-			News.class, "新"), SHOP(Shop.class, "道"), SPACE(Space.class, "空");
+	HOUSE(House.class, "房产"), COUPON(Coupon.class, "赠送点券点"), BANK(Bank.class, "银行"), CARDPRIZE(
+			CardPrize.class, "赠送道具店"), LOTTERY(Lottery.class, "彩票点"), NEWS(
+			News.class, "新闻点"), SHOP(Shop.class, "道具店"), SPACE(Space.class, "空地"),HOSPITAL(Hospital.class,"医院");
 
 	private Class<? extends Place> c;
-	private String symbol;
+	private String description;
 
-	PlaceEnum(Class<? extends Place> c, String symbol) {
+	PlaceEnum(Class<? extends Place> c, String description) {
 		this.c = c;
-		this.symbol = symbol;
+		this.description = description;
 	}
 
 	public Class<? extends Place> getRealClass() {
 		return c;
 	}
 
-	public String getSymbol() {
-		return symbol;
+	public String getDescription() {
+		return description;
 	}
 
 }

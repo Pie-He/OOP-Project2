@@ -16,7 +16,7 @@ import com.alibaba.fastjson.JSONObject;
 public class MapDao {
 
 	public List<Place> getMapData() {
-		List<Place> places=new LinkedList<Place>();
+		List<Place> places = new LinkedList<Place>();
 		File file = new File("places.txt");
 		String str;
 		if (file.exists()) {
@@ -24,6 +24,7 @@ public class MapDao {
 				BufferedReader br = new BufferedReader(new FileReader(file));
 				while ((str = br.readLine()) != null) {
 					JSONObject jo = JSON.parseObject(str);
+					//System.out.println(jo);
 					Place place = getRealInstance(jo);
 					places.add(place);
 				}
@@ -36,12 +37,8 @@ public class MapDao {
 	}
 
 	public Place getRealInstance(JSONObject jo) {
-		String symbol = jo.get("symbol").toString();
-		for (PlaceEnum p : PlaceEnum.values()) {
-			if (p.getSymbol().equals(symbol)) {
-				return JSON.toJavaObject(jo, p.getRealClass());
-			}
-		}
-		return null;
+		int type = Integer.parseInt(jo.get("type").toString());
+		return JSON.toJavaObject(jo, PlaceEnum.values()[type].getRealClass());
 	}
+
 }

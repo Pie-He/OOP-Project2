@@ -34,9 +34,13 @@ public class ViewController {
 		frame.showMap();
 		frame.gameInit();
 	}
-	
-	public void setEnabled(boolean aflag){
+
+	public void setEnabled(boolean aflag) {
 		frame.setEnabled(aflag);
-		
+
+	}
+
+	public void refresh() {
+		this.frame.mapRefresh();
 	}
 }

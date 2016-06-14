@@ -7,7 +7,7 @@ import util.IO;
 public class CardPrize extends Place {
 
 	public CardPrize() {
-		super("ÔùËÍµÀ¾ßµê");
+		super(PlaceEnum.CARDPRIZE.ordinal());
 	}
 
 	@Override

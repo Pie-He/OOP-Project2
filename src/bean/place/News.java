@@ -5,6 +5,7 @@ import java.util.IntSummaryStatistics;
 import java.util.LinkedList;
 
 import bean.Manager;
+import bean.PlaceEnum;
 import bean.Prop;
 import bean.item.Player;
 import util.Const;
@@ -12,9 +13,8 @@ import util.IO;
 
 public class News extends Place {
 
-
 	public News() {
-		super( "пбне");
+		super(PlaceEnum.NEWS.ordinal());
 	}
 
 	@Override

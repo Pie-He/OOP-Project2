@@ -1,29 +1,31 @@
 package bean.place;
 
+import bean.PlaceEnum;
 import bean.Prop;
 import bean.item.Player;
 import util.Const;
 import util.IO;
 
-public class Shop extends Place{
+public class Shop extends Place {
 
 	public Shop() {
-		super("商店");
+		super(PlaceEnum.SHOP.ordinal());
 	}
+
 	@Override
 	public boolean event(Player p) {
 		super.event(p);
-		while(true){
-			IO.printString("您有"+p.getCoupon()+"点券");
-			int choice=IO.getBuyProp();
-			if(choice<0)
+		while (true) {
+			IO.printString("您有" + p.getCoupon() + "点券");
+			int choice = IO.getBuyProp();
+			if (choice < 0)
 				break;
-			Prop prop=Prop.values()[choice];
-			if(p.addCoupon(-prop.getPrice()))
+			Prop prop = Prop.values()[choice];
+			if (p.addCoupon(-prop.getPrice()))
 				p.addProp(prop);
 			else
 				IO.printString(Const.COUPON_NOT_ENOUGH);
-		}		
+		}
 		return true;
 	}
 }

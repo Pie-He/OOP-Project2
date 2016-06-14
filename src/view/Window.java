@@ -57,4 +57,7 @@ public class Window extends MFrame {
 		map.init();
 	}
 
+	public void mapRefresh() {
+		map.refresh();
+	}
 }

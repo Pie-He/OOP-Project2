@@ -30,9 +30,6 @@ public class MapHospital extends MapJLabel {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		this.imageItems.stream().forEach(i -> {
-			g.drawImage(i, 0, 0, getWidth(), getHeight(), this);
-		});
 		/*
 		 * if (type.isPHere) { g.drawImage(image, 0, 0, getWidth(), getHeight(),
 		 * this); g.drawImage(p.getIm(), 0, 0, getWidth(), getHeight(), this); }

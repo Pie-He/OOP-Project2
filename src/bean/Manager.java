@@ -139,9 +139,9 @@ public class Manager {
 				warning(player);
 				break;
 			case 4:
-				int dis = IO.getDistanceChoice(Const.SEARCH.toString(),
-						-map.mapLength, map.mapLength);
-				IO.printString(map.getDescription(player.getPrePoi(dis)));
+//				int dis = IO.getDistanceChoice(Const.SEARCH.toString(),
+//						-map.mapLength, map.mapLength);
+				//IO.printString(map.getDescription(player.getPrePoi(dis)));
 				break;
 			case 5:
 				IO.printString(Tools.stringCover(16, "Name", "Coupon", "Cash",
@@ -168,10 +168,10 @@ public class Manager {
 
 	private void warning(Player player) {
 		List<Integer> l = new LinkedList<Integer>();
-		for (int i = 0; i < 11; i++) {
+/*		for (int i = 0; i < 11; i++) {
 			if (map.isBlock(player.getPrePoi(i)))
 				l.add(i);
-		}
+		}*/
 		l.stream().forEach(i -> IO.printString("前方" + i + "步有路障！！！"));
 		if (l.size() == 0)
 			IO.printString(Const.BLOCK_NO);

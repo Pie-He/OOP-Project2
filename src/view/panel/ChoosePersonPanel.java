@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import controller.MapController;
 import controller.PlayerController;
 import util.PersonType;
 import view.ViewController;
@@ -104,6 +105,7 @@ public class ChoosePersonPanel extends JPanel {
 							person[select].getImageUrl(),
 							person[select].getNameUrl());
 				}
+				MapController.getInstance().init();
 				ViewController.getInstance().showMap();
 			});
 			jbtBack.addActionListener((e) -> {

@@ -137,9 +137,8 @@ public class Player extends Item {
 		return this.getCash() + this.getDeposit() + this.getHouseProperty();
 	}
 
-	public int walk() {
-		this.poi = (this.poi + this.direction + Map.getInstance().mapLength)
-				% Map.getInstance().mapLength;
+	public int walk(int mapLength) {
+		this.poi = (this.poi + this.direction + mapLength) % mapLength;
 		return this.poi;
 	}
 
@@ -151,9 +150,8 @@ public class Player extends Item {
 		this.direction = -this.direction;
 	}
 
-	public int getPrePoi(int dis) {
-		return (this.poi + this.direction * dis + Map.getInstance().mapLength)
-				% Map.getInstance().mapLength;
+	public int getPrePoi(int dis, int length) {
+		return (this.poi + this.direction * dis + length) % length;
 	}
 
 	public int getHouseAmount() {
@@ -177,9 +175,9 @@ public class Player extends Item {
 		return this.houses.poll();
 	}
 
-	public boolean isInView(Player p, int range) {
+	public boolean isInView(Player p, int range,int length) {
 		if (Math.abs(this.poi - p.poi) <= range
-				|| Math.abs(this.poi - p.poi) >= (Map.getInstance().mapLength - range))
+				|| Math.abs(this.poi - p.poi) >= length - range)
 			return true;
 		return false;
 	}
@@ -238,6 +236,5 @@ public class Player extends Item {
 	public String getNameUrl() {
 		return nameUrl;
 	}
-
 
 }

@@ -1,11 +1,12 @@
 package bean.place;
 
+import bean.PlaceEnum;
 import bean.item.Player;
 
 public class Space extends Place {
 
 	public Space() {
-		super("¿ÕµØ");
+		super(PlaceEnum.SPACE.ordinal());
 	}
 
 	@Override

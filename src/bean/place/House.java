@@ -1,6 +1,7 @@
 package bean.place;
 
 import bean.Manager;
+import bean.PlaceEnum;
 import bean.item.Player;
 import util.Const;
 import util.IO;
@@ -21,7 +22,7 @@ public class House extends Place implements Comparable<House> {
 	}
 
 	public House(int initialPrice, String name) {
-		super("·¿²ú");
+		super(PlaceEnum.HOUSE.ordinal());
 		this.name = name;
 		this.initialPrice = initialPrice;
 		this.level = 1;

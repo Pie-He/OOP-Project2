@@ -159,17 +159,13 @@ public class MapLabel extends JLabel {
 		for (int i = 0; i < this.map.length; i++) {
 			map[i].setType(getInstance().getInitMap().get(i));
 		}
+		this.refresh();
 		/*
 		 * ImageIcon icon=new ImageIcon("picture/person/ÈËÎï1.png");
 		 * Map[0].putImage(icon.getImage()); Map[0].repaint();
 		 */
 	}
 
-	public void init() {
-		PlayerController.getInstance().getPlayerList().stream().forEach(i -> {
-
-		});
-	}
 
 	public void refresh() {
 		/*

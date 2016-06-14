@@ -16,7 +16,6 @@ public class Map {
 
 	public Map() {
 		places = new ArrayList<Place>();
-		mapLength = places.size();
 	}
 
 	public static Map getInstance() {
@@ -26,7 +25,6 @@ public class Map {
 	private List<Place> places;
 	// private int width;
 	// private int height;
-	public final int mapLength;
 
 	public void setMap(List<Place> places) {
 		this.places = places;
@@ -34,6 +32,12 @@ public class Map {
 
 	public List<Place> getMap() {
 		return this.places;
+	}
+
+	public void setPlayerPoi(Player player, int poi) {
+		//places.get(player.getPoi()).remove(player);
+		//player.setPoi(poi);
+		places.get(poi).put((player));
 	}
 
 	public boolean event(Player player, int dice) {
@@ -51,7 +55,6 @@ public class Map {
 			return false;
 		this.places.get(r.getPoi()).put(r);
 		return true;
-
 	}
 
 	public boolean isBlock(int poi) {
@@ -74,7 +77,7 @@ public class Map {
 	private boolean movePlayer(Player p) {
 		int poi0 = p.getPoi();
 		places.get(poi0).remove(p);
-		int poi = p.walk();
+		int poi = p.walk(places.size());
 		places.get(poi).put(p);
 		if (places.get(poi).removeBlock()) {
 			IO.printString(Const.BLOCK_YES);
@@ -86,4 +89,7 @@ public class Map {
 		return true;
 	}
 
+	public int mapLength(){
+		return this.places.size();
+	}
 }

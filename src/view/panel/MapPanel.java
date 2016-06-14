@@ -37,7 +37,7 @@ public class MapPanel extends JPanel {
 	private TimeLabel time = new TimeLabel();
 	private MapLabel map = new MapLabel();
 	private List<PlayerMessLabel> playerMess = new ArrayList<PlayerMessLabel>();
-	private DiceButton jbtDice=new DiceButton();
+	private DiceButton jbtDice = new DiceButton();
 
 	public MapPanel() {
 		setSize(1200, 700);
@@ -108,5 +108,9 @@ public class MapPanel extends JPanel {
 			jlMap.setText("");
 			jlMap.repaint();
 		}
+	}
+
+	public void refresh() {
+		this.map.refresh();
 	}
 }
