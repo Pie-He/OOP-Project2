@@ -13,10 +13,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
+import view.ViewController;
 import controller.MapController;
 import controller.PlayerController;
 
 //此类为骰子的按钮类
+@SuppressWarnings("serial")
 public class DiceButton extends JButton {
 	private int dice;
 	private ImageIcon[] diceIcon = new ImageIcon[7];
@@ -126,7 +128,7 @@ public class DiceButton extends JButton {
 						count = 0;
 						getInstance().setEnabled(true);
 						DiceButton.this.setEnabled(true);
-						PlayerController.getInstance().nextPlayer();
+						ViewController.getInstance().event();
 					}
 					// TODO Auto-generated method stub
 					/*

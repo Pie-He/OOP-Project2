@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import controller.EventSession;
 import util.Const;
 import util.IO;
 import bean.item.Player;
@@ -23,6 +24,7 @@ public class Map {
 	}
 
 	private List<Place> places;
+
 	// private int width;
 	// private int height;
 
@@ -35,19 +37,18 @@ public class Map {
 	}
 
 	public void setPlayerPoi(Player player, int poi) {
-		//places.get(player.getPoi()).remove(player);
-		//player.setPoi(poi);
+		// places.get(player.getPoi()).remove(player);
+		// player.setPoi(poi);
 		places.get(poi).put((player));
 	}
 
-	public boolean event(Player player, int dice) {
-		for (int i = 0; i < dice; i++) {
-			if (!movePlayer(player))
-				return true;
-		}
-		if (!(places.get(player.getPoi()) instanceof Bank))
-			return places.get(player.getPoi()).event(player);
-		return true;
+	public EventSession event(int poi,EventSession session) {
+		/*
+		 * for (int i = 0; i < dice; i++) { if (!movePlayer(player)) return
+		 * true; } if (!(places.get(player.getPoi()) instanceof Bank))
+		 */
+		return places.get(poi).event(session);
+		// return true;
 	}
 
 	public boolean addBlock(RoadBlock r) {
@@ -81,15 +82,17 @@ public class Map {
 		places.get(poi).put(p);
 		if (places.get(poi).removeBlock()) {
 			IO.printString(Const.BLOCK_YES);
-			places.get(poi).event(p);
+			//places.get(poi).event(p);
 			return false;
 		}
-		if (places.get(poi) instanceof Bank)
-			places.get(poi).event(p);
+		if (places.get(poi) instanceof Bank){
+			
+		}
+			//places.get(poi).event(p);
 		return true;
 	}
 
-	public int mapLength(){
+	public int mapLength() {
 		return this.places.size();
 	}
 }

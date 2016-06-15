@@ -14,28 +14,29 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import controller.EventSession;
+import view.ViewController;
 import bean.item.Item;
 import bean.item.Player;
 import bean.place.Coupon;
 
-
 //此类为获得点券地图类
 public class MapCoupon extends Map {
-	private transient RoundRectangle2D clip = new RoundRectangle2D.Double(0, 0, 39, 39,
-			39, 39);
+	private transient RoundRectangle2D clip = new RoundRectangle2D.Double(0, 0,
+			39, 39, 39, 39);
 	private static final ImageIcon ICON = new ImageIcon("picture/place/点券.png");
 
 	public MapCoupon() {
 		super.setSize(40, 40);
 		this.image = ICON.getImage();
-		//type = new Coupon();
+		// type = new Coupon();
 	}
 
 	public void paintComponent(Graphics g) {
 		g.setClip(clip);
 		List<Item> items = this.type.getItems();
 		// ImageIcon i=new ImageIcon();
-		//System.out.println(type.getDescription()+items.size());
+		// System.out.println(type.getDescription()+items.size());
 		items.stream().forEach(i -> {
 			Image image = i.getType().getIcon().getImage();
 			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
@@ -43,21 +44,23 @@ public class MapCoupon extends Map {
 		g.setClip(null);
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 
-		/*if (type.isPHere) {
-			g.setClip(clip);
-			g.drawImage(p.getImage(), 0, 0, getWidth(), getHeight(), this);
-			g.setClip(null);
-			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-		} else {*/
-			//g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-		//}
+		/*
+		 * if (type.isPHere) { g.setClip(clip); g.drawImage(p.getImage(), 0, 0,
+		 * getWidth(), getHeight(), this); g.setClip(null); g.drawImage(image,
+		 * 0, 0, getWidth(), getHeight(), this); } else {
+		 */
+		// g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+		// }
 	}
 
 	// 触发获得点券事件
-	public void Event(final Player p) {
+	public void event(final Player p) {
 
-		/*final MFrame1 frame = new MFrame1();
-		frame.add(new PlacePanel(p));
+		final MFrame1 frame = new MFrame1();
+		EventSession session = new EventSession("player", p);
+		EventSession response=type.event(session);
+		int coupon=(int) response.get("coupon");
+		frame.add(new PlacePanel(p,coupon));
 		final java.util.Timer timer = new java.util.Timer();
 		timer.schedule(new TimerTask() {
 			@Override
@@ -65,25 +68,25 @@ public class MapCoupon extends Map {
 				// TODO Auto-generated method stub
 				frame.dispose();
 				timer.cancel();
-				GloVarGUI.frame.map.change(p);
+				//GloVarGUI.frame.map.change(p);
 			}
-		}, 2000);*/
+		}, 2000);
 	}
 
-	/*class PlacePanel extends JPanel {
-		*//**
+	class PlacePanel extends JPanel {
+		/**
 		 * 
-		 *//*
+		 */
 		private static final long serialVersionUID = 1L;
-		private ImageIcon ico = new ImageIcon("picture/彩票.jpg");
+		private ImageIcon ico = new ImageIcon("picture/place/彩票.jpg");
 		private Image im = ico.getImage();
 		private int coupon;
 
-		PlacePanel(Person p) {
+		PlacePanel(Player p, int coupon) {
 			setLayout(null);
 			setSize(400, 200);
-			//获得随机点券
-			coupon = type.returnEvent(p);
+			// 获得随机点券
+			this.coupon = coupon;
 		}
 
 		protected void paintComponent(Graphics g) {
@@ -99,9 +102,9 @@ public class MapCoupon extends Map {
 }
 
 class MFrame1 extends JFrame {
-	*//**
+	/**
 	 * 
-	 *//*
+	 */
 	private static final long serialVersionUID = 1L;
 
 	MFrame1() {
@@ -110,11 +113,11 @@ class MFrame1 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
 		setVisible(true);
-		GloVarGUI.frame.setEnabled(false);
+		ViewController.getInstance().setEnabled(false);
 	}
 
 	public void dispose() {
-		GloVarGUI.frame.setEnabled(true);
+		ViewController.getInstance().setEnabled(true);
 		super.dispose();
-	}*/
+	}
 }

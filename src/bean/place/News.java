@@ -4,6 +4,7 @@ import java.util.Deque;
 import java.util.IntSummaryStatistics;
 import java.util.LinkedList;
 
+import controller.EventSession;
 import bean.Manager;
 import bean.PlaceEnum;
 import bean.Prop;
@@ -17,9 +18,8 @@ public class News extends Place {
 		super(PlaceEnum.NEWS.ordinal());
 	}
 
-	@Override
 	public boolean event(Player p) {
-		super.event(p);
+		//super.event(p);
 		int random = (int) (Math.random() * 5);// 获得0~4随机数
 		switch (random) {
 		case 0: {
@@ -79,5 +79,11 @@ public class News extends Place {
 				+ pls.stream().map(i -> i.getName())
 						.reduce((x, y) -> x += (" " + y + " ")).get() + "奖励"
 				+ rewards);
+	}
+
+	@Override
+	public EventSession event(EventSession session) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

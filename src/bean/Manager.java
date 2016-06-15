@@ -128,10 +128,10 @@ public class Manager {
 				while ((propChoice = IO.getProp(player.propToText())) >= 0) {
 					player.useProp(propChoice);
 					if (diceFlag >= 0) {
-						boolean is = map.event(player, diceFlag);
+						//boolean is = map.event(player);
 						//IO.printStringArray2(map.toText());
 						diceFlag = -1;
-						return is;
+						return false;
 					}
 				}
 				break;
@@ -180,9 +180,9 @@ public class Manager {
 	private boolean Dice(Player player) {
 		int dice = (int) (Math.random() * 6) + 1;
 		IO.printString("Í¶ÖÀµãÊý:" + dice);
-		boolean is = map.event(player, dice);
+		//boolean is = map.event(player);
 		//IO.printStringArray2(map.toText());
-		return is;
+		return false;
 	}
 
 	private boolean isMonthLast() {

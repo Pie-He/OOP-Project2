@@ -2,6 +2,10 @@ package view;
 
 import javax.swing.JFrame;
 
+import bean.item.Player;
+import controller.MapController;
+import controller.PlayerController;
+
 public class ViewController {
 	private static final ViewController CONTROLLER = new ViewController();
 
@@ -42,5 +46,12 @@ public class ViewController {
 
 	public void refresh() {
 		this.frame.mapRefresh();
+	}
+
+	public void event() {
+		Player player=PlayerController.getInstance().getCurrentPlayer();
+		frame.event(player);
+		//MapController.getInstance().event(player);
+		PlayerController.getInstance().nextPlayer();
 	}
 }

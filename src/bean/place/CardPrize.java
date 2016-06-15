@@ -1,5 +1,6 @@
 package bean.place;
 
+import controller.EventSession;
 import bean.*;
 import bean.item.Player;
 import util.IO;
@@ -11,12 +12,14 @@ public class CardPrize extends Place {
 	}
 
 	@Override
-	public boolean event(Player p) {
-		super.event(p);
+	public EventSession event(EventSession session) {
+		Player p = (Player) session.get("player");
 		int random = (int) (Math.random() * Prop.values().length);
 		Prop prop = Prop.values()[random];
-		IO.printString("恭喜！获得“" + prop.toText() + "”1个！");
 		p.addProp(prop);
-		return true;
+		EventSession response = new EventSession("message", "恭喜！获得“"
+				+ prop.toText() + "”1个！");
+		return response;
+
 	}
 }

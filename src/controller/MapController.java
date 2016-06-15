@@ -44,11 +44,11 @@ public class MapController extends IController {
 	public void move(Player player) {
 		this.map.removePlayer(player);
 		this.map.setPlayerPoi(player, player.walk(map.mapLength()));
-		System.out.println("1个数:" + map.getMap().get(1).getItems().size());
+		//System.out.println("1个数:" + map.getMap().get(1).getItems().size());
 	}
 
-	public void event(Player player, int dice) {
-
+	public void event(EventSession session) {
+		//this.map.event(session);
 	}
 
 }

@@ -1,16 +1,18 @@
 package view;
 
+import igui.IFrame;
+
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import bean.item.Player;
 import view.panel.ChoosePersonPanel;
 import view.panel.MapPanel;
 import view.panel.MenuPanel;
-import mgui.MFrame;
 
 //此类为游戏的主窗口
-public class Window extends MFrame {
+public class Window extends IFrame {
 	/**
 	 * 
 	 */
@@ -59,5 +61,9 @@ public class Window extends MFrame {
 
 	public void mapRefresh() {
 		map.refresh();
+	}
+
+	public void event(Player player) {
+		map.event(player);
 	}
 }

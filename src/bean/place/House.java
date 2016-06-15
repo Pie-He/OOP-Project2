@@ -1,5 +1,6 @@
 package bean.place;
 
+import controller.EventSession;
 import bean.Manager;
 import bean.PlaceEnum;
 import bean.item.Player;
@@ -79,9 +80,8 @@ public class House extends Place implements Comparable<House> {
 				+ "\n";
 	}
 
-	@Override
 	public boolean event(Player p) {
-		super.event(p);
+		//super.event(p);
 		IO.printString("持有现金："+p.getCash());
 		if (this.owner == null) {
 			this.sell(p);
@@ -158,5 +158,11 @@ public class House extends Place implements Comparable<House> {
 		return owner.getStreet(this.getStreet()).stream()
 				.mapToInt(i -> i.getPrice()).sum()
 				/ 10 + this.getPrice() / 5;
+	}
+
+	@Override
+	public EventSession event(EventSession session) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

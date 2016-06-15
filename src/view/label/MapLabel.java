@@ -5,6 +5,7 @@ import static controller.MapController.getInstance;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import bean.item.Player;
 import controller.PlayerController;
 import view.map.*;
 
@@ -192,5 +193,11 @@ public class MapLabel extends JLabel {
 			map[i].getLv().repaint();
 		}
 		// GloVarGUI.time.refresh();
+	}
+
+
+	public void event(Player player) {
+		map[player.getPoi()].event(player);
+		
 	}
 }

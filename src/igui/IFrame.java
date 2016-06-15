@@ -1,10 +1,10 @@
-package mgui;
+package igui;
 
 import javax.swing.JFrame;
 
-public class MFrame extends JFrame{
+public class IFrame extends JFrame{
 
-	public MFrame(){
+	public IFrame(){
 		setSize(1200, 700);
 		setResizable(false);
 		setLayout(null);

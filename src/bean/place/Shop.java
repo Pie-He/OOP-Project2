@@ -1,5 +1,8 @@
 package bean.place;
 
+import java.util.List;
+
+import controller.EventSession;
 import bean.PlaceEnum;
 import bean.Prop;
 import bean.item.Player;
@@ -13,19 +16,12 @@ public class Shop extends Place {
 	}
 
 	@Override
-	public boolean event(Player p) {
-		super.event(p);
-		while (true) {
-			IO.printString("ÄúÓÐ" + p.getCoupon() + "µãÈ¯");
-			int choice = IO.getBuyProp();
-			if (choice < 0)
-				break;
-			Prop prop = Prop.values()[choice];
-			if (p.addCoupon(-prop.getPrice()))
-				p.addProp(prop);
-			else
-				IO.printString(Const.COUPON_NOT_ENOUGH);
-		}
-		return true;
+	public EventSession event(EventSession session) {
+		List<Prop> props=(List<Prop>) session.get("props");
+		int money=(int) session.get("cost");
+		Player p = (Player) session.get("player");
+		p.addCoupon(-money);
+		props.stream().forEach(p::addProp);
+		return null;
 	}
 }

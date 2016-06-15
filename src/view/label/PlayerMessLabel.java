@@ -1,5 +1,7 @@
 package view.label;
 
+import igui.IButton;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -13,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.border.TitledBorder;
 
 import util.PersonType;
-import mgui.MButton;
 import bean.item.Player;
 
 //此类为人物信息显示label，包括道具使用及技能使用
@@ -126,7 +127,7 @@ public class PlayerMessLabel extends JLabel {
 	}
 
 	// 定义道具使用按钮
-	public class PButton extends MButton {
+	public class PButton extends IButton {
 		/**
 		 * 
 		 */
@@ -152,7 +153,7 @@ public class PlayerMessLabel extends JLabel {
 	}
 
 	// 定义技能使用按钮
-	class SButton extends MButton {
+	class SButton extends IButton {
 		/**
 		 * 
 		 */

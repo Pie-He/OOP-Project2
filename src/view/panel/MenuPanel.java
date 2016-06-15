@@ -1,5 +1,7 @@
 package view.panel;
 
+import igui.IButton;
+
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -10,7 +12,6 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import mgui.MButton;
 import view.ViewController;
 
 //此类为主菜单面板
@@ -42,10 +43,10 @@ public class MenuPanel extends JPanel {
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
-		private MButton jbtStart = new MButton(170, 50, new ImageIcon(
+		private IButton jbtStart = new IButton(170, 50, new ImageIcon(
 				"picture/word/文字开始游戏.png"), new ImageIcon(
 				"picture/word/文字开始游戏1.png"));
-		private MButton jbtExit = new MButton(170, 50, new ImageIcon(
+		private IButton jbtExit = new IButton(170, 50, new ImageIcon(
 				"picture/word/文字退出游戏.png"), new ImageIcon(
 				"picture/word/文字退出游戏1.png"));
 

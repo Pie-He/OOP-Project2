@@ -1,5 +1,7 @@
 package view.panel;
 
+import igui.IButton;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -21,7 +23,6 @@ import controller.PlayerController;
 import util.PersonType;
 import view.ViewController;
 import view.panel.ChoosePersonPanel.PlayerPanel.PersonChoosePanel.PersonButton;
-import mgui.MButton;
 
 public class ChoosePersonPanel extends JPanel {
 	/**
@@ -79,10 +80,10 @@ public class ChoosePersonPanel extends JPanel {
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
-		private MButton jbtYes = new MButton(100, 50, new ImageIcon(
+		private IButton jbtYes = new IButton(100, 50, new ImageIcon(
 				"picture/word/文字确定.png"), new ImageIcon(
 				"picture/word/文字确定1.png"));
-		private MButton jbtBack = new MButton(100, 50, new ImageIcon(
+		private IButton jbtBack = new IButton(100, 50, new ImageIcon(
 				"picture/word/文字返回.png"), new ImageIcon(
 				"picture/word/文字返回1.png"));
 
@@ -252,14 +253,14 @@ public class ChoosePersonPanel extends JPanel {
 
 	@SuppressWarnings("serial")
 	class NumberPanel extends JPanel {
-		private MButton[] buttons = new MButton[3];
+		private IButton[] buttons = new IButton[3];
 		private int selected = 2;
 
 		NumberPanel() {
 			new GridLayout(1, 3);
 			this.setSize(210, 70);
 			for (int i = 0; i < buttons.length; i++) {
-				buttons[i] = new MButton(70, 70);
+				buttons[i] = new IButton(70, 70);
 				buttons[i].setText((i + 2) + "");
 				buttons[i].setForeground(Color.WHITE);
 				buttons[i].setBorderPainted(true);

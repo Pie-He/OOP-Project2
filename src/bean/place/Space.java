@@ -1,5 +1,6 @@
 package bean.place;
 
+import controller.EventSession;
 import bean.PlaceEnum;
 import bean.item.Player;
 
@@ -10,7 +11,7 @@ public class Space extends Place {
 	}
 
 	@Override
-	public boolean event(Player p) {
-		return super.event(p);
+	public EventSession event(EventSession session) {
+		return null;
 	}
 }

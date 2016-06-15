@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import bean.item.Player;
 import controller.PlayerController;
 import view.button.DiceButton;
 import view.label.MapLabel;
@@ -112,5 +113,9 @@ public class MapPanel extends JPanel {
 
 	public void refresh() {
 		this.map.refresh();
+	}
+
+	public void event(Player player) {
+		map.event(player);
 	}
 }
