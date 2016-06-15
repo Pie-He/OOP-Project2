@@ -27,7 +27,7 @@ public abstract class Place {
 		return true;
 	};
 
-	public List<Item> getItems() {
+	public LinkedList<Item> getItems() {
 		/*
 		 * if(items.isEmpty()||(items.size()==1&&items.getFirst() instanceof
 		 * RoadBlock)) return this.symbol; Item it=items.getFirst(); if(it

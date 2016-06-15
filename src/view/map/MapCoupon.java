@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.util.List;
 import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
@@ -13,12 +14,13 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import bean.item.Item;
 import bean.item.Player;
 import bean.place.Coupon;
 
 
 //此类为获得点券地图类
-public class MapCoupon extends MapJLabel {
+public class MapCoupon extends Map {
 	private transient RoundRectangle2D clip = new RoundRectangle2D.Double(0, 0, 39, 39,
 			39, 39);
 	private static final ImageIcon ICON = new ImageIcon("picture/place/点券.png");
@@ -30,7 +32,17 @@ public class MapCoupon extends MapJLabel {
 	}
 
 	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
+		g.setClip(clip);
+		List<Item> items = this.type.getItems();
+		// ImageIcon i=new ImageIcon();
+		//System.out.println(type.getDescription()+items.size());
+		items.stream().forEach(i -> {
+			Image image = i.getType().getIcon().getImage();
+			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+		});
+		g.setClip(null);
+		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+
 		/*if (type.isPHere) {
 			g.setClip(clip);
 			g.drawImage(p.getImage(), 0, 0, getWidth(), getHeight(), this);

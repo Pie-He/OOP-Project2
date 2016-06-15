@@ -2,7 +2,7 @@ package util;
 
 import javax.swing.ImageIcon;
 
-public enum PersonType {
+public enum PersonType implements Itemable{
 	SABER("∞¢∂˚Õ–¿Ú—≈", "1"), SHIROU("Œ¿π¨ ø¿…", "2"), KIRITSUGU("Œ¿π¨«–À√", "3"), RIN(
 			"‘∂€‡¡›", "4"), SAKURA("º‰Õ©”£", "5"), ARCHER("º™∂˚Ÿ§√¿ ≤", "6"), RIDER("√¿∂≈…Ø",
 			"7"), ILLYA("“¿¿Ú—≈", "8");
@@ -11,6 +11,8 @@ public enum PersonType {
 	private ImageIcon icon;
 	private ImageIcon iconSelected;
 	private ImageIcon image;
+	private ImageIcon tsImage;
+	private ImageIcon nameImage;
 	private String iconUrl;
 	private String hsUrl;
 	private String imageUrl;
@@ -27,7 +29,9 @@ public enum PersonType {
 		this.iconSelected = new ImageIcon("picture/person/»ÀŒÔ" + iconUrl
 				+ "±ﬂøÚ.png");
 		this.image = new ImageIcon(this.imageUrl);
-		this.nameUrl="picture/person/»ÀŒÔ" + iconUrl + "√˚◊÷.png";
+		this.nameUrl = "picture/person/»ÀŒÔ" + iconUrl + "√˚◊÷.png";
+		this.tsImage = new ImageIcon(this.TsUrl);
+		this.nameImage = new ImageIcon(this.nameUrl);
 	}
 
 	public String getName() {
@@ -44,6 +48,14 @@ public enum PersonType {
 
 	public ImageIcon getImage() {
 		return image;
+	}
+
+	public ImageIcon getTsImage() {
+		return this.tsImage;
+	}
+
+	public ImageIcon getNameImage() {
+		return this.nameImage;
 	}
 
 	public String getIconUrl() {

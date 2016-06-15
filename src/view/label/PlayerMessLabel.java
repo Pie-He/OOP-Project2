@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.border.TitledBorder;
 
+import util.PersonType;
 import mgui.MButton;
 import bean.item.Player;
 
@@ -51,8 +52,8 @@ public class PlayerMessLabel extends JLabel {
 
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		ImageIcon image1 = new ImageIcon(p.getImage());
-		ImageIcon image2 = new ImageIcon(p.getNameUrl());
+		ImageIcon image1 = p.getType().getImage();
+		ImageIcon image2 = p.getType().getNameImage();
 		if (image1 != null) {
 			g.drawImage(image1.getImage(), 20, 20, 180, 180, this);
 			g.drawImage(image2.getImage(), 220, 20, 60, 180, this);

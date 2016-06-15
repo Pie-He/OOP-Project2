@@ -14,7 +14,7 @@ import bean.item.Player;
 import bean.place.CardPrize;
 
 //奖励道具点
-public class MapCardPrize extends MapJLabel{
+public class MapCardPrize extends Map{
 	private final static ImageIcon ICON=new ImageIcon("picture/place/圣剑.png");
 	static String[] pName = { "滞留卡", "乌龟卡", "转向卡", "拆迁卡", "购地卡", "查税卡", "掠夺卡",
 		"遥控骰子", "福神卡", "财神卡", "土地卡", "怪兽卡", "恶魔卡", "均富卡" };

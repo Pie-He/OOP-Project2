@@ -15,7 +15,7 @@ import bean.item.Player;
 import bean.place.Lottery;
 
 //以下为彩票中奖地图
-public class MapLottery extends MapJLabel {
+public class MapLottery extends Map {
 
 	private final static ImageIcon ICON = new ImageIcon("picture/place/lottery.png");
 

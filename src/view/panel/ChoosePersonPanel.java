@@ -23,7 +23,6 @@ import view.ViewController;
 import view.panel.ChoosePersonPanel.PlayerPanel.PersonChoosePanel.PersonButton;
 import mgui.MButton;
 
-//此类为双人对战选人面板（包括一点AI的功能）
 public class ChoosePersonPanel extends JPanel {
 	/**
 	 * 
@@ -99,11 +98,7 @@ public class ChoosePersonPanel extends JPanel {
 				for (int i = 0; i < number; i++) {
 					int select = per[i].getSelected();
 					PlayerController.getInstance().createPlayer(
-							person[select].getName(),
-							person[select].getIconUrl(),
-							person[select].getHsUrl(),
-							person[select].getImageUrl(),
-							person[select].getNameUrl());
+							person[select].getName(), select);
 				}
 				MapController.getInstance().init();
 				ViewController.getInstance().showMap();

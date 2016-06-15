@@ -15,7 +15,7 @@ import bean.item.Player;
 import bean.place.Hospital;
 
 //此类定义起点地图
-public class MapHospital extends MapJLabel {
+public class MapHospital extends Map {
 	/**
 	 * 
 	 */

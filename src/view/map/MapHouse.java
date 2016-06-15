@@ -21,7 +21,7 @@ import bean.place.House;
 
 
 //此类为土地地图类
-public class MapHouse extends MapJLabel {
+public class MapHouse extends Map {
 	/**
 	 * 
 	 */

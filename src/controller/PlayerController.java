@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import util.PersonType;
 import bean.item.Player;
 
 public class PlayerController extends IController {
@@ -19,15 +20,14 @@ public class PlayerController extends IController {
 		players = new ArrayList<Player>();
 	}
 
-	public void createPlayer(String name, String symbolUrl, String hsSymbolUrl,
-			String imageUrl, String nameUrl) {
-		Player p = new Player(name, symbolUrl, hsSymbolUrl, imageUrl, nameUrl);
+	public void createPlayer(String name, int type) {
+		Player p = new Player(name, PersonType.values()[type]);
 		p.setPoi(0);
 		this.players.add(p);
 	}
 
 	public Player nextPlayer() {
-		//index++;
+		// index++;
 		if (++index >= players.size())
 			index %= players.size();
 		return players.get(index);

@@ -22,7 +22,7 @@ import bean.item.Player;
 import bean.place.Shop;
 
 //道具商店点
-public class MapShop extends MapJLabel {
+public class MapShop extends Map {
 	/**
 	 * 
 	 */

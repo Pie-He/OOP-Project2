@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import bean.item.Player;
 import bean.place.Space;
 //此类定义空地地图
-public class MapSpace extends MapJLabel {
+public class MapSpace extends Map {
 	/**
 	 * 
 	 */

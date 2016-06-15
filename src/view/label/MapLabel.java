@@ -10,7 +10,7 @@ import view.map.*;
 
 @SuppressWarnings("serial")
 public class MapLabel extends JLabel {
-	public MapJLabel[] map = new MapJLabel[42];// 地图格子
+	public Map[] map = new Map[42];// 地图格子
 
 	public MapLabel() {
 		setLayout(null);

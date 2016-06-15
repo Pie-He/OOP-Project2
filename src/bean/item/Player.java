@@ -7,6 +7,7 @@ import bean.Map;
 import bean.Prop;
 import bean.Stock;
 import bean.place.House;
+import util.PersonType;
 import util.Tools;
 
 public class Player extends Item {
@@ -14,35 +15,29 @@ public class Player extends Item {
 	private int cash;// 玩家现金
 	private int deposit;// 玩家存款
 	private int coupon;// 玩家点券
-	private String hsSymbol;
 	// private int step;
 	private int direction;
 	private ArrayList<Prop> props;
 	private PriorityQueue<House> houses;
 	private EnumMap<Stock, Integer> stocks = new EnumMap<Stock, Integer>(
 			Stock.class);
-	private String image;
-	private String nameUrl;
+	//private PersonType type;
 
 	public Player() {
 		this.cash = 20000;
 		this.deposit = 5000;
 		this.coupon = 1000;
 		this.props = new ArrayList<Prop>(20);
-		this.direction = 1;
+		this.direction = -1;
 		this.setPoi(0);
 		houses = new PriorityQueue<House>(20);
 		// mov=new Removable();
 	}
 
-	public Player(String name, String symbol, String hsSymbol, String image,
-			String nameUrl) {
+	public Player(String name, PersonType type) {
 		this();
 		this.name = name;
-		super.setSymbol(symbol);
-		this.hsSymbol = hsSymbol;
-		this.image = image;
-		this.nameUrl = nameUrl;
+		this.type = type;
 	}
 
 	public String getName() {
@@ -93,10 +88,6 @@ public class Player extends Item {
 		if (this.coupon + coupon < 0)
 			return false;
 		return (this.coupon += coupon) >= 0;
-	}
-
-	public String getHsSymbol() {
-		return hsSymbol;
 	}
 
 	public boolean addProp(Prop p) {
@@ -175,7 +166,7 @@ public class Player extends Item {
 		return this.houses.poll();
 	}
 
-	public boolean isInView(Player p, int range,int length) {
+	public boolean isInView(Player p, int range, int length) {
 		if (Math.abs(this.poi - p.poi) <= range
 				|| Math.abs(this.poi - p.poi) >= length - range)
 			return true;
@@ -229,12 +220,16 @@ public class Player extends Item {
 	 * }
 	 */
 
-	public String getImage() {
-		return image;
+	public String getSymbol(){
+		return this.name;
+	}
+	
+	public PersonType getType() {
+		return (PersonType)type;
 	}
 
-	public String getNameUrl() {
-		return nameUrl;
+	public void setType(PersonType type) {
+		this.type = type;
 	}
 
 }

@@ -23,7 +23,7 @@ import bean.item.Player;
 import bean.place.Bank;
 
 //银行地图
-public class MapBank extends MapJLabel {
+public class MapBank extends Map {
 
 	private static final ImageIcon ICON = new ImageIcon("picture/place/美刀.jpg");
 	private transient Timer time;

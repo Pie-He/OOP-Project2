@@ -14,7 +14,7 @@ import bean.item.Player;
 import bean.place.News;
 
 //以下为新闻显示
-public class MapNews extends MapJLabel {
+public class MapNews extends Map {
 	private static final ImageIcon ICON = new ImageIcon("picture/place/新闻.png");
 
 
