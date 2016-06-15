@@ -52,6 +52,7 @@ public class ViewController {
 		Player player=PlayerController.getInstance().getCurrentPlayer();
 		frame.event(player);
 		//MapController.getInstance().event(player);
-		PlayerController.getInstance().nextPlayer();
+		int index=PlayerController.getInstance().nextPlayer();
+		frame.show(index);
 	}
 }

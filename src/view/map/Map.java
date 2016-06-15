@@ -6,7 +6,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
@@ -15,7 +14,7 @@ import bean.item.Player;
 import bean.place.Place;
 
 //所有地图类型的父类
-public class Map extends JLabel implements Serializable {
+public abstract class Map extends JLabel implements Serializable {
 	/**
 	 * 
 	 */

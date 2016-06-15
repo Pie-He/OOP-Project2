@@ -17,8 +17,7 @@ public class CardPrize extends Place {
 		int random = (int) (Math.random() * Prop.values().length);
 		Prop prop = Prop.values()[random];
 		p.addProp(prop);
-		EventSession response = new EventSession("message", "¹§Ï²£¡»ñµÃ¡°"
-				+ prop.toText() + "¡±1¸ö£¡");
+		EventSession response = new EventSession("prop", prop);
 		return response;
 
 	}

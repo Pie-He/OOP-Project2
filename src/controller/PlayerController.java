@@ -26,11 +26,11 @@ public class PlayerController extends IController {
 		this.players.add(p);
 	}
 
-	public Player nextPlayer() {
+	public int nextPlayer() {
 		// index++;
 		if (++index >= players.size())
 			index %= players.size();
-		return players.get(index);
+		return index;
 	}
 
 	public List<Player> getPlayerList() {

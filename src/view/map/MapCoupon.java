@@ -1,16 +1,16 @@
 package view.map;
 
+import static controller.MapController.getInstance;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
 import java.util.List;
 import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -18,9 +18,9 @@ import controller.EventSession;
 import view.ViewController;
 import bean.item.Item;
 import bean.item.Player;
-import bean.place.Coupon;
 
 //此类为获得点券地图类
+@SuppressWarnings("serial")
 public class MapCoupon extends Map {
 	private transient RoundRectangle2D clip = new RoundRectangle2D.Double(0, 0,
 			39, 39, 39, 39);
@@ -58,9 +58,9 @@ public class MapCoupon extends Map {
 
 		final MFrame1 frame = new MFrame1();
 		EventSession session = new EventSession("player", p);
-		EventSession response=type.event(session);
+		EventSession response=getInstance().event(type, session);
 		int coupon=(int) response.get("coupon");
-		frame.add(new PlacePanel(p,coupon));
+		frame.add(new PlacePanel(coupon));
 		final java.util.Timer timer = new java.util.Timer();
 		timer.schedule(new TimerTask() {
 			@Override
@@ -74,15 +74,11 @@ public class MapCoupon extends Map {
 	}
 
 	class PlacePanel extends JPanel {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private ImageIcon ico = new ImageIcon("picture/place/彩票.jpg");
 		private Image im = ico.getImage();
 		private int coupon;
 
-		PlacePanel(Player p, int coupon) {
+		PlacePanel(int coupon) {
 			setLayout(null);
 			setSize(400, 200);
 			// 获得随机点券
@@ -101,11 +97,8 @@ public class MapCoupon extends Map {
 	}
 }
 
+@SuppressWarnings("serial")
 class MFrame1 extends JFrame {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	MFrame1() {
 		setSize(400, 200);

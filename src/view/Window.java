@@ -66,4 +66,8 @@ public class Window extends IFrame {
 	public void event(Player player) {
 		map.event(player);
 	}
+	
+	public void show(int index){
+		map.show(index);
+	}
 }

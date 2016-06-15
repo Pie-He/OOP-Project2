@@ -47,8 +47,9 @@ public class MapController extends IController {
 		//System.out.println("1¸öÊý:" + map.getMap().get(1).getItems().size());
 	}
 
-	public void event(EventSession session) {
+	public EventSession event(Place place,EventSession session) {
 		//this.map.event(session);
+		return place.event(session);
 	}
 
 }

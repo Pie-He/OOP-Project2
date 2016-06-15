@@ -113,6 +113,12 @@ public class MapPanel extends JPanel {
 
 	public void refresh() {
 		this.map.refresh();
+		this.playerMess.stream().forEach(i -> i.refresh());
+	}
+
+	public void show(int index) {
+		playerMess.stream().forEach(i->i.setVisible(false));
+		playerMess.get(index).setVisible(true);
 	}
 
 	public void event(Player player) {
