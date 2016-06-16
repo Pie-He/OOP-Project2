@@ -2,9 +2,11 @@ package controller;
 
 import java.util.List;
 
+import util.Const;
 import bean.Map;
 import bean.item.Player;
 import bean.item.RoadBlock;
+import bean.place.House;
 import bean.place.Place;
 import dao.MapDao;
 
@@ -44,12 +46,21 @@ public class MapController extends IController {
 	public void move(Player player) {
 		this.map.removePlayer(player);
 		this.map.setPlayerPoi(player, player.walk(map.mapLength()));
-		//System.out.println("1个数:" + map.getMap().get(1).getItems().size());
+		// System.out.println("1个数:" + map.getMap().get(1).getItems().size());
 	}
 
-	public EventSession event(Place place,EventSession session) {
-		//this.map.event(session);
+	public EventSession event(Place place, EventSession session) {
+		// this.map.event(session);
 		return place.event(session);
+	}
+
+	public Const getHouseState(Player player, House house) {
+		if (house.getOwner() == null)
+			return Const.HOUSE_STATE_NULL;
+		else if (house.getOwner() == player)
+			return Const.HOUSE_STATE_SELF;
+		else
+			return Const.HOUSE_STATE_OTHERS;
 	}
 
 }

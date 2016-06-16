@@ -1,5 +1,8 @@
 package bean.place;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import controller.EventSession;
 import bean.Manager;
 import bean.PlaceEnum;
@@ -9,7 +12,6 @@ import util.IO;
 
 public class House extends Place implements Comparable<House> {
 	// private int price;
-
 	final private static int MAXLEVEL = 5;
 	private int initialPrice;
 	private int level;
@@ -31,7 +33,6 @@ public class House extends Place implements Comparable<House> {
 
 	@Override
 	public int compareTo(House arg0) {
-		// TODO Auto-generated method stub
 		return this.getPrice() - arg0.getPrice();
 	}
 
@@ -73,77 +74,88 @@ public class House extends Place implements Comparable<House> {
 
 	@Override
 	public String getDescription() {
-		return super.getDescription() + "\n" + "名称:" + name + "\n" + "初始价格:"
-				+ this.initialPrice + "元" + "\n" + "当前等级:" + this.level + "级"
-				+ "\n" + "拥有者:"
-				+ (this.owner == null ? Const.HOUSE_NOT_OWNER : this.owner.getName())
-				+ "\n";
+		return super.getDescription()
+				+ "\n"
+				+ "名称:"
+				+ name
+				+ "\n"
+				+ "初始价格:"
+				+ this.initialPrice
+				+ "元"
+				+ "\n"
+				+ "当前等级:"
+				+ this.level
+				+ "级"
+				+ "\n"
+				+ "拥有者:"
+				+ (this.owner == null ? Const.HOUSE_NOT_OWNER : this.owner
+						.getName()) + "\n";
 	}
 
-	public boolean event(Player p) {
-		//super.event(p);
-		IO.printString("持有现金："+p.getCash());
+	@Override
+	public EventSession event(EventSession session) {
+		// super.event(p);
+		Player p = (Player) session.get("player");
+		String message = "";
 		if (this.owner == null) {
-			this.sell(p);
+			message = this.sell(p);
 		} else if (this.owner == p) {
-			this.levelUp();
+			message = this.levelUp();
 		} else {
-			return this.charge(p);
+			this.charge(p);
 		}
-		return true;
+		// return
+		EventSession repsonse = new EventSession("message", message);
+		return repsonse;
 	}
 
 	public void destroy() {
 		this.owner = null;
 	}
 
-	private void sell(Player p) {
-		if (!IO.getYesOrNo(Const.BUY_OR_NOT))
-			return;
+	private String sell(Player p) {
 		if (!p.addCash(-this.getPrice())) {
-			IO.printString(Const.CASH_NOT_ENOUGH);
-			return;
+			return Const.CASH_NOT_ENOUGH.toString();
 		}
 		p.addHouse(this);
 		this.owner = p;
-		IO.printString(Const.SUCCESS);
+		return Const.SUCCESS.toString();
 	}
 
-	private void levelUp() {
+	private String levelUp() {
 		if (this.level >= MAXLEVEL) {
-			IO.printString(Const.HOUSE_MAX_LEVEL);
-			return;
+			return Const.HOUSE_MAX_LEVEL.toString();
+
 		}
-		if (!IO.getYesOrNo(Const.HOUSE_LEVELUP_OR_NOT))
-			return;
 		if (!owner.addCash(-this.initialPrice / 2)) {
-			IO.printString(Const.CASH_NOT_ENOUGH);
-			return;
+			return Const.CASH_NOT_ENOUGH.toString();
+
 		}
-		this.level++;
-		IO.printString(Const.SUCCESS);
+		return Const.SUCCESS.toString();
 	}
 
-	private boolean charge(Player p) {
+	private List<String> charge(Player p) {
+		List<String> strs = new LinkedList<String>();
 		int fee = this.getFee();
-		IO.printString("缴交过路费" + fee + "元给" + owner.getName());
+		strs.add("缴交过路费" + fee + "元给" + owner.getName());
 		owner.addCash(fee);
 		if (p.addCash(-fee))
-			return true;
-		IO.printString(Const.HOUSE_CASH_NOT_ENOUGH);
+			return strs;
+		strs.add(Const.HOUSE_CASH_NOT_ENOUGH.toString());
 		fee -= p.getCash();
 		p.setCash(0);
 		if (p.addDeposit(-fee))
-			return true;
-		IO.printString(Const.HOUSE_DEPO_NOT_ENOUGH);
+			return strs;
+		strs.add(Const.HOUSE_DEPO_NOT_ENOUGH.toString());
 		fee -= p.getDeposit();
 		p.setDeposit(0);
 		while (fee > 0) {
 			House house = p.sellHouse();
 			if (house == null) {
 				owner.addCash(-fee);
+				strs.add("支付不起过路费，破产！");
 				Manager.getInstance().fail(p);
-				return false;
+				return strs;
 			}
 			house.owner = null;
 			if ((fee -= house.getPrice()) <= 0) {
@@ -151,7 +163,7 @@ public class House extends Place implements Comparable<House> {
 				break;
 			}
 		}
-		return true;
+		return strs;
 	}
 
 	private int getFee() {
@@ -160,9 +172,8 @@ public class House extends Place implements Comparable<House> {
 				/ 10 + this.getPrice() / 5;
 	}
 
-	@Override
-	public EventSession event(EventSession session) {
-		// TODO Auto-generated method stub
-		return null;
+	public Player getOwner() {
+		return owner;
 	}
+
 }

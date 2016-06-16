@@ -51,6 +51,10 @@ public enum Const {
 	
 	//stock
 	STOCK_AMOUNT_ERROR("股票数输入有误！！！"),
+	
+	HOUSE_STATE_NULL("无主"),
+	HOUSE_STATE_SELF("自己的土地"),
+	HOUSE_STATE_OTHERS("他人的土地"),
 	;
 	private String message;
 

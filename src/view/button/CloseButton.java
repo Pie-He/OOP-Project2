@@ -20,7 +20,7 @@ public class CloseButton extends IButton {
 	// private Image im1 = ico.getImage();
 	public CloseButton(JDialog frame) {
 		super(50,50,ICO,ICO1);
-		setSize(50, 50);
+		//setSize(50, 50);
 		this.frame = frame;
 		super.setIcon(ICO);
 		super.setRolloverIcon(ICO1);
