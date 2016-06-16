@@ -18,22 +18,24 @@ public class Lottery extends Place {
 	public EventSession event(EventSession session) {
 		Player p = (Player) session.get("player");
 		EventSession response = new EventSession();
-		if (!p.addCash(-COST)) {
+		if (!p.addCash(-2000)) {
 			response.put("message", Const.CASH_NOT_ENOUGH);
-		} else {
-			int random = (int) (Math.random() * 10 + 1);
-			int lottery = 0;
-			if (random == 1)
-				lottery = 10000;
-			else if (1 < random && random <= 3)
-				lottery = 5000;
-			else if (3 < random && random <= 6)
-				lottery = 2000;
-			else
-				lottery = 1000;
-			response.put("message", Const.LOTTERY_SUCCESS.toString() + lottery);
-			p.addCash(lottery);
+			return response;
 		}
+		int random = (int) (Math.random() * 10 + 1);
+		int lottery = 0;
+		if (random == 1)
+			lottery = 10000;
+		else if (1 < random && random <= 3)
+			lottery = 5000;
+		else if (3 < random && random <= 6)
+			lottery = 2000;
+		else
+			lottery = 1000;
+		response.put("message", Const.LOTTERY_SUCCESS.toString() + lottery
+				+ "ิชฃก");
+		p.addCash(lottery);
+
 		return response;
 	}
 

@@ -1,6 +1,7 @@
 package view.map;
 
 import static controller.MapController.getInstance;
+import igui.IDialog;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -49,18 +50,18 @@ public class MapCardPrize extends Map {
 		EventSession session = new EventSession("player", p);
 		EventSession response = getInstance().event(type, session);
 		Prop prop=(Prop) response.get("prop");
-		final MFrameP frame = new MFrameP();
-		frame.add(new PlacePanel(prop.toText()));
+		final IDialog dialog = new IDialog(400,200);
+		dialog.getContentPane().add(new PlacePanel(prop.toText()));
 		final java.util.Timer timer = new java.util.Timer();
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				frame.dispose();
+				dialog.dispose();
 				timer.cancel();
 			}
 		}, 2000);
-
+		dialog.setVisible(true);
 	}
 
 	class PlacePanel extends JPanel {
@@ -83,22 +84,5 @@ public class MapCardPrize extends Map {
 			g.setFont(new Font("微软雅黑", Font.PLAIN, 20));
 			g.drawString("获得道具" + prop, 20, 120);
 		}
-	}
-}
-
-@SuppressWarnings("serial")
-class MFrameP extends JFrame {
-	MFrameP() {
-		setSize(400, 200);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setUndecorated(true);
-		setVisible(true);
-		ViewController.getInstance().setEnabled(false);
-	}
-
-	public void dispose() {
-		ViewController.getInstance().setEnabled(true);
-		super.dispose();
 	}
 }

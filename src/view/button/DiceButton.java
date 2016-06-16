@@ -20,7 +20,6 @@ import controller.PlayerController;
 //此类为骰子的按钮类
 @SuppressWarnings("serial")
 public class DiceButton extends JButton {
-	private int dice;
 	private ImageIcon[] diceIcon = new ImageIcon[7];
 	private Image[] diceIm = new Image[diceIcon.length];
 	{
@@ -46,7 +45,6 @@ public class DiceButton extends JButton {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
 			count = 20;
 			timer.setDelay(20);
 			timer.start();
@@ -60,7 +58,6 @@ public class DiceButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 
 				int dice = (int) (Math.random() * 6 + 1);
 				if (count == 63) {
@@ -97,6 +94,7 @@ public class DiceButton extends JButton {
 					 * 2; GloVar.p1.setTwoDice(false);
 					 * GloVar.p2.setTwoDice(false); } GloVar.dice = num;
 					 */
+					//dice=8;
 					num = dice;
 					time.start();
 					/*
@@ -130,7 +128,6 @@ public class DiceButton extends JButton {
 						DiceButton.this.setEnabled(true);
 						ViewController.getInstance().event();
 					}
-					// TODO Auto-generated method stub
 					/*
 					 * if (GloVar.who == 1) { GloVar.p1.setStep(1);
 					 * GloVar.Map[GloVar.p1.getStep()].setPHere(GloVar.p1,

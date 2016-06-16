@@ -1,6 +1,7 @@
 package view.map;
 
 import static controller.MapController.getInstance;
+import igui.IDialog;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -56,21 +57,22 @@ public class MapCoupon extends Map {
 	// 触发获得点券事件
 	public void event(final Player p) {
 
-		final MFrame1 frame = new MFrame1();
+		final IDialog dialog = new IDialog(400, 200);
 		EventSession session = new EventSession("player", p);
-		EventSession response=getInstance().event(type, session);
-		int coupon=(int) response.get("coupon");
-		frame.add(new PlacePanel(coupon));
+		EventSession response = getInstance().event(type, session);
+		int coupon = (int) response.get("coupon");
+		dialog.getContentPane().add(new PlacePanel(coupon));
 		final java.util.Timer timer = new java.util.Timer();
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				frame.dispose();
+				dialog.dispose();
 				timer.cancel();
-				//GloVarGUI.frame.map.change(p);
+				// GloVarGUI.frame.map.change(p);
 			}
 		}, 2000);
+		dialog.setVisible(true);
 	}
 
 	class PlacePanel extends JPanel {
@@ -94,23 +96,5 @@ public class MapCoupon extends Map {
 			g.setFont(new Font("华文新魏", Font.PLAIN, 20));
 			g.drawString("获得点券" + coupon, 40, 120);
 		}
-	}
-}
-
-@SuppressWarnings("serial")
-class MFrame1 extends JFrame {
-
-	MFrame1() {
-		setSize(400, 200);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setUndecorated(true);
-		setVisible(true);
-		ViewController.getInstance().setEnabled(false);
-	}
-
-	public void dispose() {
-		ViewController.getInstance().setEnabled(true);
-		super.dispose();
 	}
 }
