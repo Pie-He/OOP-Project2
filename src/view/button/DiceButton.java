@@ -94,7 +94,7 @@ public class DiceButton extends JButton {
 					 * 2; GloVar.p1.setTwoDice(false);
 					 * GloVar.p2.setTwoDice(false); } GloVar.dice = num;
 					 */
-					dice=8;
+					dice=6;
 					num = dice;
 					time.start();
 					/*

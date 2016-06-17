@@ -125,7 +125,7 @@ public class Manager {
 				break;
 			case 2:
 				int propChoice;
-				while ((propChoice = IO.getProp(player.propToText())) >= 0) {
+				/*while ((propChoice = IO.getProp(player.propToText())) >= 0) {
 					player.useProp(propChoice);
 					if (diceFlag >= 0) {
 						//boolean is = map.event(player);
@@ -133,7 +133,7 @@ public class Manager {
 						diceFlag = -1;
 						return false;
 					}
-				}
+				}*/
 				break;
 			case 3:
 				warning(player);

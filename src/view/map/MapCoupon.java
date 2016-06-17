@@ -2,6 +2,7 @@ package view.map;
 
 import static controller.MapController.getInstance;
 import igui.IDialog;
+import igui.IOption;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -57,44 +58,9 @@ public class MapCoupon extends Map {
 	// 触发获得点券事件
 	public void event(final Player p) {
 
-		final IDialog dialog = new IDialog(400, 200);
 		EventSession session = new EventSession("player", p);
 		EventSession response = getInstance().event(type, session);
 		int coupon = (int) response.get("coupon");
-		dialog.getContentPane().add(new PlacePanel(coupon));
-		final java.util.Timer timer = new java.util.Timer();
-		timer.schedule(new TimerTask() {
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				dialog.dispose();
-				timer.cancel();
-				// GloVarGUI.frame.map.change(p);
-			}
-		}, 2000);
-		dialog.setVisible(true);
-	}
-
-	class PlacePanel extends JPanel {
-		private ImageIcon ico = new ImageIcon("picture/place/彩票.jpg");
-		private Image im = ico.getImage();
-		private int coupon;
-
-		PlacePanel(int coupon) {
-			setLayout(null);
-			setSize(400, 200);
-			// 获得随机点券
-			this.coupon = coupon;
-		}
-
-		protected void paintComponent(Graphics g) {
-			// g.setColor(new Color(206, 206, 0));
-			g.setColor(Color.ORANGE);
-			g.drawImage(im, 0, 0, getWidth(), getHeight(), this);
-			g.setFont(new Font("华文新魏", Font.PLAIN, 40));
-			g.drawString("恭喜！", 50, 60);
-			g.setFont(new Font("华文新魏", Font.PLAIN, 20));
-			g.drawString("获得点券" + coupon, 40, 120);
-		}
+		IOption.showMessage("恭喜！获得"+coupon+"点券");
 	}
 }

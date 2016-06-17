@@ -17,11 +17,16 @@ public class Shop extends Place {
 
 	@Override
 	public EventSession event(EventSession session) {
-		List<Prop> props=(List<Prop>) session.get("props");
-		int money=(int) session.get("cost");
+		int[] num = (int[]) session.get("propsNum");
+		int coupon = (int) session.get("coupon");
 		Player p = (Player) session.get("player");
-		p.addCoupon(-money);
-		props.stream().forEach(p::addProp);
+		p.setCoupon(coupon);
+		for (int i = 0; i < num.length; i++) {
+			Prop prop = Prop.values()[i];
+			for (int j = 0; j < num[i]; j++) {
+				p.addProp(prop);
+			}
+		}
 		return null;
 	}
 }

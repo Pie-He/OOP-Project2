@@ -75,10 +75,10 @@ public class IOption extends IDialog {
 		}
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		 System.out.println(IOption.showConfirmDialog("ÊÇ·ñ¹ºÂò","²»ÊÇÂò"));
 		//IOption.showMessage("dd");
-	}
+	}*/
 
 	public static int showConfirmDialog(String... messages) {
 		IOption dialog = new IOption(messages);

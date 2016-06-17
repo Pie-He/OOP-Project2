@@ -1,6 +1,7 @@
 package bean.item;
 
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import bean.Map;
@@ -17,18 +18,22 @@ public class Player extends Item {
 	private int coupon;// Íæ¼ÒµãÈ¯
 	// private int step;
 	private int direction;
-	private ArrayList<Prop> props;
+	private java.util.Map<Prop, Integer> props;
 	private PriorityQueue<House> houses;
 	private EnumMap<Stock, Integer> stocks = new EnumMap<Stock, Integer>(
 			Stock.class);
-	//private PersonType type;
+
+	// private PersonType type;
 
 	public Player() {
 		this.cash = 20000;
 		this.deposit = 5000;
 		this.coupon = 1000;
-		this.props = new ArrayList<Prop>(20);
-		this.direction = -1;
+		this.props = new HashMap<Prop, Integer>(20);
+		for (Prop prop : Prop.values()) {
+			props.put(prop, 0);
+		}
+		this.direction = 1;
 		this.setPoi(0);
 		houses = new PriorityQueue<House>(20);
 		// mov=new Removable();
@@ -90,33 +95,47 @@ public class Player extends Item {
 		return (this.coupon += coupon) >= 0;
 	}
 
-	public boolean addProp(Prop p) {
-		return this.props.add(p);
+	public Integer addProp(Prop p) {
+		int num = this.props.get(p) + 1;
+		return this.props.put(p, num);
+	}
+
+	public Prop removeProp(Prop p) {
+		int num = this.props.get(p) - 1;
+		this.props.put(p, num);
+		return p;
+	}
+
+	public void useProp(Prop prop) {
+		int num = this.props.get(prop) - 1;
+		if (prop.use(this))
+			this.props.put(prop, num);
+
 	}
 
 	public Prop removeProp(int index) {
-		return this.props.remove(index);
-	}
-
-	public void useProp(int index) {
-		Prop prop = props.get(index);
-		if (prop.use(this))
-			props.remove(index);
-
-	}
-
-	public ArrayList<String> propToText() {
-		// StringBuffer str = new StringBuffer();
-		ArrayList<String> strs = new ArrayList<String>(20);
-		this.props.stream().forEach(i -> strs.add(i.toText()));
-		// return str.toString();
-		return strs;
+		List<Prop> list = new ArrayList<Prop>();
+		for (Entry<Prop, Integer> entry : props.entrySet()) {
+			for (int i = 0; i < entry.getValue(); i++) {
+				list.add(entry.getKey());
+			}
+		}
+		Prop p = list.get(index);
+		return this.removeProp(p);
 	}
 
 	public int getpropNum() {
-		return this.props.size();
+		int size = 0;
+		for (Entry<Prop, Integer> entry : props.entrySet()) {
+			size += entry.getValue();
+		}
+		return size;
 	}
 
+	public int getpropNum(Prop prop) {
+		return props.get(prop);
+	}
+	
 	public String getMessage() {
 		String str = Tools.stringCover(16, this.name, this.coupon + "",
 				this.cash + "", this.deposit + "",
@@ -220,12 +239,12 @@ public class Player extends Item {
 	 * }
 	 */
 
-	public String getSymbol(){
+	public String getSymbol() {
 		return this.name;
 	}
-	
+
 	public PersonType getType() {
-		return (PersonType)type;
+		return (PersonType) type;
 	}
 
 	public void setType(PersonType type) {

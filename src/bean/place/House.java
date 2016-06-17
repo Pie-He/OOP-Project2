@@ -96,13 +96,14 @@ public class House extends Place implements Comparable<House> {
 	public EventSession event(EventSession session) {
 		// super.event(p);
 		Player p = (Player) session.get("player");
-		String message = "";
+		String[] message = null;
 		if (this.owner == null) {
 			message = this.sell(p);
 		} else if (this.owner == p) {
 			message = this.levelUp();
 		} else {
-			this.charge(p);
+			List<String> l = this.charge(p);
+			message = l.toArray(new String[l.size()]);
 		}
 		// return
 		EventSession repsonse = new EventSession("message", message);
@@ -113,25 +114,26 @@ public class House extends Place implements Comparable<House> {
 		this.owner = null;
 	}
 
-	private String sell(Player p) {
+	private String[] sell(Player p) {
 		if (!p.addCash(-this.getPrice())) {
-			return Const.CASH_NOT_ENOUGH.toString();
+			return new String[] { Const.CASH_NOT_ENOUGH.toString() };
+		} else {
+			p.addHouse(this);
+			this.owner = p;
+			return new String[] { Const.SUCCESS.toString() };
 		}
-		p.addHouse(this);
-		this.owner = p;
-		return Const.SUCCESS.toString();
 	}
 
-	private String levelUp() {
-		if (this.level >= MAXLEVEL) {
-			return Const.HOUSE_MAX_LEVEL.toString();
+	private String[] levelUp() {
 
+		if (this.level >= MAXLEVEL) {
+			return new String[] { Const.HOUSE_MAX_LEVEL.toString() };
 		}
 		if (!owner.addCash(-this.initialPrice / 2)) {
-			return Const.CASH_NOT_ENOUGH.toString();
+			return new String[] { Const.CASH_NOT_ENOUGH.toString() };
 
 		}
-		return Const.SUCCESS.toString();
+		return new String[] { Const.SUCCESS.toString() };
 	}
 
 	private List<String> charge(Player p) {

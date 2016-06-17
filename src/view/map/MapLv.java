@@ -28,29 +28,7 @@ public class MapLv extends JLabel {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		switch (lv) {
-		case 0:
-			g.drawImage(lvIm[0], 0, 0, getWidth(), getHeight(), this);
-			break;
-		case 1:
-			g.drawImage(lvIm[1], 0, 0, getWidth(), getHeight(), this);
-			break;
-		case 2:
-			g.drawImage(lvIm[2], 0, 0, getWidth(), getHeight(), this);
-			break;
-		case 3:
-			g.drawImage(lvIm[3], 0, 0, getWidth(), getHeight(), this);
-			break;
-		case 4:
-			g.drawImage(lvIm[4], 0, 0, getWidth(), getHeight(), this);
-			break;
-		case 5:
-			g.drawImage(lvIm[5], 0, 0, getWidth(), getHeight(), this);
-			break;
-		case 6:
-			g.drawImage(lvIm[6], 0, 0, getWidth(), getHeight(), this);
-			break;
-		}
+		g.drawImage(lvIm[lv], 0, 0, getWidth(), getHeight(), this);
 	}
 
 	public void setLv(int i) {
