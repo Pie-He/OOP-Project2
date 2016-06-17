@@ -3,14 +3,12 @@ package view.button;
 import static view.ViewController.getInstance;
 
 import java.awt.Cursor;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.Timer;
 
 import view.ViewController;
@@ -94,7 +92,7 @@ public class DiceButton extends JButton {
 					 * 2; GloVar.p1.setTwoDice(false);
 					 * GloVar.p2.setTwoDice(false); } GloVar.dice = num;
 					 */
-					dice=6;
+					dice=3;
 					num = dice;
 					time.start();
 					/*

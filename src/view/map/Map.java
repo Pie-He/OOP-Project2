@@ -41,8 +41,7 @@ public abstract class Map extends JLabel implements Serializable {
 		// System.out.println(this.type);
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		List<Item> items = this.type.getItems();
-		// ImageIcon i=new ImageIcon();
-		// System.out.println(type.getDescription()+items.size());
+
 		items.stream().forEach(i -> {
 			Image image = i.getType().getIcon().getImage();
 			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
@@ -55,13 +54,6 @@ public abstract class Map extends JLabel implements Serializable {
 
 	public void event(Player p) {
 	};
-
-	public MapLv getLv() {
-		return null;
-	}
-
-	public void setLv(int i) {
-	}
 
 	// public void houseEvent(Player p){}
 	public void sellHS(Player p) {

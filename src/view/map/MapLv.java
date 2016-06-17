@@ -16,7 +16,7 @@ public class MapLv extends JLabel {
 	private transient Image[] lvIm = new Image[lvIcon.length];
 	{
 		for (int i = 0; i < lvIcon.length; i++) {
-			lvIcon[i] = new ImageIcon("picture/lv" + i + ".png");
+			lvIcon[i] = new ImageIcon("picture/level/lv" + i + ".png");
 			lvIm[i] = lvIcon[i].getImage();
 		}
 	}

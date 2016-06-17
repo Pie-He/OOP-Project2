@@ -21,6 +21,7 @@ public class MapLabel extends JLabel {
 		map[0].setLocation(20, 20);
 		for (int i = 1; i <= 5; i++) {
 			map[i] = new MapHouse();
+
 			/*
 			 * Map[i].type.street = "Lancer"; Map[i].type.name =
 			 * Map[i].type.street + i; Map[i].type.setInit(1000);
@@ -83,37 +84,38 @@ public class MapLabel extends JLabel {
 		for (int i = 1; i <= 5; i++) {
 			add(map[i]);
 			map[i].setLocation(150 + 50 * (i - 1), 100);
-			add(map[i].getLv());
-			map[i].getLv().setLocation(150 + 50 * (i - 1), 50);
+			add(((MapHouse) map[i]).getLv());
+			((MapHouse) map[i]).getLv().setLocation(150 + 50 * (i - 1), 50);
 		}
 		add(map[6]);
 		map[6].setLocation(400, 20);
 		add(map[7]);
 		map[7].setLocation(480, 150);
-		add(map[7].getLv());
-		map[7].getLv().setLocation(430, 150);
+		add(((MapHouse) map[7]).getLv());
+		((MapHouse) map[7]).getLv().setLocation(430, 150);
 		for (int i = 8; i <= 10; i++) {
 			add(map[i]);
 			map[i].setLocation(480 + 50 * (i - 8), 200);
-			add(map[i].getLv());
-			map[i].getLv().setLocation(480 + 50 * (i - 8), 250);
+			add(((MapHouse) map[i]).getLv());
+			((MapHouse) map[i]).getLv().setLocation(480 + 50 * (i - 8), 250);
 		}
 		add(map[11]);
 		map[11].setLocation(580, 150);
-		add(map[11].getLv());
-		map[11].getLv().setLocation(630, 150);
+		add(((MapHouse) map[11]).getLv());
+		((MapHouse) map[11]).getLv().setLocation(630, 150);
 		add(map[12]);
 		map[12].setLocation(580, 20);
 		add(map[13]);
 		map[13].setLocation(710, 20);
-		add(map[13].getLv());
-		map[13].getLv().setLocation(710, 70);
+		add(((MapHouse) map[13]).getLv());
+		((MapHouse) map[13]).getLv().setLocation(710, 70);
 		for (int i = 14; i <= 18; i++) {
 			if (i != 15) {
 				add(map[i]);
 				map[i].setLocation(760, 20 + 50 * (i - 14));
-				add(map[i].getLv());
-				map[i].getLv().setLocation(810, 20 + 50 * (i - 14));
+				add(((MapHouse) map[i]).getLv());
+				((MapHouse) map[i]).getLv()
+						.setLocation(810, 20 + 50 * (i - 14));
 			} else {
 				add(map[i]);
 				map[i].setLocation(760, 20 + 50 * (i - 14));
@@ -124,29 +126,29 @@ public class MapLabel extends JLabel {
 		for (int i = 20; i <= 23; i++) {
 			add(map[i]);
 			map[i].setLocation(680, 400 + 50 * (i - 20));
-			add(map[i].getLv());
-			map[i].getLv().setLocation(730, 400 + 50 * (i - 20));
+			add(((MapHouse) map[i]).getLv());
+			((MapHouse) map[i]).getLv().setLocation(730, 400 + 50 * (i - 20));
 		}
 		add(map[24]);
 		map[24].setLocation(630, 550);
-		add(map[24].getLv());
-		map[24].getLv().setLocation(630, 600);
+		add(((MapHouse) map[24]).getLv());
+		((MapHouse) map[24]).getLv().setLocation(630, 600);
 		add(map[25]);
 		map[25].setLocation(500, 470);
 		for (int i = 26; i <= 28; i++) {
 			add(map[i]);
 			map[i].setLocation(450 - 50 * (i - 26), 550);
-			add(map[i].getLv());
-			map[i].getLv().setLocation(450 - 50 * (i - 26), 600);
+			add(((MapHouse) map[i]));
+			((MapHouse) map[i]).setLocation(450 - 50 * (i - 26), 600);
 		}
 		add(map[29]);
 		map[29].setLocation(350, 500);
-		add(map[29].getLv());
-		map[29].getLv().setLocation(350, 450);
+		add(((MapHouse) map[29]));
+		((MapHouse) map[29]).setLocation(350, 450);
 		add(map[30]);
 		map[30].setLocation(300, 500);
-		add(map[30].getLv());
-		map[30].getLv().setLocation(300, 450);
+		add(((MapHouse) map[30]).getLv());
+		((MapHouse) map[30]).getLv().setLocation(300, 450);
 		for (int i = 31; i <= 33; i++) {
 			add(map[i]);
 			map[i].setLocation(250 - 50 * (i - 31), 500);
@@ -167,7 +169,6 @@ public class MapLabel extends JLabel {
 		 */
 	}
 
-
 	public void refresh() {
 		/*
 		 * p1.resetP(GloVar.p1); p2.resetP(GloVar.p2); p1.refresh();
@@ -176,28 +177,11 @@ public class MapLabel extends JLabel {
 		for (int i = 0; i < map.length; i++) {
 			map[i].repaint();
 		}
-		for (int i = 1; i <= 5; i++) {
-			map[i].getLv().repaint();
-		}
-		for (int i = 7; i <= 11; i++) {
-			map[i].getLv().repaint();
-		}
-		for (int i = 13; i <= 18; i++) {
-			if (i != 15)
-				map[i].getLv().repaint();
-		}
-		for (int i = 20; i <= 24; i++) {
-			map[i].getLv().repaint();
-		}
-		for (int i = 26; i <= 30; i++) {
-			map[i].getLv().repaint();
-		}
 		// GloVarGUI.time.refresh();
 	}
 
-
 	public void event(Player player) {
 		map[player.getPoi()].event(player);
-		
+
 	}
 }

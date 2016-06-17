@@ -4,10 +4,15 @@ import static controller.MapController.getInstance;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.geom.RoundRectangle2D;
+import java.util.List;
+
+import javax.swing.ImageIcon;
 
 import util.Const;
 import controller.EventSession;
+import bean.item.Item;
 import bean.item.Player;
 import bean.place.House;
 import bean.place.Place;
@@ -19,7 +24,8 @@ public class MapHouse extends Map {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private transient MapLv lv = new MapLv();
+	private transient MapLv lv;
+
 	private transient RoundRectangle2D clip = new RoundRectangle2D.Double(0, 0,
 			39, 39, 10, 10);
 	String[] houseSell = new String[25];
@@ -27,6 +33,7 @@ public class MapHouse extends Map {
 
 	public MapHouse() {
 		super.setSize(40, 40);
+		lv = new MapLv();
 		// type = new House();
 		// type.setLv(0);
 		for (int i = 0; i < houseSell.length; i++) {
@@ -36,6 +43,11 @@ public class MapHouse extends Map {
 	}
 
 	public void paintComponent(Graphics g) {
+		if (house != null) {
+			this.image = new ImageIcon(house.getOwner() == null ? null : house
+					.getOwner().getType().getHsUrl()).getImage();
+		}
+
 		super.paintComponent(g);
 		/*
 		 * if (type.isPHere) { g.setClip(clip); g.drawImage(p.getImage(), 0, 0,
@@ -54,27 +66,23 @@ public class MapHouse extends Map {
 
 	}
 
-	/*
-	 * @Override public void setPHere(Person p, boolean isPHere) { // TODO
-	 * Auto-generated method stub if (isPHere) {
-	 * 
-	 * super.setHere(true); this.p = p; repaint(); } else { this.p = p.rival;
-	 * super.setHere(false); repaint(); } }
-	 */
 	@Override
+	public void setType(Place type) {
+		super.setType(type);
+		house = (House) type;
+	}
+
 	public MapLv getLv() {
 		return lv;
 	}
 
 	@Override
-	public void setLv(int i) {
-		lv.setLv(i);
-	}
-
-	@Override
-	public void setType(Place type) {
-		super.setType(type);
-		house = (House) type;
+	public void repaint() {
+		super.repaint();
+		if (lv != null) {
+			lv.setLv(house.getOwner() == null ? 0 : house.getLevel());
+			this.lv.repaint();
+		}
 	}
 
 	// 触发土地事件
@@ -99,5 +107,6 @@ public class MapHouse extends Map {
 		EventSession response = getInstance().event(type, session);
 		String[] mess = (String[]) response.get("message");
 		IOption.showMessage(mess);
+		this.repaint();
 	}
 }
