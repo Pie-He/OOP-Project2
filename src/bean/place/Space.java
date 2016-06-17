@@ -2,7 +2,6 @@ package bean.place;
 
 import controller.EventSession;
 import bean.PlaceEnum;
-import bean.item.Player;
 
 public class Space extends Place {
 

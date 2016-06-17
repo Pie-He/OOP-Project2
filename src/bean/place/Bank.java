@@ -16,7 +16,7 @@ public class Bank extends Place {
 		Player p=(Player) session.get("player");
 		int money = (int) session.get("money");
 		p.addCash(-money);
-		p.addDeposit(money);
+		p.addDeposit(money);//´æÇ®ÎªÕý
 		return null;
 	}
 

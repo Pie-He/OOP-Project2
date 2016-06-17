@@ -138,13 +138,13 @@ public class MapLabel extends JLabel {
 		for (int i = 26; i <= 28; i++) {
 			add(map[i]);
 			map[i].setLocation(450 - 50 * (i - 26), 550);
-			add(((MapHouse) map[i]));
-			((MapHouse) map[i]).setLocation(450 - 50 * (i - 26), 600);
+			add(((MapHouse) map[i]).getLv());
+			((MapHouse) map[i]).getLv().setLocation(450 - 50 * (i - 26), 600);
 		}
 		add(map[29]);
 		map[29].setLocation(350, 500);
-		add(((MapHouse) map[29]));
-		((MapHouse) map[29]).setLocation(350, 450);
+		add(((MapHouse) map[29]).getLv());
+		((MapHouse) map[29]).getLv().setLocation(350, 450);
 		add(map[30]);
 		map[30].setLocation(300, 500);
 		add(((MapHouse) map[30]).getLv());
