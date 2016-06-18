@@ -2,20 +2,24 @@ package view.label;
 
 import static controller.MapController.getInstance;
 
-import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JLabel;
 
 import bean.item.Player;
-import controller.PlayerController;
 import view.map.*;
 
 @SuppressWarnings("serial")
 public class MapLabel extends JLabel {
 	public Map[] map = new Map[42];// 地图格子
+	private mapMess jlMap = new mapMess();
 
 	public MapLabel() {
 		setLayout(null);
-		setSize(800, 610);
+		setSize(800, 700);
 
 		map[0] = new MapHospital();
 		map[0].setLocation(20, 20);
@@ -162,11 +166,33 @@ public class MapLabel extends JLabel {
 		for (int i = 0; i < this.map.length; i++) {
 			map[i].setType(getInstance().getInitMap().get(i));
 		}
+
+		for (int i = 0; i < map.length; i++) {
+			int f = i;
+			map[i].addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					// TODO Auto-generated method stub
+					jlMap.setText(map[f].getMessage());
+					jlMap.repaint();
+				}
+
+				@Override
+				public void mouseExited(MouseEvent e) {
+					// TODO Auto-generated method stub
+					jlMap.setText("");
+					jlMap.repaint();
+				}
+			});
+		}
+
 		this.refresh();
 		/*
 		 * ImageIcon icon=new ImageIcon("picture/person/人物1.png");
 		 * Map[0].putImage(icon.getImage()); Map[0].repaint();
 		 */
+		add(jlMap);
+		jlMap.setLocation(50, 600);
 	}
 
 	public void refresh() {
@@ -184,4 +210,19 @@ public class MapLabel extends JLabel {
 		map[player.getPoi()].event(player);
 
 	}
+
+	class mapMess extends JLabel {
+		/**
+			 * 
+			 */
+		private static final long serialVersionUID = 1L;
+
+		mapMess() {
+			super("信息栏");
+			setSize(800, 100);
+			setForeground(Color.WHITE);
+			setFont(new Font("幼圆", Font.PLAIN, 20));
+		}
+	}
+
 }

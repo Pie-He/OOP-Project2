@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import controller.EventSession;
+import controller.TimeController;
 import bean.Manager;
 import bean.PlaceEnum;
 import bean.item.Player;
@@ -75,18 +76,18 @@ public class House extends Place implements Comparable<House> {
 	@Override
 	public String getDescription() {
 		return super.getDescription()
-				+ "\n"
+				+ " "
 				+ "名称:"
 				+ name
-				+ "\n"
+				+ " "
 				+ "初始价格:"
 				+ this.initialPrice
 				+ "元"
-				+ "\n"
+				+ " "
 				+ "当前等级:"
 				+ this.level
 				+ "级"
-				+ "\n"
+				+ " "
 				+ "拥有者:"
 				+ (this.owner == null ? Const.HOUSE_NOT_OWNER : this.owner
 						.getName()) + "\n";
@@ -156,7 +157,7 @@ public class House extends Place implements Comparable<House> {
 			if (house == null) {
 				owner.addCash(-fee);
 				strs.add("支付不起过路费，破产！");
-				Manager.getInstance().fail(p);
+				TimeController.getInstance().fail(p);
 				return strs;
 			}
 			house.owner = null;

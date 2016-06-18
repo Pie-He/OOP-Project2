@@ -23,7 +23,7 @@ public class Player extends Item {
 	private EnumMap<Stock, Integer> stocks = new EnumMap<Stock, Integer>(
 			Stock.class);
 
-	// private PersonType type;
+	private int stopRound = 0;
 
 	public Player() {
 		this.cash = 20000;
@@ -135,7 +135,7 @@ public class Player extends Item {
 	public int getpropNum(Prop prop) {
 		return props.get(prop);
 	}
-	
+
 	public String getMessage() {
 		String str = Tools.stringCover(16, this.name, this.coupon + "",
 				this.cash + "", this.deposit + "",
@@ -251,4 +251,17 @@ public class Player extends Item {
 		this.type = type;
 	}
 
+	public void setStopRound(int stopRound) {
+		this.stopRound = stopRound;
+	}
+
+	public boolean stop() {
+		if (this.stopRound > 0) {
+			this.stopRound--;
+			return true;
+		} else {
+			return false;
+		}
+
+	}
 }

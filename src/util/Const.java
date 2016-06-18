@@ -30,6 +30,7 @@ public enum Const {
 	NEWS_CARD_PRIZE("每个人得到一张卡片"),
 	NEWS_MAXHOUSE("公开表扬第一地主! "),
 	NEWS_MINHOUSE("公开补助土地最少者 "),
+	NEWS_HOUSPITAL("突发事件，受伤住院2天！"),
 	
 	//time
 	TIME_DEPO_PRIZE("月底发放储金利息！！！"),

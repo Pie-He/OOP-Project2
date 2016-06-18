@@ -84,7 +84,6 @@ public class DiceButton extends JButton {
 				} else if (count == 64) {
 					timer.stop();
 
-					
 					// 判断是否使用技能（骰子点数*2）
 					/*
 					 * if ((GloVar.who == 1 && GloVar.p1.isTwoDice()) ||
@@ -92,7 +91,7 @@ public class DiceButton extends JButton {
 					 * 2; GloVar.p1.setTwoDice(false);
 					 * GloVar.p2.setTwoDice(false); } GloVar.dice = num;
 					 */
-					dice=15;
+					dice = 12;
 					num = dice;
 					time.start();
 					/*

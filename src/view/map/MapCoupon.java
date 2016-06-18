@@ -31,28 +31,17 @@ public class MapCoupon extends Map {
 	public MapCoupon() {
 		super.setSize(40, 40);
 		this.image = ICON.getImage();
-		// type = new Coupon();
 	}
 
 	public void paintComponent(Graphics g) {
 		g.setClip(clip);
 		List<Item> items = this.type.getItems();
-		// ImageIcon i=new ImageIcon();
-		// System.out.println(type.getDescription()+items.size());
 		items.stream().forEach(i -> {
 			Image image = i.getType().getIcon().getImage();
 			g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		});
 		g.setClip(null);
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-
-		/*
-		 * if (type.isPHere) { g.setClip(clip); g.drawImage(p.getImage(), 0, 0,
-		 * getWidth(), getHeight(), this); g.setClip(null); g.drawImage(image,
-		 * 0, 0, getWidth(), getHeight(), this); } else {
-		 */
-		// g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-		// }
 	}
 
 	// 触发获得点券事件

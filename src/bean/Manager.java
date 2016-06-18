@@ -11,14 +11,9 @@ import util.Tools;
 
 public class Manager {
 	/*µ¥ÀýÄ£Ê½*/
-	private static final Manager MANAGER = new Manager();
-
 	private Manager() {
 	}
 
-	public static Manager getInstance() {
-		return MANAGER;
-	}
 
 	final private static String[] PLSYMBOL = { "¡õ", "¡ð", "¡÷", "¡î" };
 	final private static String[] HSSYMBOL = { "¡ö", "¡ñ", "¡ø", "¡ï" };

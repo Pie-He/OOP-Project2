@@ -26,10 +26,6 @@ public class MapController extends IController {
 		// this.init();
 	}
 
-	public String getSymbol() {
-		return "";
-	}
-
 	public List<Place> getInitMap() {
 		return this.map.getMap();
 	}
@@ -47,6 +43,17 @@ public class MapController extends IController {
 		this.map.removePlayer(player);
 		this.map.setPlayerPoi(player, player.walk(map.mapLength()));
 		// System.out.println("1个数:" + map.getMap().get(1).getItems().size());
+	}
+
+	public void move(Player player, int poi) {
+		this.map.removePlayer(player);
+		player.setPoi(0);	
+		this.map.setPlayerPoi(player, poi);
+		// System.out.println("1个数:" + map.getMap().get(1).getItems().size());
+	}
+
+	public void moveToHospital(Player player) {
+		move(player, 0);
 	}
 
 	public EventSession event(Place place, EventSession session) {

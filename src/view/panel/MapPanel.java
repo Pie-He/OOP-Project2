@@ -34,7 +34,7 @@ public class MapPanel extends JPanel {
 	private Image fateBackground = fateImage.getImage();
 
 	// private ChangeButton jbtChange = new ChangeButton();
-	private mapMess jlMap = new mapMess();
+
 	private TimeLabel time = new TimeLabel();
 	private MapLabel map = new MapLabel();
 	private List<PlayerMessLabel> playerMess = new ArrayList<PlayerMessLabel>();
@@ -46,8 +46,7 @@ public class MapPanel extends JPanel {
 
 		add(time);
 		time.setLocation(880, 50);
-		add(jlMap);
-		jlMap.setLocation(50, 600);
+
 
 		add(map);
 		map.setLocation(0, 0);
@@ -75,41 +74,7 @@ public class MapPanel extends JPanel {
 	}
 
 	// 用于显示地图各点信息
-	class mapMess extends JLabel {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
-		mapMess() {
-			super("信息栏");
-			setSize(800, 100);
-			setForeground(Color.WHITE);
-			setFont(new Font("幼圆", Font.PLAIN, 20));
-		}
-	}
-
-	class mapListener extends MouseAdapter {
-		int i;
-
-		mapListener(int i) {
-			this.i = i;
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			// jlMap.setText(GloVar.Map[i].type.getIntr());
-			jlMap.repaint();
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-			jlMap.setText("");
-			jlMap.repaint();
-		}
-	}
+	
 
 	public void refresh() {
 		this.map.refresh();

@@ -67,4 +67,8 @@ public abstract class Map extends JLabel implements Serializable {
 
 	public void Cross(Player p, Timer time) {
 	}
+	
+	public String getMessage(){
+		return type.getDescription();
+	}
 }
