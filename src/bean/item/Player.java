@@ -23,7 +23,7 @@ public class Player extends Item {
 	private EnumMap<Stock, Integer> stocks = new EnumMap<Stock, Integer>(
 			Stock.class);
 
-	private int stopRound = 0;
+	//private int stopRound = 0;
 
 	public Player() {
 		this.cash = 20000;
@@ -251,7 +251,7 @@ public class Player extends Item {
 		this.type = type;
 	}
 
-	public void setStopRound(int stopRound) {
+	/*public void setStopRound(int stopRound) {
 		this.stopRound = stopRound;
 	}
 
@@ -262,6 +262,5 @@ public class Player extends Item {
 		} else {
 			return false;
 		}
-
-	}
+	}*/
 }

@@ -1,5 +1,6 @@
 package view.map;
 
+import static controller.MapController.getInstance;
 import igui.IOption;
 
 import java.awt.Color;
@@ -13,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import controller.EventSession;
 import bean.item.Player;
 import bean.place.Hospital;
 
@@ -31,18 +33,23 @@ public class MapHospital extends Map {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		/*
-		 * if (type.isPHere) { g.drawImage(image, 0, 0, getWidth(), getHeight(),
-		 * this); g.drawImage(p.getIm(), 0, 0, getWidth(), getHeight(), this); }
-		 * else {
-		 */
-		// g.drawImage(pic, 0, 0, getWidth(), getHeight(), this);
-		// g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-		// }
+
 	}
 
-	public void event(final Player p) {
-		IOption.showMessage(2000, "ҽԺ");
+	public boolean preEvent(Player player) {
+		EventSession session = new EventSession("player", player);
+		EventSession response = getInstance().event(type, session);
+		String message = (String) response.get("message");
+		// System.out.println("hospital preevent");
+		// System.out.println(message);
+		if (message != null) {
+			IOption.showMessage(message);
+			return false;
+		}
+		return true;
+	}
 
+	public void event(Player p) {
+		//IOption.showMessage(2000, "ҽԺ");
 	}
 }

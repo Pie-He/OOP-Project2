@@ -49,10 +49,15 @@ public class ViewController {
 	}
 
 	public void event() {
-		Player player=PlayerController.getInstance().getCurrentPlayer();
+		Player player = PlayerController.getInstance().getCurrentPlayer();
 		frame.event(player);
-		//MapController.getInstance().event(player);
-		int index=PlayerController.getInstance().nextPlayer();
+		// MapController.getInstance().event(player);
+		int index = PlayerController.getInstance().nextPlayer();
 		frame.show(index);
+		player = PlayerController.getInstance().getCurrentPlayer();
+		if (!frame.preEvent(player)){
+			System.out.println("pre");
+			event();
+		}
 	}
 }

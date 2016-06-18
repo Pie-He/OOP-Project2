@@ -70,4 +70,9 @@ public class Window extends IFrame {
 	public void show(int index){
 		map.show(index);
 	}
+
+	public boolean preEvent(Player player) {
+		return map.preEvent(player);
+		
+	}
 }

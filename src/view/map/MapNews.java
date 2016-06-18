@@ -41,7 +41,8 @@ public class MapNews extends Map {
 	}
 
 	@Override
-	public void event(final Player p) {
+	public void event(Player p) {
+		//System.out.println("[MapNews]" + p + p.getName());
 		EventSession session = new EventSession("player", p);
 
 		EventSession response = MapController.getInstance()

@@ -89,4 +89,8 @@ public class MapPanel extends JPanel {
 	public void event(Player player) {
 		map.event(player);
 	}
+
+	public boolean preEvent(Player player) {
+		return map.preEvent(player);
+	}
 }

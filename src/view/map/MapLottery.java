@@ -40,7 +40,7 @@ public class MapLottery extends Map {
 		super.paintComponent(g);
 	}
 
-	public void event(final Player p) {
+	public void event(Player p) {
 
 		EventSession session = new EventSession("player", p);
 

@@ -47,13 +47,14 @@ public class MapController extends IController {
 
 	public void move(Player player, int poi) {
 		this.map.removePlayer(player);
-		player.setPoi(0);	
+		player.setPoi(poi);
 		this.map.setPlayerPoi(player, poi);
 		// System.out.println("1¸öÊý:" + map.getMap().get(1).getItems().size());
 	}
 
-	public void moveToHospital(Player player) {
-		move(player, 0);
+	public void moveToHospital(Player player, int days) {
+		map.moveToHospital(player, days);
+		
 	}
 
 	public EventSession event(Place place, EventSession session) {

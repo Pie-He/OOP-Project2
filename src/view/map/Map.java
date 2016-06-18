@@ -19,7 +19,6 @@ public abstract class Map extends JLabel implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public transient Player p = new Player();
 	// Player p2=GloVar.p2;
 	protected Image image;
 	protected List<Image> imageItems = new ArrayList<Image>();
@@ -52,23 +51,16 @@ public abstract class Map extends JLabel implements Serializable {
 		this.type = place;
 	}
 
-	public void event(Player p) {
-	};
+	public abstract void event(Player p);
 
-	// public void houseEvent(Player p){}
-	public void sellHS(Player p) {
+	public boolean preEvent(Player p) {
+		return true;
 	}
-
-	public void changeOwner(Player p, int i) {
-	}
-
-	public void showSell(final Player p, String[] s) {
-	};
 
 	public void Cross(Player p, Timer time) {
 	}
-	
-	public String getMessage(){
+
+	public String getMessage() {
 		return type.getDescription();
 	}
 }

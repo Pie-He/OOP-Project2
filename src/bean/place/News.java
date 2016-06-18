@@ -27,6 +27,7 @@ public class News extends Place {
 		// super.event(p);
 		int random = (int) (Math.random() * 6);// 获得0~4随机数
 		Player player = (Player) session.get("player");
+		System.out.println("[News]" + player + player.getName());
 		String[] message;
 		switch (random) {
 		case 0: {
@@ -63,7 +64,7 @@ public class News extends Place {
 	}
 
 	private String[] new5(Player player) {
-		MapController.getInstance().moveToHospital(player);
+		MapController.getInstance().moveToHospital(player, 2);
 		return new String[] { Const.NEWS_HOUSPITAL.toString() };
 	}
 

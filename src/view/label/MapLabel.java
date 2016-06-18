@@ -225,4 +225,8 @@ public class MapLabel extends JLabel {
 		}
 	}
 
+	public boolean preEvent(Player player) {
+		return map[player.getPoi()].preEvent(player);
+	}
+
 }

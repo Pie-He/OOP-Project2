@@ -42,7 +42,7 @@ public class Map {
 		places.get(poi).put((player));
 	}
 
-	public EventSession event(int poi,EventSession session) {
+	public EventSession event(int poi, EventSession session) {
 		/*
 		 * for (int i = 0; i < dice; i++) { if (!movePlayer(player)) return
 		 * true; } if (!(places.get(player.getPoi()) instanceof Bank))
@@ -82,17 +82,24 @@ public class Map {
 		places.get(poi).put(p);
 		if (places.get(poi).removeBlock()) {
 			IO.printString(Const.BLOCK_YES);
-			//places.get(poi).event(p);
+			// places.get(poi).event(p);
 			return false;
 		}
-		if (places.get(poi) instanceof Bank){
-			
+		if (places.get(poi) instanceof Bank) {
+
 		}
-			//places.get(poi).event(p);
+		// places.get(poi).event(p);
 		return true;
 	}
 
 	public int mapLength() {
 		return this.places.size();
+	}
+
+	public void moveToHospital(Player player, int days) {
+		removePlayer(player);
+		player.setPoi(0);
+		setPlayerPoi(player, 0);
+		((Hospital) (places.get(0))).addPatient(player, days);
 	}
 }
