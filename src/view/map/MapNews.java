@@ -2,23 +2,19 @@ package view.map;
 
 import igui.IOption;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+
+
 
 import view.ViewController;
 import controller.EventSession;
 import controller.MapController;
 import bean.item.Player;
-import bean.place.News;
 
 //以下为新闻显示
+@SuppressWarnings("serial")
 public class MapNews extends Map {
 	private static final ImageIcon ICON = new ImageIcon("picture/place/新闻.png");
 
