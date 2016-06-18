@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+import controller.Session;
 import bean.Map;
 import bean.Prop;
 import bean.Stock;
@@ -23,7 +24,7 @@ public class Player extends Item {
 	private EnumMap<Stock, Integer> stocks = new EnumMap<Stock, Integer>(
 			Stock.class);
 
-	//private int stopRound = 0;
+	// private int stopRound = 0;
 
 	public Player() {
 		this.cash = 20000;
@@ -31,7 +32,7 @@ public class Player extends Item {
 		this.coupon = 1000;
 		this.props = new HashMap<Prop, Integer>(20);
 		for (Prop prop : Prop.values()) {
-			props.put(prop, 0);
+			props.put(prop, 100);
 		}
 		this.direction = 1;
 		this.setPoi(0);
@@ -104,13 +105,6 @@ public class Player extends Item {
 		int num = this.props.get(p) - 1;
 		this.props.put(p, num);
 		return p;
-	}
-
-	public void useProp(Prop prop) {
-		int num = this.props.get(prop) - 1;
-		if (prop.use(this))
-			this.props.put(prop, num);
-
 	}
 
 	public Prop removeProp(int index) {
@@ -251,16 +245,13 @@ public class Player extends Item {
 		this.type = type;
 	}
 
-	/*public void setStopRound(int stopRound) {
-		this.stopRound = stopRound;
+	public String toString() {
+		return this.getName();
 	}
-
-	public boolean stop() {
-		if (this.stopRound > 0) {
-			this.stopRound--;
-			return true;
-		} else {
-			return false;
-		}
-	}*/
+	/*
+	 * public void setStopRound(int stopRound) { this.stopRound = stopRound; }
+	 * 
+	 * public boolean stop() { if (this.stopRound > 0) { this.stopRound--;
+	 * return true; } else { return false; } }
+	 */
 }

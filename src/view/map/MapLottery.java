@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 import view.ViewController;
 import view.button.CheckButton;
 import view.button.CloseButton;
-import controller.EventSession;
+import controller.Session;
 import bean.item.Player;
 import bean.place.Lottery;
 
@@ -42,12 +42,12 @@ public class MapLottery extends Map {
 
 	public void event(Player p) {
 
-		EventSession session = new EventSession("player", p);
+		Session session = new Session("player", p);
 
 		int choice = IOption.showConfirmDialog("是否花费2000元购买彩票？");
 		if (choice == IOption.OK_OPTION) {
-			EventSession response = getInstance().event(type, session);
-			String message = (String) response.get("message");
+			Session response = getInstance().event(type, session);
+			String message = response.getString("message");
 			IOption.showMessage(message);
 		}
 

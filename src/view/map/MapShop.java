@@ -12,7 +12,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import controller.EventSession;
+import controller.Session;
 import controller.MapController;
 import view.button.CloseButton;
 import view.panel.PropPanel;
@@ -49,7 +49,7 @@ public class MapShop extends Map {
 	}
 
 	public void event(Player p) {
-		EventSession session = new EventSession("player", p);
+		Session session = new Session("player", p);
 
 		MDialog dialog = new MDialog(p);
 		dialog.setVisible(true);

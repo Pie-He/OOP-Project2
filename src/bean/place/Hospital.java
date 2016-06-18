@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import controller.EventSession;
+import controller.Session;
 import bean.PlaceEnum;
 import bean.item.Player;
 
@@ -18,14 +18,14 @@ public class Hospital extends Place {
 	}
 
 	@Override
-	public EventSession event(EventSession session) {
-		Player player = (Player) session.get("player");
-		System.out.println(player);
-		EventSession response = new EventSession();
-		System.out.println(patientList.containsKey(player));
-		System.out.println("[event]"+patientList.get(player));
-		System.out.println("[event size]"+patientList.size());
-		System.out.println(patientList);
+	public Session event(Session session) {
+		Player player = session.getPlayer("player");
+		//System.out.println(player);
+		Session response = new Session();
+		//System.out.println(patientList.containsKey(player));
+		//System.out.println("[event]"+patientList.get(player));
+		//System.out.println("[event size]"+patientList.size());
+		//System.out.println(patientList);
 		if (patientList.containsKey(player)) {
 			response.put("message", relax(player));
 		}

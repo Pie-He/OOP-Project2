@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import controller.EventSession;
+import controller.Session;
 import bean.item.Player;
 import bean.place.Hospital;
 
@@ -37,9 +37,9 @@ public class MapHospital extends Map {
 	}
 
 	public boolean preEvent(Player player) {
-		EventSession session = new EventSession("player", player);
-		EventSession response = getInstance().event(type, session);
-		String message = (String) response.get("message");
+		Session session = new Session("player", player);
+		Session response = getInstance().event(type, session);
+		String message = response.getString("message");
 		// System.out.println("hospital preevent");
 		// System.out.println(message);
 		if (message != null) {
@@ -50,6 +50,6 @@ public class MapHospital extends Map {
 	}
 
 	public void event(Player p) {
-		//IOption.showMessage(2000, "ҽԺ");
+		// IOption.showMessage(2000, "ҽԺ");
 	}
 }

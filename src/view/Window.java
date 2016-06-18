@@ -75,4 +75,9 @@ public class Window extends IFrame {
 		return map.preEvent(player);
 		
 	}
+
+	public void setButtonEnable(boolean b) {
+		map.setButtonEnable(b);
+		
+	}
 }

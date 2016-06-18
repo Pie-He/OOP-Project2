@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import controller.EventSession;
+import controller.Session;
 import util.Const;
 import util.IO;
 import bean.item.Player;
@@ -42,7 +42,7 @@ public class Map {
 		places.get(poi).put((player));
 	}
 
-	public EventSession event(int poi, EventSession session) {
+	public Session event(int poi, Session session) {
 		/*
 		 * for (int i = 0; i < dice; i++) { if (!movePlayer(player)) return
 		 * true; } if (!(places.get(player.getPoi()) instanceof Bank))

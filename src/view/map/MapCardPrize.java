@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import view.ViewController;
-import controller.EventSession;
+import controller.Session;
 import bean.Prop;
 import bean.item.Player;
 import bean.place.CardPrize;
@@ -35,8 +35,8 @@ public class MapCardPrize extends Map {
 
 	public void event(final Player p) {
 
-		EventSession session = new EventSession("player", p);
-		EventSession response = getInstance().event(type, session);
+		Session session = new Session("player", p);
+		Session response = getInstance().event(type, session);
 		Prop prop = (Prop) response.get("prop");
 		IOption.showMessage("¹§Ï²£¡»ñµÃ" + prop.toText() + "1¸ö");
 	}

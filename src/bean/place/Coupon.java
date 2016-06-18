@@ -1,6 +1,6 @@
 package bean.place;
 
-import controller.EventSession;
+import controller.Session;
 import bean.PlaceEnum;
 import bean.item.Player;
 import util.IO;
@@ -12,10 +12,10 @@ public class Coupon extends Place {
 	}
 
 	@Override
-	public EventSession event(EventSession session) {
-		Player p = (Player) session.get("player");
+	public Session event(Session session) {
+		Player p = session.getPlayer("player");
 		int coupon = ((int) (Math.random() * 20) * 5 + 5);
 		p.addCoupon(coupon);
-		return new EventSession("coupon", coupon);
+		return new Session("coupon", coupon);
 	}
 }

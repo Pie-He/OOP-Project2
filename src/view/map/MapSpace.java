@@ -31,14 +31,6 @@ public class MapSpace extends Map {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		/*
-		 * if (type.isPHere) { g.drawImage(image, 0, 0, getWidth(), getHeight(),
-		 * this); g.drawImage(p.getIm(), 0, 0, getWidth(), getHeight(), this); }
-		 * else {
-		 */
-		// g.drawImage(pic, 0, 0, getWidth(), getHeight(), this);
-		// g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-		// }
 	}
 
 	public void event(final Player p) {

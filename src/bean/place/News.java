@@ -6,7 +6,7 @@ import java.util.IntSummaryStatistics;
 import java.util.LinkedList;
 import java.util.List;
 
-import controller.EventSession;
+import controller.Session;
 import controller.MapController;
 import controller.PlayerController;
 import bean.Manager;
@@ -23,10 +23,10 @@ public class News extends Place {
 	}
 
 	@Override
-	public EventSession event(EventSession session) {
+	public Session event(Session session) {
 		// super.event(p);
 		int random = (int) (Math.random() * 6);// 获得0~4随机数
-		Player player = (Player) session.get("player");
+		Player player = session.getPlayer("player");
 		System.out.println("[News]" + player + player.getName());
 		String[] message;
 		switch (random) {
@@ -59,7 +59,7 @@ public class News extends Place {
 			message = new5(player);
 		}
 		}
-		EventSession response = new EventSession("message", message);
+		Session response = new Session("message", message);
 		return response;
 	}
 

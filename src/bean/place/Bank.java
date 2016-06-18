@@ -1,6 +1,6 @@
 package bean.place;
 
-import controller.EventSession;
+import controller.Session;
 import bean.PlaceEnum;
 import bean.item.Player;
 import util.*;
@@ -12,11 +12,11 @@ public class Bank extends Place {
 	}
 
 	@Override
-	public EventSession event(EventSession session) {
-		Player p=(Player) session.get("player");
-		int money = (int) session.get("money");
+	public Session event(Session session) {
+		Player p = session.getPlayer("player");
+		int money = session.getInteger("money");
 		p.addCash(-money);
-		p.addDeposit(money);//存钱为正
+		p.addDeposit(money);// 存钱为正
 		return null;
 	}
 

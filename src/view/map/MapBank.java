@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.Timer;
 
-import controller.EventSession;
+import controller.Session;
 import view.button.CloseButton;
 import bean.item.Player;
 
@@ -49,7 +49,7 @@ public class MapBank extends Map {
 		dialog.add(jpPlace);
 		dialog.setVisible(true);
 
-		EventSession session = new EventSession("player", p);
+		Session session = new Session("player", p);
 		session.put("money", money);
 		getInstance().event(type, session);
 

@@ -57,7 +57,7 @@ public class MapController extends IController {
 		
 	}
 
-	public EventSession event(Place place, EventSession session) {
+	public Session event(Place place, Session session) {
 		// this.map.event(session);
 		return place.event(session);
 	}

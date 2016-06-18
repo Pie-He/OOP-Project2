@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import util.PersonType;
+import bean.Prop;
 import bean.item.Player;
 
 public class PlayerController extends IController {
@@ -39,5 +40,10 @@ public class PlayerController extends IController {
 
 	public Player getCurrentPlayer() {
 		return this.players.get(index);
+	}
+
+	public Session userProp(Player player,Prop prop,Session session) {
+		player.removeProp(prop);
+		return prop.use(player, session);
 	}
 }

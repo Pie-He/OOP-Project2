@@ -1,6 +1,6 @@
 package bean.place;
 
-import controller.EventSession;
+import controller.Session;
 import bean.PlaceEnum;
 import bean.item.Player;
 import util.Const;
@@ -15,9 +15,9 @@ public class Lottery extends Place {
 	}
 
 	@Override
-	public EventSession event(EventSession session) {
-		Player p = (Player) session.get("player");
-		EventSession response = new EventSession();
+	public Session event(Session session) {
+		Player p = session.getPlayer("player");
+		Session response = new Session();
 		if (!p.addCash(-2000)) {
 			response.put("message", Const.CASH_NOT_ENOUGH);
 			return response;

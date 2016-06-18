@@ -21,12 +21,14 @@ public class IOption extends IDialog {
 	private static int option;
 	private String[] message;
 	private boolean auto;
+	private CheckPanel check;
 
 	public IOption(String[] message, boolean auto) {
 		super(PER * I_WIDTH, PER * I_HEIGHT);
 		this.auto = auto;
 		this.message = message;
-		this.getContentPane().add(new CheckPanel());
+		this.check = new CheckPanel();
+		this.getContentPane().add(check);
 	}
 
 	public IOption(String[] message) {
@@ -48,7 +50,7 @@ public class IOption extends IDialog {
 			if (!auto) {
 				add(btn);
 				btn.setLocation((IOption.this.getWidth() - btn.getWidth()) / 2,
-						IOption.this.getHeight()-50);
+						IOption.this.getHeight() - 50);
 				btn.addActionListener((e) -> {
 					IOption.this.dispose();
 					option = OK_OPTION;
@@ -75,10 +77,11 @@ public class IOption extends IDialog {
 		}
 	}
 
-	/*public static void main(String[] args) {
-		 System.out.println(IOption.showConfirmDialog("是否购买","不是买"));
-		//IOption.showMessage("dd");
-	}*/
+	/*
+	 * public static void main(String[] args) {
+	 * System.out.println(IOption.showConfirmDialog("是否购买","不是买"));
+	 * //IOption.showMessage("dd"); }
+	 */
 
 	public static int showConfirmDialog(String... messages) {
 		IOption dialog = new IOption(messages);

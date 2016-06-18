@@ -47,7 +47,6 @@ public class MapPanel extends JPanel {
 		add(time);
 		time.setLocation(880, 50);
 
-
 		add(map);
 		map.setLocation(0, 0);
 
@@ -74,7 +73,6 @@ public class MapPanel extends JPanel {
 	}
 
 	// 用于显示地图各点信息
-	
 
 	public void refresh() {
 		this.map.refresh();
@@ -82,7 +80,7 @@ public class MapPanel extends JPanel {
 	}
 
 	public void show(int index) {
-		playerMess.stream().forEach(i->i.setVisible(false));
+		playerMess.stream().forEach(i -> i.setVisible(false));
 		playerMess.get(index).setVisible(true);
 	}
 
@@ -92,5 +90,9 @@ public class MapPanel extends JPanel {
 
 	public boolean preEvent(Player player) {
 		return map.preEvent(player);
+	}
+
+	public void setButtonEnable(boolean b) {
+		this.jbtDice.setEnabled(b);
 	}
 }

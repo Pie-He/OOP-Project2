@@ -2,7 +2,7 @@ package bean.place;
 
 import java.util.*;
 
-import controller.EventSession;
+import controller.Session;
 import bean.PlaceEnum;
 import bean.item.*;
 import util.IO;
@@ -23,7 +23,7 @@ public abstract class Place {
 		return "¿‡–Õ:" + PlaceEnum.values()[getType()].getDescription();
 	};
 
-	public abstract EventSession event(EventSession session);
+	public abstract Session event(Session session);
 
 
 	public LinkedList<Item> getItems() {

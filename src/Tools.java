@@ -1,5 +1,7 @@
 import java.io.*;
 
+import javax.swing.JOptionPane;
+
 import view.map.MapBank;
 import view.map.MapCardPrize;
 import view.map.MapCoupon;
@@ -14,7 +16,12 @@ import com.alibaba.fastjson.*;
 public class Tools {
 
 	public static void main(String[] args) throws IOException {
-		writeMap();
+		//writeMap();
+		Object[] num = { "dsaf", 2, 3, 4, 5, 6 };
+		Object num0 =  JOptionPane.showInputDialog(null,
+				"请选择你要掷的点数:\n", "遥控骰子", JOptionPane.PLAIN_MESSAGE, null, num,
+				"1");
+		System.out.println(num0);
 	}
 
 	public static void writeMap() throws IOException {

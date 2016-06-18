@@ -2,7 +2,7 @@ package bean.place;
 
 import java.util.List;
 
-import controller.EventSession;
+import controller.Session;
 import bean.PlaceEnum;
 import bean.Prop;
 import bean.item.Player;
@@ -16,10 +16,10 @@ public class Shop extends Place {
 	}
 
 	@Override
-	public EventSession event(EventSession session) {
-		int[] num = (int[]) session.get("propsNum");
-		int coupon = (int) session.get("coupon");
-		Player p = (Player) session.get("player");
+	public Session event(Session session) {
+		int[] num = session.getIntegers("propsNum");
+		int coupon = session.getInteger("coupon");
+		Player p = session.getPlayer("player");
 		p.setCoupon(coupon);
 		for (int i = 0; i < num.length; i++) {
 			Prop prop = Prop.values()[i];

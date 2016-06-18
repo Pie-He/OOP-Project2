@@ -16,7 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import controller.EventSession;
+import controller.Session;
 import view.ViewController;
 import bean.item.Item;
 import bean.item.Player;
@@ -47,9 +47,9 @@ public class MapCoupon extends Map {
 	// 触发获得点券事件
 	public void event(final Player p) {
 
-		EventSession session = new EventSession("player", p);
-		EventSession response = getInstance().event(type, session);
-		int coupon = (int) response.get("coupon");
-		IOption.showMessage("恭喜！获得"+coupon+"点券");
+		Session session = new Session("player", p);
+		Session response = getInstance().event(type, session);
+		int coupon = response.getInteger("coupon");
+		IOption.showMessage("恭喜！获得" + coupon + "点券");
 	}
 }

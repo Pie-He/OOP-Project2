@@ -1,28 +1,33 @@
 package view.label;
 
 import igui.IButton;
+import igui.IDialog;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import util.PersonType;
+import view.PropUse;
+import view.ViewController;
+import view.button.CloseButton;
+import view.panel.PropPanel;
+import view.panel.PropPanel.PropPerPanel;
+import bean.Prop;
 import bean.item.Player;
 
 //此类为人物信息显示label，包括道具使用及技能使用
+@SuppressWarnings("serial")
 public class PlayerMessLabel extends JLabel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	TitledBorder border = new TitledBorder(
 			BorderFactory.createLineBorder(Color.WHITE), "人物信息");
 	private Player p = new Player();
@@ -62,18 +67,14 @@ public class PlayerMessLabel extends JLabel {
 	}
 
 	class MessLabel extends JLabel {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private mLabel jl1 = new mLabel(p.getCash() + "", JLabel.RIGHT);
 		private mLabel jl2 = new mLabel(p.getDeposit() + "", JLabel.RIGHT);
 		private mLabel jl3 = new mLabel(p.getHouseProperty() + "", JLabel.RIGHT);
 		private mLabel jl4 = new mLabel(p.getCoupon() + "", JLabel.RIGHT);
 		private mLabel jl5 = new mLabel(p.getProperty() + "", JLabel.RIGHT);
-
+		private mLabel jl6 = new mLabel(p.getDirection()>0?"顺时针":"逆时针", JLabel.RIGHT);
 		MessLabel() {
-			setLayout(new GridLayout(5, 2));
+			setLayout(new GridLayout(6, 2));
 			setSize(260, 150);
 			add(new mLabel("现金"));
 			add(jl1);
@@ -85,6 +86,8 @@ public class PlayerMessLabel extends JLabel {
 			add(jl4);
 			add(new mLabel("资产"));
 			add(jl5);
+			add(new mLabel("方向"));
+			add(jl6);
 
 		}
 
@@ -128,17 +131,15 @@ public class PlayerMessLabel extends JLabel {
 
 	// 定义道具使用按钮
 	public class PButton extends IButton {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		public Listener listener = new Listener();
+		Player player;
 
 		PButton(Player p) {
 			setSize(125, 45);
 			setIcon(new ImageIcon("picture/word/文字道具.png"));
 			setRolloverIcon(new ImageIcon("picture/word/文字道具1.png"));
 			super.addActionListener(listener);
+			this.player = p;
 		}
 
 		public class Listener implements ActionListener {
@@ -146,13 +147,13 @@ public class PlayerMessLabel extends JLabel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				// frame = new MFrame(PlayerMessLabel.this.p);
+				MDialog dialog = new MDialog(player);
+				dialog.setVisible(true);
 			}
 		}
 	}
 
-	// 定义技能使用按钮
+	// 定义股票使用按钮
 	class SButton extends IButton {
 		/**
 		 * 
@@ -168,62 +169,76 @@ public class PlayerMessLabel extends JLabel {
 		}
 	}
 
-	/*
-	 * public class MFrame extends JFrame { /**
-	 */
-	/*
-	 * private static final long serialVersionUID = 1L; PropPanel prop; Player
-	 * p;
-	 * 
-	 * MFrame(Player p) { // super(GloVarGUI.frame,true);
-	 * //GloVarGUI.frame.setEnabled(false); this.p = p; setSize(850, 250);
-	 * setLocationRelativeTo(null);
-	 * setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); setUndecorated(true);
-	 * prop = new PropPanel(p); add(prop); prop.setLocation(0, 0);
-	 * setVisible(true); }
-	 * 
-	 * public void dispose() { //GloVarGUI.frame.setEnabled(true);
-	 * super.dispose(); }
-	 * 
-	 * // 显示道具列表 class PropPanel extends JPanel { /**
-	 */
-	/*
-	 * private static final long serialVersionUID = 1L; //CloseBt2 close = new
-	 * CloseBt2(MFrame.this); private ImageIcon Icon0 = new
-	 * ImageIcon("picture/我的道具背景.jpg"); private Image im = Icon0.getImage();
-	 * Player p; IntrLabel jlIntr = new IntrLabel();
-	 * 
-	 * PropPanel(Player p) { this.p = p; setLayout(null); setSize(850, 250);
-	 * add(p.prop);s p.prop.setLocation(0, 102); add(close);
-	 * close.setLocation(800, 0); add(jlIntr); jlIntr.setLocation(0, 0); for
-	 * (int i = 0; i < 3; i++) { for (int k = 0; k < 14; k++) {
-	 * p.prop.jpProp[i].prop[k] .addMouseListener(new MoListener(k)); } } }
-	 * 
-	 * protected void paintComponent(Graphics g) { // super.paintComponent(g);
-	 * g.drawImage(im, 0, 0, getWidth(), getHeight(), this); }
-	 * 
-	 * class IntrLabel extends JLabel { /**
-	 */
-	/*
-	 * private static final long serialVersionUID = 1L;
-	 * 
-	 * IntrLabel() { setSize(750, 100); setForeground(Color.WHITE); setFont(new
-	 * Font("幼圆", Font.PLAIN, 20)); } }
-	 * 
-	 * class MoListener extends MouseAdapter { int i;
-	 * 
-	 * MoListener(int i) { this.i = i; }
-	 * 
-	 * @Override public void mouseEntered(MouseEvent e) { // TODO Auto-generated
-	 * method stub jlIntr.setText(GloVar.intr1[i]); jlIntr.repaint(); }
-	 * 
-	 * @Override public void mouseExited(MouseEvent e) { // TODO Auto-generated
-	 * method stub jlIntr.setText(""); jlIntr.repaint(); }
-	 * 
-	 * } } }
-	 */
+	public class MDialog extends IDialog {
+		PlayerPropPanel prop;
 
-	/*
-	 * public void closeFrame() { this.jbProp.listener.frame.dispose(); }
-	 */
+		MDialog(Player p) {
+			super(850, 250);
+			prop = new PlayerPropPanel(p);
+			add(prop);
+			prop.setLocation(0, 0);
+		}
+
+		// 显示道具列表
+		class PlayerPropPanel extends JPanel {
+
+			CloseButton close = new CloseButton(MDialog.this);
+			private ImageIcon Icon = new ImageIcon(
+					"picture/background/我的道具背景.jpg");
+			private Image im = Icon.getImage();
+			Player player;
+			IntrLabel jlIntr = new IntrLabel();
+			PropPanel prop;
+
+			PlayerPropPanel(Player player) {
+				super.setOpaque(false);
+				this.player = player;
+				setLayout(null);
+				setSize(850, 250);
+				prop = new PropPanel(player, jlIntr);
+				add(prop);
+				prop.setLocation(0, 102);
+				add(close);
+				close.setLocation(800, 0);
+				add(jlIntr);
+				jlIntr.setLocation(0, 0);
+				PropPerPanel[] props = prop.props;
+				for (int i = 0; i < props.length; i++) {
+					Prop prop = props[i].prop;
+					props[i].propBtn.addActionListener((e) -> {
+						PropUse.use(prop, player, MDialog.this);
+						detected();
+					});
+				}
+				detected();
+
+			}
+
+			private void detected() {
+				PropPerPanel[] props = prop.props;
+				for (int i = 0; i < props.length; i++) {
+					Prop prop = props[i].prop;
+					if (player.getpropNum(prop) == 0)
+						props[i].propBtn.setEnabled(false);
+					else
+						props[i].propBtn.setEnabled(true);
+					props[i].setText(player.getpropNum(prop) + "");
+				}
+			}
+
+			protected void paintComponent(Graphics g) {
+				g.drawImage(im, 0, 0, getWidth(), getHeight(), this);
+			}
+
+			class IntrLabel extends JLabel {
+
+				IntrLabel() {
+					setSize(750, 100);
+					setForeground(Color.WHITE);
+					setFont(new Font("幼圆", Font.PLAIN, 20));
+				}
+			}
+		}
+	}
+
 }

@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 
 import util.Const;
-import controller.EventSession;
+import controller.Session;
 import bean.item.Item;
 import bean.item.Player;
 import bean.place.House;
@@ -87,7 +87,7 @@ public class MapHouse extends Map {
 
 	// 触发土地事件
 	public void event(final Player p) {
-		EventSession session = new EventSession("player", p);
+		Session session = new Session("player", p);
 		Const state = getInstance().getHouseState(p, house);
 		String message = null;
 		String cost = null;
@@ -104,8 +104,8 @@ public class MapHouse extends Map {
 			if (IOption.showConfirmDialog(message, cost) != IOption.OK_OPTION)
 				return;
 		}
-		EventSession response = getInstance().event(type, session);
-		String[] mess = (String[]) response.get("message");
+		Session response = getInstance().event(type, session);
+		String[] mess =  response.getStrings("message");
 		IOption.showMessage(mess);
 		this.repaint();
 	}

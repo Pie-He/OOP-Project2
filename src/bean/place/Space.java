@@ -1,6 +1,6 @@
 package bean.place;
 
-import controller.EventSession;
+import controller.Session;
 import bean.PlaceEnum;
 
 public class Space extends Place {
@@ -10,7 +10,7 @@ public class Space extends Place {
 	}
 
 	@Override
-	public EventSession event(EventSession session) {
+	public Session event(Session session) {
 		return null;
 	}
 }

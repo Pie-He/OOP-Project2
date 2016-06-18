@@ -3,7 +3,7 @@ package bean.place;
 import java.util.LinkedList;
 import java.util.List;
 
-import controller.EventSession;
+import controller.Session;
 import controller.TimeController;
 import bean.Manager;
 import bean.PlaceEnum;
@@ -94,9 +94,9 @@ public class House extends Place implements Comparable<House> {
 	}
 
 	@Override
-	public EventSession event(EventSession session) {
+	public Session event(Session session) {
 		// super.event(p);
-		Player p = (Player) session.get("player");
+		Player p = session.getPlayer("player");
 		String[] message = null;
 		if (this.owner == null) {
 			message = this.sell(p);
@@ -107,7 +107,7 @@ public class House extends Place implements Comparable<House> {
 			message = l.toArray(new String[l.size()]);
 		}
 		// return
-		EventSession repsonse = new EventSession("message", message);
+		Session repsonse = new Session("message", message);
 		return repsonse;
 	}
 
