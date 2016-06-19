@@ -19,7 +19,7 @@ public class MapLabel extends JLabel {
 
 	public MapLabel() {
 		setLayout(null);
-		setSize(800, 700);
+		setSize(860, 700);
 
 		map[0] = new MapHospital();
 		map[0].setLocation(20, 20);

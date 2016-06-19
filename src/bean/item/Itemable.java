@@ -1,4 +1,4 @@
-package util;
+package bean.item;
 
 import javax.swing.ImageIcon;
 

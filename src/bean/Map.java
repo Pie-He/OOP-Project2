@@ -75,22 +75,6 @@ public class Map {
 	}
 
 	// 如果能继续移动返回true，否则返回false,当超越其他玩家时，图标覆盖问题
-	private boolean movePlayer(Player p) {
-		int poi0 = p.getPoi();
-		places.get(poi0).remove(p);
-		int poi = p.walk(places.size());
-		places.get(poi).put(p);
-		if (places.get(poi).removeBlock()) {
-			IO.printString(Const.BLOCK_YES);
-			// places.get(poi).event(p);
-			return false;
-		}
-		if (places.get(poi) instanceof Bank) {
-
-		}
-		// places.get(poi).event(p);
-		return true;
-	}
 
 	public int mapLength() {
 		return this.places.size();
@@ -101,5 +85,13 @@ public class Map {
 		player.setPoi(0);
 		setPlayerPoi(player, 0);
 		((Hospital) (places.get(0))).addPatient(player, days);
+	}
+
+	public void removeBlock(int poi) {
+		places.get(poi).removeBlock();
+	}
+
+	public boolean isBank(int poi) {
+		return places.get(poi) instanceof Bank;
 	}
 }

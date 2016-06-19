@@ -18,9 +18,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import bean.item.PersonType;
 import controller.MapController;
 import controller.PlayerController;
-import util.PersonType;
 import view.ViewController;
 import view.panel.ChoosePersonPanel.PlayerPanel.PersonChoosePanel.PersonButton;
 

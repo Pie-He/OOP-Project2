@@ -1,12 +1,10 @@
 package view;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
+import util.Const;
 import bean.Prop;
 import bean.item.Player;
 import controller.MapController;
@@ -57,12 +55,10 @@ public class ViewController {
 	public void event() {
 		Player player = PlayerController.getInstance().getCurrentPlayer();
 		frame.event(player);
-		// MapController.getInstance().event(player);
 		int index = PlayerController.getInstance().nextPlayer();
 		frame.show(index);
 		player = PlayerController.getInstance().getCurrentPlayer();
 		if (!frame.preEvent(player)) {
-			System.out.println("pre");
 			event();
 		}
 	}
@@ -77,11 +73,20 @@ public class ViewController {
 				ViewController.this.event();
 				return;
 			}
-			MapController.getInstance().move(
-					PlayerController.getInstance().getCurrentPlayer());
-
 			count[0]++;
-			getInstance().refresh();
+			Const state = MapController.getInstance().move(
+					PlayerController.getInstance().getCurrentPlayer());
+			if (state == Const.MOVE_EVENT_BLOCK) {
+				count[0] = num;
+			}
+			refresh();
+			if (count[0] != num && state == Const.MOVE_EVENT_BANK) {
+				 ViewController.this.setEnabled(true);
+				Player player = PlayerController.getInstance()
+						.getCurrentPlayer();
+				frame.event(player);
+				 ViewController.this.setEnabled(false);
+			}
 		});
 		time.start();
 	}

@@ -72,7 +72,9 @@ public class PlayerMessLabel extends JLabel {
 		private mLabel jl3 = new mLabel(p.getHouseProperty() + "", JLabel.RIGHT);
 		private mLabel jl4 = new mLabel(p.getCoupon() + "", JLabel.RIGHT);
 		private mLabel jl5 = new mLabel(p.getProperty() + "", JLabel.RIGHT);
-		private mLabel jl6 = new mLabel(p.getDirection()>0?"Ë³Ê±Õë":"ÄæÊ±Õë", JLabel.RIGHT);
+		private mLabel jl6 = new mLabel(p.getDirection() > 0 ? "Ë³Ê±Õë" : "ÄæÊ±Õë",
+				JLabel.RIGHT);
+
 		MessLabel() {
 			setLayout(new GridLayout(6, 2));
 			setSize(260, 150);
@@ -224,6 +226,7 @@ public class PlayerMessLabel extends JLabel {
 						props[i].propBtn.setEnabled(true);
 					props[i].setText(player.getpropNum(prop) + "");
 				}
+				ViewController.getInstance().refresh();
 			}
 
 			protected void paintComponent(Graphics g) {

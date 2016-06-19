@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
+import controller.MapController;
 import controller.PlayerController;
 import controller.Session;
 import util.Const;
@@ -26,6 +27,7 @@ public class PropUse extends IDialog {
 		switch (prop) {
 		case roadBlock:
 			userRoadBlock(player);
+			break;
 		case remoteBoson:
 			useRemoteBoson(player, dialog);
 			break;
@@ -48,7 +50,23 @@ public class PropUse extends IDialog {
 	}
 
 	private static void userRoadBlock(Player player) {
-		
+		Integer[] ints = new Integer[17];
+		for (int i = 0; i < ints.length; i++) {
+			ints[i] = i - 8;
+		}
+		Integer dis = (int) JOptionPane.showInputDialog(null,
+				"请选择你要放置的位置，正数表示前方，负数表示后方:\n", "遥控骰子",
+				JOptionPane.PLAIN_MESSAGE, null, ints, ints[8]);
+		if (dis == null)
+			return;
+		int poi = player
+				.getPrePoi(dis, MapController.getInstance().mapLength());
+		if (MapController.getInstance().isBlock(poi)) {
+			IOption.showMessage(Const.BLOCK_EXSITED.toString());
+			return;
+		}
+		Session session = new Session("poi", poi);
+		getInstance().userProp(player, Prop.roadBlock, session);
 	}
 
 	private static void usePlunderCard(Player player) {

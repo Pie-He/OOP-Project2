@@ -134,6 +134,7 @@ public class House extends Place implements Comparable<House> {
 			return new String[] { Const.CASH_NOT_ENOUGH.toString() };
 
 		}
+		this.level++;
 		return new String[] { Const.SUCCESS.toString() };
 	}
 

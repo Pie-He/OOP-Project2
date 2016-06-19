@@ -1,16 +1,14 @@
 package bean;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
 
+import controller.MapController;
 import controller.PlayerController;
 import controller.Session;
 import bean.item.Player;
-import bean.item.RoadBlock;
 import util.Const;
-import util.IO;
 
 public enum Prop {
 	roadBlock("路障", 15, 0, "路障:可以在前后8步之内安放一个路障，任意玩家经过路障时会停在路障所在位置不能前行"), remoteBoson(
@@ -41,7 +39,7 @@ public enum Prop {
 	public Session use(Player p, Session session) {
 		switch (this) {
 		case roadBlock:
-			return this.useRoadBlock(p);
+			return this.useRoadBlock(session);
 		case remoteBoson:
 			return this.useRemoteBoson(p);
 		case reverseCard:
@@ -97,34 +95,10 @@ public enum Prop {
 		return null;
 	}
 
-	private Session useRoadBlock(Player p) {
-		int dis = IO.getDistanceChoice(Const.PROP_CHOOSE.toString(), -8, 8);
-		if (dis > 8)
-			return null;
-		// int poi = p.getPrePoi(dis);
-		int poi = 0;
-		if (!Map.getInstance().addBlock(new RoadBlock(poi))) {
-			IO.printString(Const.BLOCK_EXSITED);
-			return null;
-		}
+	private Session useRoadBlock(Session session) {
+		int poi = session.getInteger("poi");
+		MapController.getInstance().addBlock(poi);
 		return null;
-	}
-
-	private Player getChoosePlayer(Player p, int range, boolean includeSelf) {
-		LinkedList<Player> l = new LinkedList<Player>();
-		LinkedList<String> strs = new LinkedList<String>();
-		PlayerController.getInstance().getPlayerList().stream()
-				.filter(i -> p.isInView(i, range, 0)).forEach(i -> {
-					if (includeSelf || i != p) {
-						l.add(i);
-						strs.add(i.getName());
-					}
-				});
-		int choice = IO.getChoosePlayer(strs);
-		if (choice >= l.size()) {
-			return null;
-		}
-		return l.get(choice);
 	}
 
 	public String toText() {

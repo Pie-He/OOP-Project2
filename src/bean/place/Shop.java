@@ -23,9 +23,7 @@ public class Shop extends Place {
 		p.setCoupon(coupon);
 		for (int i = 0; i < num.length; i++) {
 			Prop prop = Prop.values()[i];
-			for (int j = 0; j < num[i]; j++) {
-				p.addProp(prop);
-			}
+			p.setPropAmount(prop, num[i]);
 		}
 		return null;
 	}

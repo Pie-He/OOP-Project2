@@ -3,8 +3,8 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import util.PersonType;
 import bean.Prop;
+import bean.item.PersonType;
 import bean.item.Player;
 
 public class PlayerController extends IController {

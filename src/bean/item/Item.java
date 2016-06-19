@@ -1,6 +1,5 @@
 package bean.item;
 
-import util.Itemable;
 
 public class Item {
 	private String symbol;

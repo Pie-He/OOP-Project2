@@ -6,5 +6,7 @@ public class RoadBlock extends Item{
 	private String symbol;
 	public RoadBlock(int poi){
 		this.setPoi(poi);
+		this.type=BlockType.RoadBlock;
 	}
+	
 }

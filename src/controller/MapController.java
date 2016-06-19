@@ -39,9 +39,22 @@ public class MapController extends IController {
 		return this.map.addBlock(block);
 	}
 
-	public void move(Player player) {
+	public boolean isBlock(int poi) {
+		return this.map.isBlock(poi);
+	}
+
+	public Const move(Player player) {
 		this.map.removePlayer(player);
-		this.map.setPlayerPoi(player, player.walk(map.mapLength()));
+		int poi = player.walk(map.mapLength());
+		this.map.setPlayerPoi(player, poi);
+		if (this.map.isBlock(poi)) {
+			this.map.removeBlock(poi);
+			return Const.MOVE_EVENT_BLOCK;
+		}
+		if (this.map.isBank(poi)) {
+			return Const.MOVE_EVENT_BANK;
+		}
+		return Const.MOVE_EVNET_NULL;
 		// System.out.println("1¸öÊý:" + map.getMap().get(1).getItems().size());
 	}
 
@@ -54,7 +67,7 @@ public class MapController extends IController {
 
 	public void moveToHospital(Player player, int days) {
 		map.moveToHospital(player, days);
-		
+
 	}
 
 	public Session event(Place place, Session session) {
@@ -69,6 +82,10 @@ public class MapController extends IController {
 			return Const.HOUSE_STATE_SELF;
 		else
 			return Const.HOUSE_STATE_OTHERS;
+	}
+
+	public int mapLength() {
+		return this.map.mapLength();
 	}
 
 }

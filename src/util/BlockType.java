@@ -2,6 +2,8 @@ package util;
 
 import javax.swing.ImageIcon;
 
+import bean.item.Itemable;
+
 public enum BlockType implements Itemable{
 	;
 

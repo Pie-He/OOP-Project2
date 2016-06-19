@@ -9,7 +9,6 @@ import bean.Map;
 import bean.Prop;
 import bean.Stock;
 import bean.place.House;
-import util.PersonType;
 import util.Tools;
 
 public class Player extends Item {
@@ -99,6 +98,10 @@ public class Player extends Item {
 	public Integer addProp(Prop p) {
 		int num = this.props.get(p) + 1;
 		return this.props.put(p, num);
+	}
+
+	public void setPropAmount(Prop prop, int num) {
+		this.props.put(prop, num);
 	}
 
 	public Prop removeProp(Prop p) {
