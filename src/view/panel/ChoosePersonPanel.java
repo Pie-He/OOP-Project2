@@ -149,10 +149,6 @@ public class ChoosePersonPanel extends JPanel {
 
 		// —°»À√Ê∞Â
 		class PersonChoosePanel extends JPanel {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
 			PersonButton[] jrb = new PersonButton[person.length];
 			private ButtonGroup group = new ButtonGroup();
 

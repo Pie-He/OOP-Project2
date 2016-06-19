@@ -27,14 +27,13 @@ public class PlayerController extends IController {
 		this.players.add(p);
 	}
 
-	public int nextPlayer() {
+	public Player nextPlayer() {
 		if (++index >= players.size()) {
 			System.out.println(index);
 			index %= players.size();
-			TimeController.getInstance().nextDay();
 		}
 
-		return index;
+		return players.get(index);
 	}
 
 	public List<Player> getPlayerList() {
@@ -48,5 +47,11 @@ public class PlayerController extends IController {
 	public Session userProp(Player player, Prop prop, Session session) {
 		player.removeProp(prop);
 		return prop.use(player, session);
+	}
+
+	public void removePlayer(Player player) {
+		this.players.remove(player);
+		if (--index < 0)
+			index %= players.size();
 	}
 }

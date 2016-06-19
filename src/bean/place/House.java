@@ -89,8 +89,8 @@ public class House extends Place implements Comparable<House> {
 				+ "级"
 				+ " "
 				+ "拥有者:"
-				+ (this.owner == null ? Const.HOUSE_NOT_OWNER : this.owner
-						.getName()) + "\n";
+				+ (this.owner == null ? Const.HOUSE_NOT_OWNER.toString()
+						: this.owner.getName()) + "\n";
 	}
 
 	@Override
@@ -158,7 +158,6 @@ public class House extends Place implements Comparable<House> {
 			if (house == null) {
 				owner.addCash(-fee);
 				strs.add("支付不起过路费，破产！");
-				TimeController.getInstance().fail(p);
 				return strs;
 			}
 			house.owner = null;

@@ -1,5 +1,7 @@
 package view.panel;
 
+import igui.IButton;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -19,6 +21,7 @@ import javax.swing.JPanel;
 
 import bean.item.Player;
 import controller.PlayerController;
+import view.ViewController;
 import view.button.DiceButton;
 import view.label.MapLabel;
 import view.label.PlayerMessLabel;
@@ -39,6 +42,7 @@ public class MapPanel extends JPanel {
 	private MapLabel map = new MapLabel();
 	private List<PlayerMessLabel> playerMess = new ArrayList<PlayerMessLabel>();
 	private DiceButton jbtDice = new DiceButton();
+	private IButton failButton = new IButton(60, 30);
 
 	public MapPanel() {
 		setSize(1200, 700);
@@ -52,6 +56,16 @@ public class MapPanel extends JPanel {
 
 		add(jbtDice);
 		jbtDice.setLocation(100, 200);
+
+		failButton.setText("ÈÏÊä");
+		failButton.setForeground(Color.WHITE);
+		failButton.setBorderPainted(true);
+		add(failButton);
+		failButton.setLocation(880, 635);
+		failButton.addActionListener((e) -> {
+			Player player = PlayerController.getInstance().getCurrentPlayer();
+			ViewController.getInstance().fail(player);
+		});
 	}
 
 	public void init() {
@@ -79,9 +93,14 @@ public class MapPanel extends JPanel {
 		this.playerMess.stream().forEach(i -> i.refresh());
 	}
 
-	public void show(int index) {
-		playerMess.stream().forEach(i -> i.setVisible(false));
-		playerMess.get(index).setVisible(true);
+	public void show(Player player) {
+		playerMess.stream().forEach(i -> {
+			if (i.isPlayer(player))
+				i.setVisible(true);
+			else
+				i.setVisible(false);
+		});
+
 	}
 
 	public void event(Player player) {
@@ -99,4 +118,9 @@ public class MapPanel extends JPanel {
 	public void timeRefresh() {
 		time.refresh();
 	}
+
+	public void playerRefresh() {
+		playerMess.stream().forEach(i -> i.refresh());
+	}
+
 }

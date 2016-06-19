@@ -3,7 +3,6 @@ package bean.place;
 import controller.Session;
 import bean.PlaceEnum;
 import bean.item.Player;
-import util.IO;
 
 public class Coupon extends Place {
 

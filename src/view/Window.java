@@ -67,8 +67,8 @@ public class Window extends IFrame {
 		map.event(player);
 	}
 
-	public void show(int index) {
-		map.show(index);
+	public void show(Player player) {
+		map.show(player);
 	}
 
 	public void timeRefresh() {
@@ -83,5 +83,9 @@ public class Window extends IFrame {
 	public void setButtonEnable(boolean b) {
 		map.setButtonEnable(b);
 
+	}
+
+	public void playerRefresh() {
+		map.playerRefresh();
 	}
 }

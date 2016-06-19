@@ -4,7 +4,6 @@ import controller.Session;
 import bean.PlaceEnum;
 import bean.item.Player;
 import util.Const;
-import util.IO;
 
 public class Lottery extends Place {
 
@@ -19,7 +18,7 @@ public class Lottery extends Place {
 		Player p = session.getPlayer("player");
 		Session response = new Session();
 		if (!p.addCash(-2000)) {
-			response.put("message", Const.CASH_NOT_ENOUGH);
+			response.put("message", Const.CASH_NOT_ENOUGH.toString());
 			return response;
 		}
 		int random = (int) (Math.random() * 10 + 1);

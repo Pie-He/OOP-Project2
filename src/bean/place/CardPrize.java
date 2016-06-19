@@ -3,7 +3,6 @@ package bean.place;
 import controller.Session;
 import bean.*;
 import bean.item.Player;
-import util.IO;
 
 public class CardPrize extends Place {
 

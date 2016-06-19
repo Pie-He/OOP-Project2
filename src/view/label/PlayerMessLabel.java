@@ -115,11 +115,13 @@ public class PlayerMessLabel extends JLabel {
 			jl3.setText(p.getHouseProperty() + "");
 			jl4.setText(p.getCoupon() + "");
 			jl5.setText(p.getProperty() + "");
+			jl6.setText(p.getDirection() > 0 ? "Ë³Ê±Õë" : "ÄæÊ±Õë");
 			jl1.repaint();
 			jl2.repaint();
 			jl3.repaint();
 			jl4.repaint();
 			jl5.repaint();
+			jl6.repaint();
 
 		}
 	}
@@ -171,6 +173,10 @@ public class PlayerMessLabel extends JLabel {
 
 			});
 		}
+	}
+
+	public boolean isPlayer(Player player) {
+		return this.p == player;
 	}
 
 }

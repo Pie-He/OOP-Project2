@@ -67,11 +67,10 @@ public class MapController extends IController {
 
 	public void moveToHospital(Player player, int days) {
 		map.moveToHospital(player, days);
-
+		player.setDeposit(1);
 	}
 
 	public Session event(Place place, Session session) {
-		// this.map.event(session);
 		return place.event(session);
 	}
 
@@ -88,4 +87,7 @@ public class MapController extends IController {
 		return this.map.mapLength();
 	}
 
+	public void remove(Player player) {
+		this.map.removePlayer(player);
+	}
 }

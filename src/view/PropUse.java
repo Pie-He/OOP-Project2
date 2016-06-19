@@ -55,8 +55,8 @@ public class PropUse extends IDialog {
 			ints[i] = i - 8;
 		}
 		Integer dis = (int) JOptionPane.showInputDialog(null,
-				"请选择你要放置的位置，正数表示前方，负数表示后方:\n", "遥控骰子",
-				JOptionPane.PLAIN_MESSAGE, null, ints, ints[8]);
+				"请选择你要放置的位置，正数表示前方，负数表示后方:\n", "路障", JOptionPane.PLAIN_MESSAGE,
+				null, ints, ints[8]);
 		if (dis == null)
 			return;
 		int poi = player
@@ -132,16 +132,19 @@ public class PropUse extends IDialog {
 	private static Player getChoosePlayer(Player p, int range,
 			boolean includeSelf) {
 		LinkedList<Player> l = new LinkedList<Player>();
-		PlayerController.getInstance().getPlayerList().stream()
-				.filter(i -> p.isInView(i, range, 0)).forEach(i -> {
+		PlayerController
+				.getInstance()
+				.getPlayerList()
+				.stream()
+				.filter(i -> p.isInView(i, range, MapController.getInstance()
+						.mapLength())).forEach(i -> {
 					if (includeSelf || i != p) {
 						l.add(i);
 					}
 				});
 		Player[] ss = l.toArray(new Player[l.size()]);
 		Player choice = (Player) JOptionPane.showInputDialog(null,
-				"请选择你要掷的点数:\n", "遥控骰子", JOptionPane.PLAIN_MESSAGE, null, ss,
-				"1");
+				"请选择使用对象:\n", null, JOptionPane.PLAIN_MESSAGE, null, ss, "1");
 		return choice;
 	}
 

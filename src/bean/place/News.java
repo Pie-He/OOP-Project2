@@ -9,12 +9,10 @@ import java.util.List;
 import controller.Session;
 import controller.MapController;
 import controller.PlayerController;
-import bean.Manager;
 import bean.PlaceEnum;
 import bean.Prop;
 import bean.item.Player;
 import util.Const;
-import util.IO;
 
 public class News extends Place {
 
