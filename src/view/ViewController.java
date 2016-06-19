@@ -57,6 +57,7 @@ public class ViewController {
 		frame.event(player);
 		int index = PlayerController.getInstance().nextPlayer();
 		frame.show(index);
+		frame.timeRefresh();
 		player = PlayerController.getInstance().getCurrentPlayer();
 		if (!frame.preEvent(player)) {
 			event();
@@ -81,11 +82,11 @@ public class ViewController {
 			}
 			refresh();
 			if (count[0] != num && state == Const.MOVE_EVENT_BANK) {
-				 ViewController.this.setEnabled(true);
+				ViewController.this.setEnabled(true);
 				Player player = PlayerController.getInstance()
 						.getCurrentPlayer();
 				frame.event(player);
-				 ViewController.this.setEnabled(false);
+				ViewController.this.setEnabled(false);
 			}
 		});
 		time.start();

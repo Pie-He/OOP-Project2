@@ -44,7 +44,7 @@ public class TimeLabel extends JLabel {
 	}
 
 	public void refresh() {
-		String time = getInstance().nextDay();
+		String time = getInstance().getTime();
 		jlDate.setText(time);
 		jlDate.repaint();
 	}

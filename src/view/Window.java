@@ -54,8 +54,8 @@ public class Window extends IFrame {
 		map.setVisible(false);
 		menu.setVisible(true);
 	}
-	
-	public void gameInit(){
+
+	public void gameInit() {
 		map.init();
 	}
 
@@ -66,18 +66,22 @@ public class Window extends IFrame {
 	public void event(Player player) {
 		map.event(player);
 	}
-	
-	public void show(int index){
+
+	public void show(int index) {
 		map.show(index);
+	}
+
+	public void timeRefresh() {
+		map.timeRefresh();
 	}
 
 	public boolean preEvent(Player player) {
 		return map.preEvent(player);
-		
+
 	}
 
 	public void setButtonEnable(boolean b) {
 		map.setButtonEnable(b);
-		
+
 	}
 }

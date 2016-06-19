@@ -95,4 +95,8 @@ public class MapPanel extends JPanel {
 	public void setButtonEnable(boolean b) {
 		this.jbtDice.setEnabled(b);
 	}
+
+	public void timeRefresh() {
+		time.refresh();
+	}
 }

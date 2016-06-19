@@ -29,8 +29,8 @@ public enum Stock {
 		this.price = price;
 	}
 
-	public double getRiseAllFall() {
-		return riseAllFall;
+	public String getRiseAllFall() {
+		return new java.text.DecimalFormat("0.00%").format(this.riseAllFall);
 	}
 
 	public void setRiseAllFall(double riseAllFall) {
@@ -43,16 +43,10 @@ public enum Stock {
 		price = (int) (price * (1 + this.riseAllFall));
 	}
 
-	public static void changes(){
-		for(Stock s:values()){
+	public static void changes() {
+		for (Stock s : values()) {
 			s.change();
 		}
-	}
-	public String getDescription() {
-		String ra = new java.text.DecimalFormat("0.00%")
-				.format(this.riseAllFall);
-		ra = (this.riseAllFall > 0 ? "+" : "") + ra;
-		return Tools.stringCover(16, this.name(), this.price + "", ra);
 	}
 
 	public void buyStock(Player player, int amount) {
@@ -67,7 +61,6 @@ public enum Stock {
 			player.addStock(this, amount);
 			return;
 		}
-		IO.printString(Const.MONEY_NOT_ENOUGH);
 	}
 
 	public void sellStock(Player player, int amount) {

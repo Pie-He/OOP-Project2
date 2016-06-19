@@ -65,7 +65,7 @@ public class DiceButton extends JButton {
 					timer.setDelay(200);
 				} else if (count == 64) {
 					timer.stop();
-					dice = 6;
+					//dice = 6;
 					getInstance().move(dice);
 				}
 

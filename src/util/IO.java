@@ -146,9 +146,9 @@ public class IO {
 				"Rise and Fall", "Holds"));
 		// System.out.println("序号\t股票名\t\t单价\t\t涨跌幅\t\t持有数");
 		for (int i = 0; i < Stock.values().length; i++) {
-			System.out.println(Tools.stringCover(16, String.valueOf(i),
+			/*System.out.println(Tools.stringCover(16, String.valueOf(i),
 					Stock.values()[i].getDescription(),
-					String.valueOf(amount[i])));
+					String.valueOf(amount[i])));*/
 		}
 		System.out.println("请按以下格式输入：");
 		System.out

@@ -3,6 +3,7 @@ package controller;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import bean.Stock;
 import bean.item.Player;
 
 public class TimeController extends IController {
@@ -27,10 +28,17 @@ public class TimeController extends IController {
 
 	public String nextDay() {
 		calendar.add(Calendar.DAY_OF_MONTH, 1);
+		if (!isWeekend())
+			Stock.changes();
 		return SDF.format(calendar.getTime());
 	}
 
 	public void fail(Player p) {
-		
+
+	}
+
+	public boolean isWeekend() {
+		return calendar.get(Calendar.DAY_OF_WEEK) == 1
+				|| calendar.get(Calendar.DAY_OF_WEEK) == 7;
 	}
 }

@@ -9,6 +9,7 @@ import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import util.Const;
 import view.button.CloseButton;
 
 @SuppressWarnings("serial")
@@ -113,5 +114,13 @@ public class IOption extends IDialog {
 			}
 		}, 3000);
 		dialog.setVisible(true);
+	}
+
+	public static void showMessage(Const con) {
+		showMessage(con.toString());
+	}
+
+	public static void showMessage(int time, Const con) {
+		showMessage(time, con.toString());
 	}
 }

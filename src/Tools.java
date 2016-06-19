@@ -1,6 +1,9 @@
 import java.io.*;
 
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 import view.map.MapBank;
 import view.map.MapCardPrize;
@@ -16,12 +19,9 @@ import com.alibaba.fastjson.*;
 public class Tools {
 
 	public static void main(String[] args) throws IOException {
-		//writeMap();
-		Object[] num = { "dsaf", 2, 3, 4, 5, 6 };
-		Object num0 =  JOptionPane.showInputDialog(null,
-				"请选择你要掷的点数:\n", "遥控骰子", JOptionPane.PLAIN_MESSAGE, null, num,
-				"1");
-		System.out.println(num0);
+		// writeMap();
+		TestDriver t = new TestDriver("这是一个表格");
+		t.setVisible(true);
 	}
 
 	public static void writeMap() throws IOException {
@@ -70,7 +70,7 @@ public class Tools {
 			 * places[i].type.street ; places[i].type.setInit(2500);
 			 */
 		}
-		places[0]=new Hospital();
+		places[0] = new Hospital();
 		places[6] = new Shop();
 		places[25] = new Space();
 		places[12] = new News();
@@ -97,6 +97,19 @@ public class Tools {
 			}
 		}
 		bw.close();
+	}
+
+}
+
+class TestDriver extends JDialog {
+	private JTable table;
+
+	public TestDriver(String s) {
+		this.table = new JTable(5, 5);
+		this.add(table);
+		this.pack();
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		table.setEnabled(false);
 	}
 
 }
