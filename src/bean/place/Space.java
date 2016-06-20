@@ -1,7 +1,6 @@
 package bean.place;
 
 import controller.Session;
-import bean.PlaceEnum;
 
 public class Space extends Place {
 

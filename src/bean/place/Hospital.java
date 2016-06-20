@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import controller.Session;
-import bean.PlaceEnum;
 import bean.item.Player;
 
 public class Hospital extends Place {

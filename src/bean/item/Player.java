@@ -4,8 +4,8 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
-import bean.Prop;
-import bean.Stock;
+import bean.other.Prop;
+import bean.other.Stock;
 import bean.place.House;
 
 public class Player extends Item {

@@ -3,7 +3,7 @@ package controller;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import bean.Stock;
+import bean.other.Stock;
 
 public class TimeController extends IController {
 

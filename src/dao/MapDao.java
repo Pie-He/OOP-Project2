@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import bean.PlaceEnum;
 import bean.place.Place;
+import bean.place.PlaceEnum;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

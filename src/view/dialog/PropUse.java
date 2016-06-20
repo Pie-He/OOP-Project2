@@ -1,4 +1,4 @@
-package view;
+package view.dialog;
 
 import static controller.PlayerController.getInstance;
 
@@ -11,8 +11,9 @@ import controller.MapController;
 import controller.PlayerController;
 import controller.Session;
 import util.Const;
-import bean.Prop;
+import view.ViewController;
 import bean.item.Player;
+import bean.other.Prop;
 import igui.IDialog;
 import igui.IOption;
 

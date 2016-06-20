@@ -3,7 +3,6 @@ package bean.place;
 import java.util.*;
 
 import controller.Session;
-import bean.PlaceEnum;
 import bean.item.*;
 
 public abstract class Place {

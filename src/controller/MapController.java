@@ -3,10 +3,10 @@ package controller;
 import java.util.List;
 
 import util.Const;
-import bean.Map;
 import bean.item.Player;
 import bean.item.RoadBlock;
 import bean.place.House;
+import bean.place.Map;
 import bean.place.Place;
 import dao.MapDao;
 

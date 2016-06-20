@@ -17,8 +17,8 @@ import controller.MapController;
 import view.button.CloseButton;
 import view.panel.PropPanel;
 import view.panel.PropPanel.PropPerPanel;
-import bean.Prop;
 import bean.item.Player;
+import bean.other.Prop;
 
 //道具商店点
 @SuppressWarnings("serial")

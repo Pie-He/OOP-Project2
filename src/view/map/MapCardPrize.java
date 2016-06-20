@@ -6,8 +6,8 @@ import igui.IOption;
 import javax.swing.ImageIcon;
 
 import controller.Session;
-import bean.Prop;
 import bean.item.Player;
+import bean.other.Prop;
 
 //½±ÀøµÀ¾ßµã
 @SuppressWarnings("serial")

@@ -1,8 +1,8 @@
 package bean.place;
 
 import controller.Session;
-import bean.*;
 import bean.item.Player;
+import bean.other.Prop;
 
 public class CardPrize extends Place {
 

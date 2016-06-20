@@ -1,7 +1,6 @@
 package bean.place;
 
 import controller.Session;
-import bean.PlaceEnum;
 import bean.item.Player;
 import util.Const;
 

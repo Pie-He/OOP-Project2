@@ -1,4 +1,4 @@
-package bean;
+package bean.place;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,7 +7,6 @@ import java.util.List;
 import controller.Session;
 import bean.item.Player;
 import bean.item.RoadBlock;
-import bean.place.*;
 
 public class Map {
 	private List<Place> places;

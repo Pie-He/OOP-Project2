@@ -9,9 +9,8 @@ import java.util.List;
 import controller.Session;
 import controller.MapController;
 import controller.PlayerController;
-import bean.PlaceEnum;
-import bean.Prop;
 import bean.item.Player;
+import bean.other.Prop;
 import util.Const;
 
 public class News extends Place {

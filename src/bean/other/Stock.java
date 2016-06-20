@@ -1,4 +1,4 @@
-package bean;
+package bean.other;
 
 import bean.item.Player;
 

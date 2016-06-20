@@ -3,9 +3,9 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.Prop;
 import bean.item.PersonType;
 import bean.item.Player;
+import bean.other.Prop;
 
 public class PlayerController extends IController {
 	private static final PlayerController CONTROLLER = new PlayerController();

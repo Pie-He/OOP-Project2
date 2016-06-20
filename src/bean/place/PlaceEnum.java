@@ -1,6 +1,4 @@
-package bean;
-
-import bean.place.*;
+package bean.place;
 
 public enum PlaceEnum {
 	HOUSE(House.class, "房产"), COUPON(Coupon.class, "赠送点券点"), BANK(Bank.class, "银行"), CARDPRIZE(

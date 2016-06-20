@@ -2,9 +2,8 @@ package bean.place;
 
 
 import controller.Session;
-import bean.PlaceEnum;
-import bean.Prop;
 import bean.item.Player;
+import bean.other.Prop;
 
 public class Shop extends Place {
 

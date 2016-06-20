@@ -13,8 +13,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import bean.Prop;
 import bean.item.Player;
+import bean.other.Prop;
 
 //显示道具的panel
 @SuppressWarnings("serial")

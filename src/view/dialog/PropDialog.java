@@ -11,13 +11,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import view.PropUse;
 import view.ViewController;
 import view.button.CloseButton;
 import view.panel.PropPanel;
 import view.panel.PropPanel.PropPerPanel;
-import bean.Prop;
 import bean.item.Player;
+import bean.other.Prop;
 
 //道具使用窗口
 @SuppressWarnings("serial")

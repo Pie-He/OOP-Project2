@@ -11,8 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.Timer;
 
 import util.Const;
-import bean.Prop;
 import bean.item.Player;
+import bean.other.Prop;
 import controller.MapController;
 import controller.PlayerController;
 import controller.TimeController;

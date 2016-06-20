@@ -13,8 +13,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import view.ViewController;
-import bean.Stock;
 import bean.item.Player;
+import bean.other.Stock;
 
 //¹ÉÆ±´°¿Ú
 @SuppressWarnings("serial")
