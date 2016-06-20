@@ -1,5 +1,10 @@
 package view;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import igui.IOption;
 
 import javax.swing.JDialog;
@@ -7,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.Timer;
 
 import util.Const;
+import util.IO;
 import bean.Prop;
 import bean.item.Player;
 import controller.MapController;
@@ -60,12 +66,11 @@ public class ViewController {
 		Player player = PlayerController.getInstance().getCurrentPlayer();
 		frame.event(player);
 		next();
-
 	}
 
-	private void next() {
+	public void next() {
 		Player player = PlayerController.getInstance().nextPlayer();
-		checkNextDay(player);
+		checkNextDay();
 		frame.show(player);
 		frame.timeRefresh();
 		player = PlayerController.getInstance().getCurrentPlayer();
@@ -74,8 +79,8 @@ public class ViewController {
 		}
 	}
 
-	private void checkNextDay(Player player) {
-		if (player == PlayerController.getInstance().getPlayerList().get(0)) {
+	private void checkNextDay() {
+		if (PlayerController.getInstance().isNextDay()) {
 			if (TimeController.getInstance().isMonthLast()) {
 				IOption.showMessage(1000, Const.TIME_DEPO_PRIZE);
 				PlayerController
@@ -92,6 +97,19 @@ public class ViewController {
 
 			}
 			TimeController.getInstance().nextDay();
+			if (TimeController.getInstance().isEnd()) {
+				IOption.showMessage("”Œœ∑Ω· ¯£°");
+				List<Player> players = PlayerController.getInstance()
+						.getPlayerList();
+				List<Player> winPlayer;
+				int max = players.stream().mapToInt((x) -> x.getProperty())
+						.summaryStatistics().getMax();
+				winPlayer = players.stream()
+						.filter(i -> i.getProperty() == max)
+						.collect(Collectors.toList());
+				this.win(winPlayer);
+			}
+
 		}
 	}
 
@@ -109,6 +127,7 @@ public class ViewController {
 			Const state = MapController.getInstance().move(
 					PlayerController.getInstance().getCurrentPlayer());
 			if (state == Const.MOVE_EVENT_BLOCK) {
+				IOption.showMessage(state);
 				count[0] = num;
 			}
 			refresh();
@@ -133,13 +152,21 @@ public class ViewController {
 		MapController.getInstance().remove(player);
 		player.fail();
 		if (PlayerController.getInstance().getPlayerList().size() == 1) {
-			IOption.showMessage(PlayerController.getInstance()
-					.getCurrentPlayer().getName()
-					+ Const.WIN);
-			System.exit(0);
+
+			List<Player> winPlayer = new LinkedList<Player>();
+			winPlayer.add(PlayerController.getInstance().getCurrentPlayer());
+			this.win(winPlayer);
 		}
 		this.refresh();
-		next();
+		// next();
 	}
-	//private void win
+
+	private void win(List<Player> players) {
+		String[] str = new String[players.size()];
+		for (int i = 0; i < str.length; i++) {
+			str[i] = players.get(i).getName() + Const.WIN;
+		}
+		IOption.showMessage(str);
+		System.exit(0);
+	}
 }

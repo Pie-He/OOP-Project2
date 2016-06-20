@@ -67,10 +67,11 @@ public class MapPanel extends JPanel {
 		failButton.addActionListener((e) -> {
 			Player player = PlayerController.getInstance().getCurrentPlayer();
 			int choice = IOption.showConfirmDialog("»∑∂®»œ ‰£ø");
-			if(choice==IOption.OK_OPTION){
+			if (choice == IOption.OK_OPTION) {
 				ViewController.getInstance().fail(player);
+				ViewController.getInstance().next();
 			}
-			
+
 		});
 	}
 

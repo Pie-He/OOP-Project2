@@ -21,7 +21,7 @@ public class TimeController extends IController {
 	private Calendar calendar = Calendar.getInstance();
 
 	private TimeController() {
-
+		calendar.set(2016, 0, 31);
 	}
 
 	public String getTime() {
@@ -51,7 +51,8 @@ public class TimeController extends IController {
 		return is;
 	}
 
-	public void fail(Player player) {
-		
+	public boolean isEnd() {
+		return calendar.get(Calendar.YEAR) >= 2017;
+		//return false;
 	}
 }

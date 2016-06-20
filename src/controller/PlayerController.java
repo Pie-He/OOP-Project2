@@ -16,6 +16,7 @@ public class PlayerController extends IController {
 
 	private List<Player> players;
 	private int index = 0;
+	private boolean flag = false;
 
 	private PlayerController() {
 		players = new ArrayList<Player>();
@@ -24,7 +25,7 @@ public class PlayerController extends IController {
 	public void createPlayer(String name, int type) {
 		Player p = new Player(name, PersonType.values()[type]);
 		p.setPoi(0);
-		if(players.size()==1){
+		if (players.size() == 1) {
 			p.setCash(10);
 			p.setDeposit(10);
 		}
@@ -33,7 +34,7 @@ public class PlayerController extends IController {
 
 	public Player nextPlayer() {
 		if (++index >= players.size()) {
-			System.out.println(index);
+			flag = true;
 			index %= players.size();
 		}
 
@@ -57,5 +58,13 @@ public class PlayerController extends IController {
 		this.players.remove(player);
 		if (--index < 0)
 			index %= players.size();
+	}
+	
+	public boolean isNextDay(){
+		if(flag){
+			flag=false;
+			return true;
+		}
+		return false;
 	}
 }

@@ -56,7 +56,7 @@ public class PropUse extends IDialog {
 		}
 		Integer dis = (int) JOptionPane.showInputDialog(null,
 				"请选择你要放置的位置，正数表示前方，负数表示后方:\n", "路障", JOptionPane.PLAIN_MESSAGE,
-				null, ints, ints[8]);
+				null, ints, ints[0]);
 		if (dis == null)
 			return;
 		int poi = player

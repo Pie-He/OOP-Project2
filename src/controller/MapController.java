@@ -67,7 +67,7 @@ public class MapController extends IController {
 
 	public void moveToHospital(Player player, int days) {
 		map.moveToHospital(player, days);
-		player.setDeposit(1);
+		player.setDeposit(-1);
 	}
 
 	public Session event(Place place, Session session) {
