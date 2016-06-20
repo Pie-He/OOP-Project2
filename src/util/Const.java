@@ -1,5 +1,6 @@
 package util;
 
+//各种String常量
 public enum Const {
 	//common
 	CASH_NOT_ENOUGH("现金不足!"), 

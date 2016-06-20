@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 
+//根据传入dialog，触发关闭事件
 @SuppressWarnings("serial")
 public class CloseButton extends IButton {
 	private final static ImageIcon ICO = new ImageIcon("picture/symbol/叉.png");
@@ -18,10 +18,10 @@ public class CloseButton extends IButton {
 	JDialog frame;
 
 	// private Image im1 = ico.getImage();
-	public CloseButton(JDialog frame) {
+	public CloseButton(JDialog dialog) {
 		super(50,50,ICO,ICO1);
 		//setSize(50, 50);
-		this.frame = frame;
+		this.frame = dialog;
 		super.setIcon(ICO);
 		super.setRolloverIcon(ICO1);
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

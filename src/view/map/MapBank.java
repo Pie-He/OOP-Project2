@@ -17,8 +17,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
-import javax.swing.Timer;
-
 import controller.Session;
 import view.button.CloseButton;
 import bean.item.Player;
@@ -53,14 +51,6 @@ public class MapBank extends Map {
 		session.put("money", money);
 		getInstance().event(type, session);
 
-	}
-
-	// 经过银行触发事件
-	public void Cross(Player p, Timer time) {
-		IDialog frame = new IDialog(300, 400);
-		PlacePanel jpPlace = new PlacePanel(p, 2, frame);
-		frame.add(jpPlace);
-		frame.setVisible(true);
 	}
 
 	class PlacePanel extends JPanel {

@@ -24,11 +24,10 @@ import controller.PlayerController;
 import view.ViewController;
 import view.panel.ChoosePersonPanel.PlayerPanel.PersonChoosePanel.PersonButton;
 
+//选人界面
+@SuppressWarnings("serial")
 public class ChoosePersonPanel extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
 	private ImageIcon Image = new ImageIcon("picture/background/背景01.jpg");
 	private Image Background = Image.getImage();
 	private PersonType[] person = PersonType.values();
@@ -110,7 +109,6 @@ public class ChoosePersonPanel extends JPanel {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class PlayerPanel extends JPanel {
 		private PerLabel pl;
 		private PersonChoosePanel JPpersonChoose = new PersonChoosePanel();
@@ -205,10 +203,6 @@ public class ChoosePersonPanel extends JPanel {
 
 			// 选人多选按钮
 			class PersonButton extends JRadioButton {
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = 1L;
 
 				PersonButton(ImageIcon im) {
 					super(im);
@@ -223,10 +217,6 @@ public class ChoosePersonPanel extends JPanel {
 	}
 
 	class PersonLabel extends JLabel {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private Image im;
 		JLabel intr;
 
@@ -247,7 +237,6 @@ public class ChoosePersonPanel extends JPanel {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class NumberPanel extends JPanel {
 		private IButton[] buttons = new IButton[3];
 		private int selected = 2;

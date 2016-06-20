@@ -2,8 +2,6 @@ package igui;
 
 import javax.swing.JDialog;
 
-import view.ViewController;
-
 @SuppressWarnings("serial")
 public class IDialog extends JDialog {
 	public IDialog(int width, int height) {

@@ -4,31 +4,22 @@ import static controller.MapController.getInstance;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.geom.RoundRectangle2D;
-import java.util.List;
 
 import javax.swing.ImageIcon;
 
 import util.Const;
 import view.ViewController;
 import controller.Session;
-import bean.item.Item;
 import bean.item.Player;
 import bean.place.House;
 import bean.place.Place;
 import igui.IOption;
 
 //此类为土地地图类
+@SuppressWarnings("serial")
 public class MapHouse extends Map {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private transient MapLv lv;
 
-	private transient RoundRectangle2D clip = new RoundRectangle2D.Double(0, 0,
-			39, 39, 10, 10);
 	String[] houseSell = new String[25];
 	private House house;
 

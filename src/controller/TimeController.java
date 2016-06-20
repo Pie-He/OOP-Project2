@@ -3,10 +3,7 @@ package controller;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import util.Const;
-import util.IO;
 import bean.Stock;
-import bean.item.Player;
 
 public class TimeController extends IController {
 
@@ -21,7 +18,7 @@ public class TimeController extends IController {
 	private Calendar calendar = Calendar.getInstance();
 
 	private TimeController() {
-		calendar.set(2016, 0, 31);
+		calendar.set(2016, 0, 1);
 	}
 
 	public String getTime() {

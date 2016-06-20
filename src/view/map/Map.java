@@ -7,34 +7,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JLabel;
-import javax.swing.Timer;
 
 import bean.item.Item;
 import bean.item.Player;
 import bean.place.Place;
 
-//所有地图类型的父类
+//所有地图cell的父类
 public abstract class Map extends JLabel implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	// Player p2=GloVar.p2;
 	protected Image image;
 	protected List<Image> imageItems = new ArrayList<Image>();
 
 	protected Place type;
 
-	// 以下方法显示玩家行走情况
 
 	public Map() {
-		// this.imageItems.add(image);
 	}
 
 	public void putImage(Image image) {
 		this.imageItems.add(image);
 	}
 
+	//画出玩家、路障标志
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		// System.out.println(this.type);
@@ -55,9 +52,6 @@ public abstract class Map extends JLabel implements Serializable {
 
 	public boolean preEvent(Player p) {
 		return true;
-	}
-
-	public void Cross(Player p, Timer time) {
 	}
 
 	public String getMessage() {

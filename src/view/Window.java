@@ -12,11 +12,8 @@ import view.panel.MapPanel;
 import view.panel.MenuPanel;
 
 //此类为游戏的主窗口
+@SuppressWarnings("serial")
 public class Window extends IFrame {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	private ImageIcon Icon0 = new ImageIcon("picture/StayNight.png");
 	private Image Icon = Icon0.getImage();

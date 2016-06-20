@@ -4,12 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import controller.Session;
-import controller.TimeController;
-import bean.Manager;
 import bean.PlaceEnum;
 import bean.item.Player;
 import util.Const;
-import util.IO;
 
 public class House extends Place implements Comparable<House> {
 	// private int price;

@@ -12,7 +12,7 @@ public class MapLv extends JLabel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private int lv;
-	private transient ImageIcon[] lvIcon = new ImageIcon[7];
+	private transient ImageIcon[] lvIcon = new ImageIcon[6];
 	private transient Image[] lvIm = new Image[lvIcon.length];
 	{
 		for (int i = 0; i < lvIcon.length; i++) {

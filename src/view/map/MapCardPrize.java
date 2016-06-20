@@ -1,24 +1,13 @@
 package view.map;
 
 import static controller.MapController.getInstance;
-import igui.IDialog;
 import igui.IOption;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.util.TimerTask;
-
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-import view.ViewController;
 import controller.Session;
 import bean.Prop;
 import bean.item.Player;
-import bean.place.CardPrize;
 
 //½±ÀøµÀ¾ßµã
 @SuppressWarnings("serial")

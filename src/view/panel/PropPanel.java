@@ -1,7 +1,6 @@
 package view.panel;
 
 import igui.IButton;
-import igui.IDialog;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -17,6 +16,7 @@ import javax.swing.JPanel;
 import bean.Prop;
 import bean.item.Player;
 
+//显示道具的panel
 @SuppressWarnings("serial")
 public class PropPanel extends JPanel {
 	List<PropPanelBar> bars = new ArrayList<PropPanelBar>();

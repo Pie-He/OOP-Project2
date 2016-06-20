@@ -5,28 +5,16 @@ import java.util.Collection;
 import java.util.List;
 
 import controller.Session;
-import util.Const;
-import util.IO;
 import bean.item.Player;
 import bean.item.RoadBlock;
 import bean.place.*;
 
 public class Map {
-	/* µ¥ÀýÄ£Ê½ */
-	private static final Map MAP = new Map();
+	private List<Place> places;
 
 	public Map() {
 		places = new ArrayList<Place>();
 	}
-
-	public static Map getInstance() {
-		return MAP;
-	}
-
-	private List<Place> places;
-
-	// private int width;
-	// private int height;
 
 	public void setMap(List<Place> places) {
 		this.places = places;
@@ -37,18 +25,11 @@ public class Map {
 	}
 
 	public void setPlayerPoi(Player player, int poi) {
-		// places.get(player.getPoi()).remove(player);
-		// player.setPoi(poi);
 		places.get(poi).put((player));
 	}
 
 	public Session event(int poi, Session session) {
-		/*
-		 * for (int i = 0; i < dice; i++) { if (!movePlayer(player)) return
-		 * true; } if (!(places.get(player.getPoi()) instanceof Bank))
-		 */
 		return places.get(poi).event(session);
-		// return true;
 	}
 
 	public boolean addBlock(RoadBlock r) {

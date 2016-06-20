@@ -1,10 +1,8 @@
 package bean;
 
 import bean.item.Player;
-import util.Const;
-import util.IO;
-import util.Tools;
 
+//±£´æ¹ÉÆ±
 public enum Stock {
 	GOOGLE(200, 0), BAIDU(200, 0), YAHOO(200, 0), DAX(200, 0), ALI(200, 0), TENCENT(
 			200, 0), FACEBOOK(200, 0), LENOVO(200, 0), BILIBILI(200, 0), VALVE(
@@ -65,9 +63,8 @@ public enum Stock {
 
 	public void sellStock(Player player, int amount) {
 		int total = amount * this.price;
-		if (!player.removeStock(this, amount)) {
-			IO.printString(Const.STOCK_AMOUNT_ERROR);
-		}
-		player.addDeposit(total);
+		if (player.removeStock(this, amount)) {
+			player.addDeposit(total);
+		}	
 	}
 }

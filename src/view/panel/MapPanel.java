@@ -1,24 +1,15 @@
 package view.panel;
 
 import igui.IButton;
-
 import igui.IOption;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import bean.item.Player;
@@ -30,11 +21,8 @@ import view.label.PlayerMessLabel;
 import view.label.TimeLabel;
 
 //此类为地图面板
+@SuppressWarnings("serial")
 public class MapPanel extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private ImageIcon fateImage = new ImageIcon("picture/background/背景02.jpg");
 	private Image fateBackground = fateImage.getImage();
 
@@ -122,10 +110,12 @@ public class MapPanel extends JPanel {
 		this.jbtDice.setEnabled(b);
 	}
 
+	//刷新时间
 	public void timeRefresh() {
 		time.refresh();
 	}
 
+	//用户信息刷新
 	public void playerRefresh() {
 		playerMess.stream().forEach(i -> i.refresh());
 	}

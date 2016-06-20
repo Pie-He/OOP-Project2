@@ -3,27 +3,16 @@ package view.map;
 import static controller.MapController.getInstance;
 import igui.IOption;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.Timer;
 
 import controller.Session;
 import bean.item.Player;
-import bean.place.Hospital;
 
 //此类定义起点地图
+@SuppressWarnings("serial")
 public class MapHospital extends Map {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private static final ImageIcon ICON = new ImageIcon("picture/place/圣杯.jpg");
 
 	public MapHospital() {

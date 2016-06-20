@@ -8,8 +8,9 @@ import controller.MapController;
 import controller.PlayerController;
 import controller.Session;
 import bean.item.Player;
-import util.Const;
 
+
+//保存道具及各种道具的使用
 public enum Prop {
 	roadBlock("路障", 15, 0, "路障:可以在前后8步之内安放一个路障，任意玩家经过路障时会停在路障所在位置不能前行"), remoteBoson(
 			"遥控骰子", 30, 1, "遥控骰子:使用时可以任意控制骰子的结果，结果只能是1-6"), reverseCard("转向卡",

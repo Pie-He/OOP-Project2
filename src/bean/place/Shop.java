@@ -1,13 +1,10 @@
 package bean.place;
 
-import java.util.List;
 
 import controller.Session;
 import bean.PlaceEnum;
 import bean.Prop;
 import bean.item.Player;
-import util.Const;
-import util.IO;
 
 public class Shop extends Place {
 

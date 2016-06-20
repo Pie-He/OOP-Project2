@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 
 import bean.item.Itemable;
 
+//Â·ÕÏÀàĞÍ
 public enum BlockType implements Itemable{
 	;
 

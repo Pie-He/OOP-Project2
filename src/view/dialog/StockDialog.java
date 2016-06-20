@@ -16,6 +16,7 @@ import view.ViewController;
 import bean.Stock;
 import bean.item.Player;
 
+//股票窗口
 @SuppressWarnings("serial")
 public class StockDialog extends JDialog {
 
@@ -59,12 +60,12 @@ public class StockDialog extends JDialog {
 			this.setBorder(BorderFactory.createEtchedBorder());
 			this.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
-					if (e.getClickCount() == 2) {// 点击几次，这里是双击事件
+					if (e.getClickCount() == 2) {// 点击几次，这里是双击事件，//双击购买
 						int row = StockTable.this.getSelectedRow();
 						Stock.values()[row].buyStock(player, 1);
 						refresh(player, row);
 					}
-					if (e.isMetaDown()) {
+					if (e.isMetaDown()) {//右键卖出
 						int row = StockTable.this.getSelectedRow();
 						Stock.values()[row].sellStock(player, 1);
 						refresh(player, row);

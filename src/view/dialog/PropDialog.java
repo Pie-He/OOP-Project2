@@ -19,7 +19,7 @@ import view.panel.PropPanel.PropPerPanel;
 import bean.Prop;
 import bean.item.Player;
 
-
+//道具使用窗口
 @SuppressWarnings("serial")
 public class PropDialog extends IDialog {
 	PlayerPropPanel prop;

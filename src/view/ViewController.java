@@ -1,6 +1,5 @@
 package view;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,13 +11,13 @@ import javax.swing.JFrame;
 import javax.swing.Timer;
 
 import util.Const;
-import util.IO;
 import bean.Prop;
 import bean.item.Player;
 import controller.MapController;
 import controller.PlayerController;
 import controller.TimeController;
 
+//控制gui各个界面
 public class ViewController {
 	private static final ViewController CONTROLLER = new ViewController();
 
@@ -33,7 +32,7 @@ public class ViewController {
 	}
 
 	public ViewController() {
-		frame.setTitle("Fate");
+		frame.setTitle("大富翁");
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// frame.setVisible(true);

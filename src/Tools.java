@@ -1,27 +1,12 @@
 import java.io.*;
-
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-
-import view.map.MapBank;
-import view.map.MapCardPrize;
-import view.map.MapCoupon;
-import view.map.MapLottery;
-import view.map.MapNews;
-import view.map.MapShop;
-import view.map.MapSpace;
 import bean.place.*;
 
 import com.alibaba.fastjson.*;
-
+//手动写入地图信息
 public class Tools {
 
 	public static void main(String[] args) throws IOException {
-		// writeMap();
-		TestDriver t = new TestDriver("这是一个表格");
-		t.setVisible(true);
+		writeMap();
 	}
 
 	public static void writeMap() throws IOException {
@@ -97,19 +82,6 @@ public class Tools {
 			}
 		}
 		bw.close();
-	}
-
-}
-
-class TestDriver extends JDialog {
-	private JTable table;
-
-	public TestDriver(String s) {
-		this.table = new JTable(5, 5);
-		this.add(table);
-		this.pack();
-		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		table.setEnabled(false);
 	}
 
 }

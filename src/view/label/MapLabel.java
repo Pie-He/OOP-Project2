@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import bean.item.Player;
 import view.map.*;
 
+//显示地图所有格子的信息，地图格子初始化
 @SuppressWarnings("serial")
 public class MapLabel extends JLabel {
 	public Map[] map = new Map[42];// 地图格子
@@ -196,14 +197,9 @@ public class MapLabel extends JLabel {
 	}
 
 	public void refresh() {
-		/*
-		 * p1.resetP(GloVar.p1); p2.resetP(GloVar.p2); p1.refresh();
-		 * p2.refresh();
-		 */
 		for (int i = 0; i < map.length; i++) {
 			map[i].repaint();
 		}
-		// GloVarGUI.time.refresh();
 	}
 
 	public void event(Player player) {

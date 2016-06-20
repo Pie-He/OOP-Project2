@@ -1,23 +1,16 @@
 package view.map;
 
 import static controller.MapController.getInstance;
-import igui.IDialog;
 import igui.IOption;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.geom.RoundRectangle2D;
 import java.util.List;
-import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import controller.Session;
-import view.ViewController;
 import bean.item.Item;
 import bean.item.Player;
 

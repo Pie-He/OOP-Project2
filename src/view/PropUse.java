@@ -16,6 +16,7 @@ import bean.item.Player;
 import igui.IDialog;
 import igui.IOption;
 
+//道具使用触发面板
 @SuppressWarnings("serial")
 public class PropUse extends IDialog {
 

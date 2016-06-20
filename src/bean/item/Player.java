@@ -4,12 +4,9 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
-import controller.Session;
-import bean.Map;
 import bean.Prop;
 import bean.Stock;
 import bean.place.House;
-import util.Tools;
 
 public class Player extends Item {
 	private String name;
@@ -133,13 +130,6 @@ public class Player extends Item {
 		return props.get(prop);
 	}
 
-	public String getMessage() {
-		String str = Tools.stringCover(16, this.name, this.coupon + "",
-				this.cash + "", this.deposit + "",
-				this.getHouseProperty() + "", this.getProperty() + "");
-		return str;
-	}
-
 	public int getProperty() {
 		return this.getCash() + this.getDeposit() + this.getHouseProperty();
 	}
@@ -220,22 +210,6 @@ public class Player extends Item {
 		this.name += "(failed)";
 	}
 
-	/*
-	 * private class MyArray extends ArrayList<Prop> {
-	 * 
-	 * private static final long serialVersionUID = -2525821341292125610L;
-	 * private int capacity;
-	 * 
-	 * MyArray(int capacity) { super(capacity); this.capacity = capacity; }
-	 * 
-	 * boolean isFull() { return this.size() == capacity; }
-	 * 
-	 * @Override public boolean add(Prop p) { return isFull() ? false :
-	 * super.add(p); }
-	 * 
-	 * }
-	 */
-
 	public String getSymbol() {
 		return this.name;
 	}
@@ -251,10 +225,4 @@ public class Player extends Item {
 	public String toString() {
 		return this.getName();
 	}
-	/*
-	 * public void setStopRound(int stopRound) { this.stopRound = stopRound; }
-	 * 
-	 * public boolean stop() { if (this.stopRound > 0) { this.stopRound--;
-	 * return true; } else { return false; } }
-	 */
 }

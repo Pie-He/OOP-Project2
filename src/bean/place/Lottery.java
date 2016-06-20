@@ -7,8 +7,6 @@ import util.Const;
 
 public class Lottery extends Place {
 
-	private final static int COST = 2000;
-
 	public Lottery() {
 		super(PlaceEnum.LOTTERY.ordinal());
 	}

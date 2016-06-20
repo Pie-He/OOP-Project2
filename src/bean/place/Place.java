@@ -5,7 +5,6 @@ import java.util.*;
 import controller.Session;
 import bean.PlaceEnum;
 import bean.item.*;
-import util.IO;
 
 public abstract class Place {
 	private LinkedList<Item> items = new LinkedList<Item>();
