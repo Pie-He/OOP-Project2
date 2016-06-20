@@ -2,6 +2,8 @@ package view.panel;
 
 import igui.IButton;
 
+import igui.IOption;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -64,7 +66,11 @@ public class MapPanel extends JPanel {
 		failButton.setLocation(880, 635);
 		failButton.addActionListener((e) -> {
 			Player player = PlayerController.getInstance().getCurrentPlayer();
-			ViewController.getInstance().fail(player);
+			int choice = IOption.showConfirmDialog("»∑∂®»œ ‰£ø");
+			if(choice==IOption.OK_OPTION){
+				ViewController.getInstance().fail(player);
+			}
+			
 		});
 	}
 

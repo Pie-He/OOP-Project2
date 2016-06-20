@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 
 import util.Const;
+import view.ViewController;
 import controller.Session;
 import bean.item.Item;
 import bean.item.Player;
@@ -99,14 +100,18 @@ public class MapHouse extends Map {
 				cost = "￥" + house.getPrice() + "";
 			} else if (state == Const.HOUSE_STATE_SELF) {
 				message = "是否升级土地？";
-				cost = "￥" + house.getInitialPrice() + "";
+				cost = "￥" + house.getInitialPrice() / 2 + "";
 			}
 			if (IOption.showConfirmDialog(message, cost) != IOption.OK_OPTION)
 				return;
 		}
 		Session response = getInstance().event(type, session);
-		String[] mess =  response.getStrings("message");
+		String[] mess = response.getStrings("message");
 		IOption.showMessage(mess);
+		boolean fail = response.getBool("fail");
+		if (fail) {
+			ViewController.getInstance().fail(p);
+		}
 		this.repaint();
 	}
 }

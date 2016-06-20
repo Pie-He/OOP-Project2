@@ -98,17 +98,18 @@ public class House extends Place implements Comparable<House> {
 		// super.event(p);
 		Player p = session.getPlayer("player");
 		String[] message = null;
+		Session response = new Session("fail", false);
 		if (this.owner == null) {
 			message = this.sell(p);
 		} else if (this.owner == p) {
 			message = this.levelUp();
 		} else {
-			List<String> l = this.charge(p);
+			List<String> l = this.charge(p, response);
 			message = l.toArray(new String[l.size()]);
 		}
 		// return
-		Session repsonse = new Session("message", message);
-		return repsonse;
+		response.put("message", message);
+		return response;
 	}
 
 	public void destroy() {
@@ -138,7 +139,7 @@ public class House extends Place implements Comparable<House> {
 		return new String[] { Const.SUCCESS.toString() };
 	}
 
-	private List<String> charge(Player p) {
+	private List<String> charge(Player p, Session session) {
 		List<String> strs = new LinkedList<String>();
 		int fee = this.getFee();
 		strs.add("缴交过路费" + fee + "元给" + owner.getName());
@@ -158,6 +159,7 @@ public class House extends Place implements Comparable<House> {
 			if (house == null) {
 				owner.addCash(-fee);
 				strs.add("支付不起过路费，破产！");
+				session.put("fail", true);
 				return strs;
 			}
 			house.owner = null;

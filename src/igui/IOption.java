@@ -112,7 +112,7 @@ public class IOption extends IDialog {
 				dialog.dispose();
 				timer.cancel();
 			}
-		}, 3000);
+		}, 2000);
 		dialog.setVisible(true);
 	}
 
