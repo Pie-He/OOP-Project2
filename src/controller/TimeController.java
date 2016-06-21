@@ -18,7 +18,7 @@ public class TimeController extends IController {
 	private Calendar calendar = Calendar.getInstance();
 
 	private TimeController() {
-		calendar.set(2016, 0, 1);
+		calendar.set(2016, 0, 4);
 	}
 
 	public String getTime() {

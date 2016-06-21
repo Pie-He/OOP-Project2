@@ -1,5 +1,8 @@
 package bean.other;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import bean.item.Player;
 
 //±£´æ¹ÉÆ±
@@ -9,6 +12,7 @@ public enum Stock {
 			200, 0);
 	private int price;
 	private double riseAllFall;
+	private List<Integer> historyPrice;;
 
 	Stock() {
 
@@ -17,6 +21,8 @@ public enum Stock {
 	Stock(int price, double riseAllFall) {
 		this.price = price;
 		this.riseAllFall = riseAllFall;
+		historyPrice = new ArrayList<Integer>(5);
+		historyPrice.add(price);
 	}
 
 	public int getPrice() {
@@ -39,6 +45,9 @@ public enum Stock {
 		int tmp = (int) (Math.random() * 2001) - 1000;
 		this.riseAllFall = (double) tmp / 10000;
 		price = (int) (price * (1 + this.riseAllFall));
+		if (historyPrice.size() > 5)
+			historyPrice.remove(0);
+		historyPrice.add(price);
 	}
 
 	public static void changes() {
@@ -65,6 +74,20 @@ public enum Stock {
 		int total = amount * this.price;
 		if (player.removeStock(this, amount)) {
 			player.addDeposit(total);
-		}	
+		}
+	}
+
+	public int getLow() {
+		return historyPrice.stream().mapToInt(i -> i).summaryStatistics()
+				.getMin();
+	}
+
+	public int getHigh() {
+		return historyPrice.stream().mapToInt(i -> i).summaryStatistics()
+				.getMax();
+	}
+
+	public List<Integer> getHistoryPrice() {
+		return this.historyPrice;
 	}
 }

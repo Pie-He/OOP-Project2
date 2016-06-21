@@ -34,8 +34,15 @@ public class Session extends HashMap<String, Object> {
 	public int[] getIntegers(String key) {
 		return (int[]) this.get(key);
 	}
-	
-	public boolean getBool(String key){
+
+	public boolean getBool(String key) {
 		return (boolean) this.get(key);
+	}
+
+	public Object get(String key){
+		return super.get(key);
+	}
+	public Object put(String key, Object value) {
+		return super.put(key, value);
 	}
 }
