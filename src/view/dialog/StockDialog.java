@@ -2,7 +2,6 @@ package view.dialog;
 
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -35,7 +34,7 @@ public class StockDialog extends JDialog {
 
 	public StockDialog(Player player) {
 		this.setModal(true);
-		setSize(500, 600);
+		setSize(500, 525);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		this.add(new StockPanel(player));
@@ -47,13 +46,15 @@ public class StockDialog extends JDialog {
 
 		StockPanel(Player player) {
 			// this.setLayout(null);
-			this.setLayout(new GridLayout(0, 1));
+			// this.setLayout(new GridLayout(0, 1));
+			this.setLayout(null);
 			chart = new StockChart(Stock.values()[0]);
 			add(chart);
-
+			chart.setLocation(0, 0);
 			StockTable table = new StockTable(player);
 			JScrollPane scroll = new JScrollPane(table);
 			add(scroll);
+			scroll.setBounds(0, 300, 500, 185);
 		}
 
 		class StockChart extends JPanel {
@@ -130,9 +131,8 @@ public class StockDialog extends JDialog {
 					public void mouseClicked(MouseEvent e) {
 						int row = StockTable.this.getSelectedRow();
 						Stock stock = Stock.values()[row];
-						chart.reset(stock);
 						if (e.getClickCount() == 2) {// 点击几次，这里是双击事件，//双击购买
-
+							System.out.println(stock);
 							stock.buyStock(player, 1);
 							refresh(player, row);
 						}
@@ -141,6 +141,9 @@ public class StockDialog extends JDialog {
 							stock.sellStock(player, 1);
 							refresh(player, row);
 						}
+
+						chart.reset(stock);
+
 					}
 				});
 			}

@@ -25,10 +25,10 @@ public class PlayerController extends IController {
 	public void createPlayer(String name, int type) {
 		Player p = new Player(name, PersonType.values()[type]);
 		p.setPoi(0);
-		if (players.size() == 1) {
+		/*if (players.size() == 1) {
 			p.setCash(10);
 			p.setDeposit(10);
-		}
+		}*/
 		this.players.add(p);
 	}
 
